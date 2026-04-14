@@ -1,331 +1,132 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kidsa Kindergarten</title>
-
-<style>
 /* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    line-height: 1.6;
-    color: #333;
+  background: linear-gradient(135deg, #f6f9fc, #eef2f7);
+  color: #333;
 }
 
-/* GLOBAL */
+/* CONTAINER */
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
 }
 
-section {
-    padding: 60px 0;
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 }
 
-h1, h2, h3 {
-    margin-bottom: 15px;
-}
-
+/* BUTTON */
 .btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #ff7a18;
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-    margin-right: 10px;
-    transition: 0.3s;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(45deg, #ff7a18, #ff5722);
+  transition: 0.3s;
 }
 
 .btn:hover {
-    background: #ff5722;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* HERO */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover;
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover;
 }
 
 .hero h1 {
-    font-size: 48px;
+  font-size: 50px;
+  animation: fadeInDown 1s ease;
 }
 
 .hero p {
-    margin: 20px 0;
+  margin: 20px 0;
+  animation: fadeInUp 1.2s ease;
 }
 
-/* ABOUT */
-.about {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+/* GRID */
+.grid {
+  display: grid;
+  gap: 20px;
 }
 
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* CARDS */
 .card {
-    padding: 20px;
-    border-radius: 12px;
-    background: #f9f9f9;
-    text-align: center;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
 }
 
-/* CALL */
-.call {
-    background: #ff7a18;
-    color: white;
-    text-align: center;
-    padding: 40px;
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
 }
 
-/* PROGRAMS */
-.programs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+/* SECTION */
+section {
+  padding: 70px 0;
 }
 
-/* STEPS */
-.steps {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+/* ANIMATIONS */
+@keyframes fadeInDown {
+  from {opacity:0; transform: translateY(-30px);}
+  to {opacity:1; transform: translateY(0);}
 }
 
-.step {
-    flex: 1;
-    min-width: 200px;
-    background: #f1f1f1;
-    padding: 20px;
-    border-radius: 10px;
+@keyframes fadeInUp {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
 }
 
-/* ACTIVITIES */
-.activities {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+.fade-in {
+  animation: fadeInUp 1s ease;
 }
 
-/* TEAM */
-.team {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* TESTIMONIAL */
-.testimonial {
-    background: #f9f9f9;
-    padding: 30px;
-    border-left: 5px solid #ff7a18;
+input, select, textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
 }
 
-/* BLOG */
-.blog {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-/* NEWSLETTER */
-.newsletter {
-    text-align: center;
-    background: #eee;
-    padding: 50px;
-}
-
-input[type="email"] {
-    padding: 10px;
-    width: 250px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-}
-
-/* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-}
-
-.gallery img {
-    width: 100%;
-    border-radius: 10px;
+input:focus {
+  border-color: #ff7a18;
 }
 
 /* FOOTER */
 footer {
-    background: #222;
-    color: #ccc;
-    padding: 40px 0;
+  background: #222;
+  color: #ccc;
+  padding: 40px 0;
+  text-align: center;
 }
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-footer a {
-    color: #ccc;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #fff;
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<section class="hero">
-    <h1>Welcome to Kidsa Kindergarten</h1>
-    <p>A safe, fun, and inspiring place for your child</p>
-    <a href="#" class="btn">Apply Today</a>
-    <a href="#" class="btn">Play Video</a>
-</section>
-
-<!-- ABOUT -->
-<section class="container">
-    <h2>About Us</h2>
-    <div class="about">
-        <div class="card">🏃 Sports Training</div>
-        <div class="card">📚 Easy Learning</div>
-        <div class="card">👩‍🏫 Expert Teachers</div>
-        <div class="card">🧼 Safe Environment</div>
-    </div>
-</section>
-
-<!-- CALL -->
-<section class="call">
-    <h2>Call Us Now</h2>
-    <p>+123 456 7890</p>
-</section>
-
-<!-- PROGRAMS -->
-<section class="container">
-    <h2>Our Programs</h2>
-    <div class="programs">
-        <div class="card">English Class</div>
-        <div class="card">Chemistry Class</div>
-        <div class="card">Drawing Class</div>
-    </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="container">
-    <h2>How It Works</h2>
-    <div class="steps">
-        <div class="step">Choose Program</div>
-        <div class="step">Meet Teachers</div>
-        <div class="step">E-learning Access</div>
-        <div class="step">Full-Day Program</div>
-    </div>
-</section>
-
-<!-- ACTIVITIES -->
-<section class="container">
-    <h2>Our Best Activities</h2>
-    <div class="activities">
-        <div class="card">Early Learning</div>
-        <div class="card">Art & Craft</div>
-        <div class="card">Brain Training</div>
-        <div class="card">Music Area</div>
-    </div>
-</section>
-
-<!-- TEAM -->
-<section class="container">
-    <h2>Our Expert Instructors</h2>
-    <div class="team">
-        <div class="card">Ms. Anna</div>
-        <div class="card">Mr. John</div>
-        <div class="card">Ms. Lisa</div>
-    </div>
-</section>
-
-<!-- TESTIMONIAL -->
-<section class="container">
-    <h2>Testimonials</h2>
-    <div class="testimonial">
-        "Amazing school! My child loves it here."
-    </div>
-</section>
-
-<!-- APPLY -->
-<section class="call">
-    <h2>Apply Now</h2>
-    <p>Join our latest session today!</p>
-    <a href="#" class="btn">Apply Now</a>
-</section>
-
-<!-- BLOG -->
-<section class="container">
-    <h2>Blogs & News</h2>
-    <div class="blog">
-        <div class="card">Learning Tips for Kids</div>
-        <div class="card">New Activities Launched</div>
-        <div class="card">Parent Guide</div>
-    </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="newsletter">
-    <h2>Subscribe to Our Newsletter</h2>
-    <input type="email" placeholder="Enter your email">
-    <a href="#" class="btn">Subscribe</a>
-</section>
-
-<!-- GALLERY -->
-<section class="container">
-    <h2>Instagram Gallery</h2>
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9">
-        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
-        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350">
-        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6">
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <div class="container footer-grid">
-        <div>
-            <h3>Contact</h3>
-            <p>Email: info@kidsa.com</p>
-            <p>Phone: +123456789</p>
-        </div>
-        <div>
-            <h3>Quick Links</h3>
-            <a href="#">About</a><br>
-            <a href="#">Programs</a><br>
-            <a href="#">Blog</a>
-        </div>
-        <div>
-            <h3>Follow Us</h3>
-            <p>Facebook | Instagram</p>
-        </div>
-        <div>
-            <h3>Recent Posts</h3>
-            <p>New Courses</p>
-            <p>Kids Activities</p>
-        </div>
-    </div>
-</footer>
-
-</body>
-</html>
