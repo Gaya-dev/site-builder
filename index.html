@@ -1,152 +1,25 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+<section class="container fade-in">
+  <h2 class="section-title">Our Programs</h2>
 
-body {
-  background: linear-gradient(135deg, #f6f9fc, #eef2f7);
-  color: #333;
-}
+  <div class="grid grid-3">
 
-/* CONTAINER */
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
-}
+    <div class="glass card">
+      <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0">
+      <h3>English Class</h3>
+      <p>Build strong communication skills early.</p>
+    </div>
 
-/* GLASS UI */
-.glass {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-}
+    <div class="glass card">
+      <img src="https://images.unsplash.com/photo-1581091870622-1e7a2d8b4b62">
+      <h3>Chemistry Class</h3>
+      <p>Simple science experiments for curious kids.</p>
+    </div>
 
-/* BUTTON */
-.btn {
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(45deg, #ff7a18, #ff5722);
-  transition: 0.3s;
-  display: inline-block;
-}
+    <div class="glass card">
+      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9">
+      <h3>Drawing Class</h3>
+      <p>Creative expression through colors and art.</p>
+    </div>
 
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-              url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover;
-}
-
-.hero h1 {
-  font-size: 50px;
-  animation: fadeDown 1s ease;
-}
-
-.hero p {
-  margin: 20px 0;
-  animation: fadeUp 1.2s ease;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  gap: 20px;
-}
-
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-/* CARDS */
-.card {
-  padding: 20px;
-  border-radius: 15px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-}
-
-/* IMAGE */
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  transition: 0.4s;
-}
-
-.card:hover img {
-  transform: scale(1.08);
-}
-
-/* TITLES */
-.section-title {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-/* SECTION */
-section {
-  padding: 70px 0;
-}
-
-/* ANIMATION */
-@keyframes fadeDown {
-  from {opacity:0; transform: translateY(-30px);}
-  to {opacity:1; transform: translateY(0);}
-}
-
-@keyframes fadeUp {
-  from {opacity:0; transform: translateY(30px);}
-  to {opacity:1; transform: translateY(0);}
-}
-
-.fade-in {
-  animation: fadeUp 1s ease;
-}
-
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, select, textarea {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-input:focus, textarea:focus {
-  border-color: #ff7a18;
-  outline: none;
-}
-
-/* FOOTER */
-footer {
-  background: #222;
-  color: #ccc;
-  padding: 40px 0;
-  text-align: center;
-}
+  </div>
+</section>
