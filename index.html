@@ -17,20 +17,16 @@ body {font-family:'Poppins',sans-serif;background:#f9fbff;color:#333;}
   to {opacity:1; transform:translateY(0);}
 }
 
-@keyframes float {
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-  100%{transform:translateY(0);}
-}
-
 /* HERO */
 .hero {
-  background: linear-gradient(135deg,#6C63FF,#8EC5FC);
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+  url('https://images.unsplash.com/photo-1588072432836-e10032774350');
+  background-size:cover;
+  background-position:center;
   color:white;
   text-align:center;
-  padding:100px 0;
+  padding:120px 0;
 }
-.hero img {width:160px; animation:float 3s infinite;}
 .btn {
   display:inline-block;
   margin-top:20px;
@@ -49,42 +45,70 @@ h2 {text-align:center;margin-bottom:40px;}
 /* Cards */
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
 }
 
 .card {
   background:white;
-  padding:20px;
   border-radius:15px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
   transition:.3s;
   animation:fadeUp 1s ease;
 }
 .card:hover {
-  transform:translateY(-8px) scale(1.03);
-}
-.card img {
-  width:90px;
-  margin-bottom:10px;
+  transform:translateY(-8px);
 }
 
-/* Day timeline */
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card-content {
+  padding:20px;
+  text-align:center;
+}
+
+/* Gallery */
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.gallery img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:.3s;
+}
+.gallery img:hover {
+  transform:scale(1.05);
+}
+
+/* Timeline */
 .timeline {
   display:grid;
   gap:15px;
 }
 .timeline-item {
-  background:white;
-  padding:15px;
-  border-radius:10px;
   display:flex;
-  align-items:center;
   gap:15px;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
   box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
-.timeline-item img {width:50px;}
+.timeline-item img {
+  width:120px;
+  object-fit:cover;
+}
+.timeline-item div {
+  padding:10px;
+}
 
 /* Footer */
 footer {
@@ -94,9 +118,9 @@ footer {
   color:white;
 }
 
-/* Responsive */
 @media(max-width:768px){
-  .timeline-item {flex-direction:column;text-align:center;}
+  .timeline-item {flex-direction:column;}
+  .timeline-item img {width:100%;height:150px;}
 }
 </style>
 </head>
@@ -107,9 +131,7 @@ footer {
 <header class="hero">
   <div class="container">
     <h1>Little Stars Kindergarten</h1>
-    <p>Where kids learn, play and shine ✨</p>
-    <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png">
-    <br>
+    <p>Where kids learn, play and grow together</p>
     <a href="#contact" class="btn">Enroll Now</a>
   </div>
 </header>
@@ -121,21 +143,27 @@ footer {
     <div class="grid">
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
-        <h3>Anna</h3>
-        <p>Creative teacher who loves art and storytelling</p>
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+        <div class="card-content">
+          <h3>Anna</h3>
+          <p>Loves art, creativity and storytelling</p>
+        </div>
       </div>
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png">
-        <h3>Maria</h3>
-        <p>Focuses on emotional development and care</p>
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6">
+        <div class="card-content">
+          <h3>Maria</h3>
+          <p>Focuses on care and emotional development</p>
+        </div>
       </div>
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png">
-        <h3>John</h3>
-        <p>Leads games, sports and fun activities</p>
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956">
+        <div class="card-content">
+          <h3>John</h3>
+          <p>Leads games and outdoor activities</p>
+        </div>
       </div>
 
     </div>
@@ -148,24 +176,25 @@ footer {
     <h2>A Day at Kindergarten</h2>
 
     <div class="timeline">
+
       <div class="timeline-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png">
-        <p><b>Morning:</b> Welcome, free play and breakfast</p>
+        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
+        <div><b>Morning:</b> Welcome, breakfast and free play</div>
       </div>
 
       <div class="timeline-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/4149/4149678.png">
-        <p><b>Learning:</b> Creative lessons, drawing and reading</p>
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+        <div><b>Learning:</b> Drawing, reading and lessons</div>
       </div>
 
       <div class="timeline-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/3468/3468445.png">
-        <p><b>Outdoor:</b> Games and playground time</p>
+        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1">
+        <div><b>Outdoor:</b> Playground and activities</div>
       </div>
 
       <div class="timeline-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
-        <p><b>Rest:</b> Quiet time and naps</p>
+        <img src="https://images.unsplash.com/photo-1604881991720-f91add269bed">
+        <div><b>Rest:</b> Nap time and relaxation</div>
       </div>
 
     </div>
@@ -179,28 +208,50 @@ footer {
 
     <div class="grid">
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995627.png">
-        <h3>Drawing</h3>
-        <p>Kids express creativity through art</p>
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9">
+        <div class="card-content">
+          <h3>Drawing</h3>
+          <p>Creative expression through art</p>
+        </div>
       </div>
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png">
-        <h3>Group Games</h3>
-        <p>Teamwork and social skills</p>
+        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
+        <div class="card-content">
+          <h3>Group Games</h3>
+          <p>Learning teamwork</p>
+        </div>
       </div>
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png">
-        <h3>Music</h3>
-        <p>Singing and dancing activities</p>
+        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70">
+        <div class="card-content">
+          <h3>Music</h3>
+          <p>Singing and dancing fun</p>
+        </div>
       </div>
 
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png">
-        <h3>Outdoor Play</h3>
-        <p>Healthy and active fun</p>
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+        <div class="card-content">
+          <h3>Outdoor Play</h3>
+          <p>Healthy active games</p>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <div class="container">
+    <h2>Gallery</h2>
+
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9">
+      <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
+      <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
     </div>
   </div>
 </section>
