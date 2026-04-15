@@ -8,173 +8,95 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* {margin:0;padding:0;box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif;background:#f9fbff;color:#333;}
+.container {width:90%;max-width:1100px;margin:auto;}
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f9fbff;
-  color: #333;
-}
-
-/* Animations */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {opacity:0; transform:translateY(30px);}
+  to {opacity:1; transform:translateY(0);}
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
 }
 
-/* Container */
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* Hero */
+/* HERO */
 .hero {
-  background: linear-gradient(135deg, #6C63FF, #8EC5FC);
-  color: white;
-  text-align: center;
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(135deg,#6C63FF,#8EC5FC);
+  color:white;
+  text-align:center;
+  padding:100px 0;
 }
-
-.hero h1 {
-  font-size: 3rem;
-  animation: fadeUp 1s ease forwards;
-}
-
-.hero p {
-  margin: 20px 0;
-  animation: fadeUp 1.3s ease forwards;
-}
-
-.hero img {
-  width: 180px;
-  margin-top: 20px;
-  animation: float 3s ease-in-out infinite;
-}
-
+.hero img {width:160px; animation:float 3s infinite;}
 .btn {
-  display: inline-block;
-  margin-top: 20px;
-  background: white;
-  color: #6C63FF;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: 0.3s;
-  animation: fadeUp 1.6s ease forwards;
+  display:inline-block;
+  margin-top:20px;
+  background:white;
+  color:#6C63FF;
+  padding:12px 25px;
+  border-radius:30px;
+  transition:.3s;
 }
-
-.btn:hover {
-  background: #ffde59;
-  transform: scale(1.05);
-}
+.btn:hover {background:#ffde59; transform:scale(1.05);}
 
 /* Sections */
-section {
-  padding: 70px 0;
+section {padding:70px 0;}
+h2 {text-align:center;margin-bottom:40px;}
+
+/* Cards */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 40px;
+.card {
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  transition:.3s;
+  animation:fadeUp 1s ease;
+}
+.card:hover {
+  transform:translateY(-8px) scale(1.03);
+}
+.card img {
+  width:90px;
+  margin-bottom:10px;
 }
 
-/* About */
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+/* Day timeline */
+.timeline {
+  display:grid;
+  gap:15px;
 }
-
-.about img {
-  width: 100%;
-  animation: float 4s infinite;
+.timeline-item {
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
+.timeline-item img {width:50px;}
 
-/* Features */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-  gap: 20px;
-}
-
-.feature-card {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  animation: fadeUp 1s ease forwards;
-}
-
-.feature-card:hover {
-  transform: translateY(-8px) scale(1.03);
-}
-
-.feature-card img {
-  width: 70px;
-  margin-bottom: 10px;
-}
-
-/* Gallery */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 15px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  transition: 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* Contact */
-.contact {
-  text-align: center;
-}
-
+/* Footer */
 footer {
-  text-align: center;
-  padding: 20px;
-  background: #6C63FF;
-  color: white;
+  text-align:center;
+  padding:20px;
+  background:#6C63FF;
+  color:white;
 }
 
 /* Responsive */
 @media(max-width:768px){
-  .about {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
+  .timeline-item {flex-direction:column;text-align:center;}
 }
 </style>
 </head>
@@ -186,84 +108,109 @@ footer {
   <div class="container">
     <h1>Little Stars Kindergarten</h1>
     <p>Where kids learn, play and shine ✨</p>
-
-    <!-- Illustration -->
-    <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png" alt="kids">
-
+    <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png">
     <br>
     <a href="#contact" class="btn">Enroll Now</a>
   </div>
 </header>
 
-<!-- ABOUT -->
+<!-- TEACHERS -->
 <section>
   <div class="container">
-    <h2>About Us</h2>
-    <div class="about">
-      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png">
-      <p>
-        We provide a joyful and safe environment where children grow through creativity,
-        games, and exploration. Our mission is to help every child become confident,
-        curious, and happy.
-      </p>
+    <h2>Our Teachers</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+        <h3>Anna</h3>
+        <p>Creative teacher who loves art and storytelling</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png">
+        <h3>Maria</h3>
+        <p>Focuses on emotional development and care</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140051.png">
+        <h3>John</h3>
+        <p>Leads games, sports and fun activities</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- DAY -->
 <section style="background:#f1f5ff;">
   <div class="container">
-    <h2>Why Choose Us</h2>
+    <h2>A Day at Kindergarten</h2>
 
-    <div class="features">
-      <div class="feature-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4149/4149678.png">
-        <h3>Creative Learning</h3>
-        <p>Fun and engaging education</p>
-      </div>
-
-      <div class="feature-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png">
-        <h3>Safe Space</h3>
-        <p>Care and protection always</p>
-      </div>
-
-      <div class="feature-card">
+    <div class="timeline">
+      <div class="timeline-item">
         <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png">
-        <h3>Activities</h3>
-        <p>Music, art and games</p>
+        <p><b>Morning:</b> Welcome, free play and breakfast</p>
       </div>
 
-      <div class="feature-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png">
-        <h3>Friendly Teachers</h3>
-        <p>Professional and kind staff</p>
+      <div class="timeline-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/4149/4149678.png">
+        <p><b>Learning:</b> Creative lessons, drawing and reading</p>
       </div>
+
+      <div class="timeline-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/3468/3468445.png">
+        <p><b>Outdoor:</b> Games and playground time</p>
+      </div>
+
+      <div class="timeline-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+        <p><b>Rest:</b> Quiet time and naps</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
+<!-- GAMES -->
 <section>
   <div class="container">
-    <h2>Gallery</h2>
+    <h2>Games & Activities</h2>
 
-    <div class="gallery">
-      <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png">
-      <img src="https://cdn-icons-png.flaticon.com/512/4149/4149647.png">
-      <img src="https://cdn-icons-png.flaticon.com/512/1995/1995627.png">
-      <img src="https://cdn-icons-png.flaticon.com/512/3468/3468445.png">
+    <div class="grid">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995627.png">
+        <h3>Drawing</h3>
+        <p>Kids express creativity through art</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png">
+        <h3>Group Games</h3>
+        <p>Teamwork and social skills</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png">
+        <h3>Music</h3>
+        <p>Singing and dancing activities</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png">
+        <h3>Outdoor Play</h3>
+        <p>Healthy and active fun</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="container contact">
+  <div class="container" style="text-align:center;">
     <h2>Contact Us</h2>
     <p>Email: info@littlestars.com</p>
     <p>Phone: +123 456 789</p>
-    <p>Address: Happy Kids Street</p>
     <br>
     <a href="#" class="btn">Get in Touch</a>
   </div>
