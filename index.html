@@ -1,128 +1,120 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Little Stars Kindergarten</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Stars Kindergarten</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+}
 
-    h1, h2, h3 {
-      text-align: center;
-    }
+section {
+  padding: 60px 20px;
+}
 
-    section {
-      padding: 60px 20px;
-    }
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
+h1, h2 {
+  text-align: center;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background: #ff6b81;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      margin: 10px;
-    }
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #ff6b81;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  margin-top: 10px;
+}
 
-    /* HERO */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
-    }
+/* HERO */
+.hero {
+  background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+}
 
-    .hero h1 {
-      font-size: 48px;
-    }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
 
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      text-align: center;
-    }
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
 
-    /* CALL */
-    .call {
-      background: #ff6b81;
-      color: white;
-      text-align: center;
-      font-size: 24px;
-    }
+.card p {
+  padding: 15px;
+}
 
-    /* FOOTER */
-    footer {
-      background: #222;
-      color: #ccc;
-      padding: 40px 20px;
-    }
+/* CALL */
+.call {
+  background: #ff6b81;
+  color: white;
+  text-align: center;
+}
 
-    footer a {
-      color: #ff6b81;
-      text-decoration: none;
-    }
+/* FOOTER */
+footer {
+  background: #222;
+  color: #ccc;
+  padding: 40px 20px;
+}
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-    }
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-  </style>
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+</style>
 </head>
 
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Welcome to Little Stars 🌟</h1>
-  <p>Where learning is fun and every child shines!</p>
+  <h1>Little Stars 🌟</h1>
+  <p>Fun Learning for Bright Kids</p>
   <a href="#" class="btn">Apply Today</a>
-  <a href="#" class="btn">Play Video</a>
 </section>
 
 <!-- ABOUT -->
 <section>
   <div class="container">
     <h2>About Us</h2>
+    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9" width="100%">
     <p style="text-align:center;">
-      Little Stars provides a safe, fun, and engaging environment with expert teachers,
-      modern learning methods, sports activities, and creative development.
+      Safe, clean and fun environment with expert teachers.
     </p>
   </div>
-</section>
-
-<!-- CALL -->
-<section class="call">
-  <h2>📞 Call Us Now: +123 456 789</h2>
 </section>
 
 <!-- PROGRAMS -->
@@ -130,22 +122,47 @@
   <div class="container">
     <h2>Our Programs</h2>
     <div class="grid">
-      <div class="card">English Class</div>
-      <div class="card">Chemistry Class</div>
-      <div class="card">Drawing Class</div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1584697964403-cc2b8f5dc0e6">
+        <p>English Class</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581090700227-4c4f50b0e6c9">
+        <p>Chemistry Class</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f">
+        <p>Drawing Class</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- HOW -->
 <section>
   <div class="container">
     <h2>How It Works</h2>
     <div class="grid">
-      <div class="card">Choose Program</div>
-      <div class="card">Meet Teachers</div>
-      <div class="card">E-learning Access</div>
-      <div class="card">Full Day Program</div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+        <p>Choose Program</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5">
+        <p>Meet Teachers</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1584697964154-5f0c7b4a7f6d">
+        <p>E-learning</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -153,24 +170,49 @@
 <!-- ACTIVITIES -->
 <section>
   <div class="container">
-    <h2>Our Best Activities</h2>
+    <h2>Activities</h2>
     <div class="grid">
-      <div class="card">Early Learning</div>
-      <div class="card">Art & Craft</div>
-      <div class="card">Brain Training</div>
-      <div class="card">Music Area</div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+        <p>Art & Craft</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
+        <p>Music</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+        <p>Brain Training</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- INSTRUCTORS -->
+<!-- TEACHERS -->
 <section>
   <div class="container">
-    <h2>Our Expert Instructors</h2>
+    <h2>Our Teachers</h2>
     <div class="grid">
-      <div class="card">Teacher Anna</div>
-      <div class="card">Teacher John</div>
-      <div class="card">Teacher Maria</div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6">
+        <p>Anna</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
+        <p>Maria</p>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956">
+        <p>John</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -179,52 +221,37 @@
 <section>
   <div class="container">
     <h2>Testimonials</h2>
+    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac" width="100%">
     <p style="text-align:center;">
-      "Amazing school! My child loves it!" – Parent  
-      <br><br>
-      "Great teachers and environment." – Parent
+      "Best kindergarten ever!"
     </p>
   </div>
 </section>
 
 <!-- APPLY -->
 <section class="call">
-  <h2>Join Our New Session</h2>
-  <a href="#" class="btn">Apply Now</a>
+  <h2>Apply Now</h2>
+  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" width="300">
+  <br>
+  <a href="#" class="btn">Join Today</a>
 </section>
 
 <!-- BLOG -->
 <section>
   <div class="container">
-    <h2>Blogs & News</h2>
+    <h2>Blog</h2>
     <div class="grid">
-      <div class="card">Latest Activities</div>
-      <div class="card">Education Tips</div>
-      <div class="card">Events</div>
-    </div>
-  </div>
-</section>
 
-<!-- NEWSLETTER -->
-<section>
-  <div class="container">
-    <h2>Subscribe to Newsletter</h2>
-    <form>
-      <input type="email" placeholder="Enter your email">
-      <button class="btn">Subscribe</button>
-    </form>
-  </div>
-</section>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6">
+        <p>Learning Tips</p>
+      </div>
 
-<!-- INSTAGRAM -->
-<section>
-  <div class="container">
-    <h2>Instagram Gallery</h2>
-    <div class="grid">
-      <div class="card">Image</div>
-      <div class="card">Image</div>
-      <div class="card">Image</div>
-      <div class="card">Image</div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0">
+        <p>Activities</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -236,26 +263,17 @@
     <div>
       <h3>Contact</h3>
       <p>Email: info@littlestars.com</p>
-      <p>Phone: +123 456 789</p>
     </div>
 
     <div>
-      <h3>Make a Quote</h3>
+      <h3>Form</h3>
       <input type="text" placeholder="Name">
       <input type="email" placeholder="Email">
       <textarea placeholder="Message"></textarea>
     </div>
 
     <div>
-      <h3>Quick Links</h3>
-      <a href="#">About</a><br>
-      <a href="#">Programs</a><br>
-      <a href="#">Blog</a><br>
-      <a href="#">Contact</a>
-    </div>
-
-    <div>
-      <h3>Follow Us</h3>
+      <h3>Social</h3>
       <p>Facebook | Instagram</p>
     </div>
 
@@ -264,3 +282,4 @@
 
 </body>
 </html>
+```
