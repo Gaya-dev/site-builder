@@ -1,274 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Stars Kindergarten</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Stars Kindergarten</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
 
-<style>
-* {margin:0;padding:0;box-sizing:border-box;}
-body {font-family:'Poppins',sans-serif;background:#f9fbff;color:#333;}
-.container {width:90%;max-width:1100px;margin:auto;}
+    h1, h2, h3 {
+      text-align: center;
+    }
 
-@keyframes fadeUp {
-  from {opacity:0; transform:translateY(30px);}
-  to {opacity:1; transform:translateY(0);}
-}
+    section {
+      padding: 60px 20px;
+    }
 
-/* HERO */
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-  url('https://images.unsplash.com/photo-1588072432836-e10032774350');
-  background-size:cover;
-  background-position:center;
-  color:white;
-  text-align:center;
-  padding:120px 0;
-}
-.btn {
-  display:inline-block;
-  margin-top:20px;
-  background:white;
-  color:#6C63FF;
-  padding:12px 25px;
-  border-radius:30px;
-  transition:.3s;
-}
-.btn:hover {background:#ffde59; transform:scale(1.05);}
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
 
-/* Sections */
-section {padding:70px 0;}
-h2 {text-align:center;margin-bottom:40px;}
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #ff6b81;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      margin: 10px;
+    }
 
-/* Cards */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
+    /* HERO */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
 
-.card {
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  transition:.3s;
-  animation:fadeUp 1s ease;
-}
-.card:hover {
-  transform:translateY(-8px);
-}
+    .hero h1 {
+      font-size: 48px;
+    }
 
-.card img {
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
 
-.card-content {
-  padding:20px;
-  text-align:center;
-}
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
 
-/* Gallery */
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
-}
-.gallery img {
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  border-radius:12px;
-  transition:.3s;
-}
-.gallery img:hover {
-  transform:scale(1.05);
-}
+    /* CALL */
+    .call {
+      background: #ff6b81;
+      color: white;
+      text-align: center;
+      font-size: 24px;
+    }
 
-/* Timeline */
-.timeline {
-  display:grid;
-  gap:15px;
-}
-.timeline-item {
-  display:flex;
-  gap:15px;
-  background:white;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-.timeline-item img {
-  width:120px;
-  object-fit:cover;
-}
-.timeline-item div {
-  padding:10px;
-}
+    /* FOOTER */
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 40px 20px;
+    }
 
-/* Footer */
-footer {
-  text-align:center;
-  padding:20px;
-  background:#6C63FF;
-  color:white;
-}
+    footer a {
+      color: #ff6b81;
+      text-decoration: none;
+    }
 
-@media(max-width:768px){
-  .timeline-item {flex-direction:column;}
-  .timeline-item img {width:100%;height:150px;}
-}
-</style>
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
 
 <body>
 
 <!-- HERO -->
-<header class="hero">
-  <div class="container">
-    <h1>Little Stars Kindergarten</h1>
-    <p>Where kids learn, play and grow together</p>
-    <a href="#contact" class="btn">Enroll Now</a>
-  </div>
-</header>
+<section class="hero">
+  <h1>Welcome to Little Stars 🌟</h1>
+  <p>Where learning is fun and every child shines!</p>
+  <a href="#" class="btn">Apply Today</a>
+  <a href="#" class="btn">Play Video</a>
+</section>
 
-<!-- TEACHERS -->
+<!-- ABOUT -->
 <section>
   <div class="container">
-    <h2>Our Teachers</h2>
+    <h2>About Us</h2>
+    <p style="text-align:center;">
+      Little Stars provides a safe, fun, and engaging environment with expert teachers,
+      modern learning methods, sports activities, and creative development.
+    </p>
+  </div>
+</section>
+
+<!-- CALL -->
+<section class="call">
+  <h2>📞 Call Us Now: +123 456 789</h2>
+</section>
+
+<!-- PROGRAMS -->
+<section>
+  <div class="container">
+    <h2>Our Programs</h2>
     <div class="grid">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
-        <div class="card-content">
-          <h3>Anna</h3>
-          <p>Loves art, creativity and storytelling</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6">
-        <div class="card-content">
-          <h3>Maria</h3>
-          <p>Focuses on care and emotional development</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956">
-        <div class="card-content">
-          <h3>John</h3>
-          <p>Leads games and outdoor activities</p>
-        </div>
-      </div>
-
+      <div class="card">English Class</div>
+      <div class="card">Chemistry Class</div>
+      <div class="card">Drawing Class</div>
     </div>
   </div>
 </section>
 
-<!-- DAY -->
-<section style="background:#f1f5ff;">
-  <div class="container">
-    <h2>A Day at Kindergarten</h2>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
-        <div><b>Morning:</b> Welcome, breakfast and free play</div>
-      </div>
-
-      <div class="timeline-item">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
-        <div><b>Learning:</b> Drawing, reading and lessons</div>
-      </div>
-
-      <div class="timeline-item">
-        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1">
-        <div><b>Outdoor:</b> Playground and activities</div>
-      </div>
-
-      <div class="timeline-item">
-        <img src="https://images.unsplash.com/photo-1604881991720-f91add269bed">
-        <div><b>Rest:</b> Nap time and relaxation</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- GAMES -->
+<!-- HOW IT WORKS -->
 <section>
   <div class="container">
-    <h2>Games & Activities</h2>
-
+    <h2>How It Works</h2>
     <div class="grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9">
-        <div class="card-content">
-          <h3>Drawing</h3>
-          <p>Creative expression through art</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
-        <div class="card-content">
-          <h3>Group Games</h3>
-          <p>Learning teamwork</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70">
-        <div class="card-content">
-          <h3>Music</h3>
-          <p>Singing and dancing fun</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
-        <div class="card-content">
-          <h3>Outdoor Play</h3>
-          <p>Healthy active games</p>
-        </div>
-      </div>
+      <div class="card">Choose Program</div>
+      <div class="card">Meet Teachers</div>
+      <div class="card">E-learning Access</div>
+      <div class="card">Full Day Program</div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
+<!-- ACTIVITIES -->
 <section>
   <div class="container">
-    <h2>Gallery</h2>
-
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9">
-      <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
-      <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70">
-      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
+    <h2>Our Best Activities</h2>
+    <div class="grid">
+      <div class="card">Early Learning</div>
+      <div class="card">Art & Craft</div>
+      <div class="card">Brain Training</div>
+      <div class="card">Music Area</div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container" style="text-align:center;">
-    <h2>Contact Us</h2>
-    <p>Email: info@littlestars.com</p>
-    <p>Phone: +123 456 789</p>
-    <br>
-    <a href="#" class="btn">Get in Touch</a>
+<!-- INSTRUCTORS -->
+<section>
+  <div class="container">
+    <h2>Our Expert Instructors</h2>
+    <div class="grid">
+      <div class="card">Teacher Anna</div>
+      <div class="card">Teacher John</div>
+      <div class="card">Teacher Maria</div>
+    </div>
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section>
+  <div class="container">
+    <h2>Testimonials</h2>
+    <p style="text-align:center;">
+      "Amazing school! My child loves it!" – Parent  
+      <br><br>
+      "Great teachers and environment." – Parent
+    </p>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="call">
+  <h2>Join Our New Session</h2>
+  <a href="#" class="btn">Apply Now</a>
+</section>
+
+<!-- BLOG -->
+<section>
+  <div class="container">
+    <h2>Blogs & News</h2>
+    <div class="grid">
+      <div class="card">Latest Activities</div>
+      <div class="card">Education Tips</div>
+      <div class="card">Events</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section>
+  <div class="container">
+    <h2>Subscribe to Newsletter</h2>
+    <form>
+      <input type="email" placeholder="Enter your email">
+      <button class="btn">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section>
+  <div class="container">
+    <h2>Instagram Gallery</h2>
+    <div class="grid">
+      <div class="card">Image</div>
+      <div class="card">Image</div>
+      <div class="card">Image</div>
+      <div class="card">Image</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Little Stars Kindergarten</p>
+  <div class="container footer-grid">
+
+    <div>
+      <h3>Contact</h3>
+      <p>Email: info@littlestars.com</p>
+      <p>Phone: +123 456 789</p>
+    </div>
+
+    <div>
+      <h3>Make a Quote</h3>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <a href="#">About</a><br>
+      <a href="#">Programs</a><br>
+      <a href="#">Blog</a><br>
+      <a href="#">Contact</a>
+    </div>
+
+    <div>
+      <h3>Follow Us</h3>
+      <p>Facebook | Instagram</p>
+    </div>
+
+  </div>
 </footer>
 
 </body>
