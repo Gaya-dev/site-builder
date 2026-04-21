@@ -14,16 +14,17 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #fdfafa;
+  background: #f9f6f4;
+  color: #333;
 }
 
 /* HEADER */
 header {
-  background: #0f0f0f;
-  color: white;
+  background: #111;
+  color: #fff;
   padding: 20px;
   text-align: center;
-  font-size: 28px;
+  font-size: 26px;
   letter-spacing: 3px;
 }
 
@@ -35,27 +36,31 @@ header {
   align-items: center;
   justify-content: center;
   color: white;
+  text-align: center;
+}
+
+.hero h1 {
   font-size: 42px;
-  font-weight: bold;
-  text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.4);
+  padding: 15px 30px;
+  border-radius: 10px;
 }
 
 /* PRODUCTS GRID */
 .products {
-  padding: 50px 20px;
+  padding: 50px 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
 
-/* PRODUCT CARD */
 .product {
-  background: white;
-  border-radius: 20px;
+  background: #fff;
+  border-radius: 15px;
   overflow: hidden;
   transition: 0.3s;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .product:hover {
@@ -64,7 +69,7 @@ header {
 
 .product img {
   width: 100%;
-  height: 260px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -78,8 +83,9 @@ header {
 }
 
 .price {
-  color: #c89b6d;
+  color: #c89b3c;
   font-weight: bold;
+  font-size: 18px;
 }
 
 /* MODAL */
@@ -93,17 +99,22 @@ header {
   background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s;
+  padding: 20px;
 }
 
 .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  width: 90%;
+  background: #fff;
+  border-radius: 15px;
   max-width: 400px;
+  width: 100%;
+  padding: 20px;
   text-align: center;
-  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
 }
 
 .modal img {
@@ -113,9 +124,7 @@ header {
 }
 
 .close {
-  position: absolute;
-  right: 15px;
-  top: 10px;
+  float: right;
   font-size: 22px;
   cursor: pointer;
 }
@@ -123,31 +132,23 @@ header {
 /* BUTTON */
 button {
   margin-top: 10px;
-  background: #c89b6d;
-  color: white;
+  background: #c89b3c;
   border: none;
   padding: 12px 25px;
-  border-radius: 25px;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 button:hover {
-  background: #a67c52;
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  background: #a67c2e;
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
-  .hero {
+  .hero h1 {
     font-size: 28px;
-    text-align: center;
-    padding: 0 10px;
   }
 }
 </style>
@@ -158,12 +159,12 @@ button:hover {
 <header>💎 LUXE JEWELRY</header>
 
 <div class="hero">
-  Timeless Elegance
+  <h1>Timeless Elegance</h1>
 </div>
 
 <section class="products">
 
-  <div class="product" onclick="openModal('Diamond Ring','$120','https://images.unsplash.com/photo-1603569283847-aa295f0d016a')">
+  <div class="product" onclick="openModal('Diamond Ring', '$120', 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a')">
     <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a">
     <div class="product-info">
       <h3>Diamond Ring</h3>
@@ -171,7 +172,7 @@ button:hover {
     </div>
   </div>
 
-  <div class="product" onclick="openModal('Gold Necklace','$180','https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f')">
+  <div class="product" onclick="openModal('Gold Necklace', '$180', 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f')">
     <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f">
     <div class="product-info">
       <h3>Gold Necklace</h3>
@@ -179,7 +180,7 @@ button:hover {
     </div>
   </div>
 
-  <div class="product" onclick="openModal('Luxury Earrings','$90','https://images.unsplash.com/photo-1617038220319-276d3cfab638')">
+  <div class="product" onclick="openModal('Luxury Earrings', '$90', 'https://images.unsplash.com/photo-1617038220319-276d3cfab638')">
     <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638">
     <div class="product-info">
       <h3>Luxury Earrings</h3>
@@ -213,7 +214,7 @@ function closeModal() {
 }
 
 function addToCart() {
-  alert("Product added to cart 🛒");
+  alert("Added to cart 🛒");
 }
 </script>
 
