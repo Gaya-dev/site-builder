@@ -1,285 +1,176 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Little Stars Kindergarten</title>
+<title>Luxe Jewelry</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
+  background: #faf7f5;
 }
 
-section {
-  padding: 60px 20px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-h1, h2 {
-  text-align: center;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background: #ff6b81;
+/* HEADER */
+header {
+  background: #111;
   color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  margin-top: 10px;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 2px;
 }
 
 /* HERO */
 .hero {
-  background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338') center/cover;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  text-align: center;
-  padding: 120px 20px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
-/* GRID */
-.grid {
+/* PRODUCTS */
+.products {
+  padding: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
-.card {
+.product {
   background: white;
   border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card p {
   padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-/* CALL */
-.call {
-  background: #ff6b81;
-  color: white;
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+}
+
+.price {
+  color: #b76e79;
+  font-weight: bold;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 400px;
   text-align: center;
 }
 
-/* FOOTER */
-footer {
-  background: #222;
-  color: #ccc;
-  padding: 40px 20px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 20px;
-}
-
-input, textarea {
+.modal img {
   width: 100%;
-  padding: 10px;
-  margin: 5px 0;
+  border-radius: 10px;
 }
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* BUTTON */
+button {
+  background: #b76e79;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #a05560;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Little Stars 🌟</h1>
-  <p>Fun Learning for Bright Kids</p>
-  <a href="#" class="btn">Apply Today</a>
-</section>
+<header>💎 Luxe Jewelry</header>
 
-<!-- ABOUT -->
-<section>
-  <div class="container">
-    <h2>About Us</h2>
-    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9" width="100%">
-    <p style="text-align:center;">
-      Safe, clean and fun environment with expert teachers.
-    </p>
+<div class="hero">
+  Elegant Collection
+</div>
+
+<section class="products">
+
+  <div class="product" onclick="openModal('Ring', '$120', 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a')">
+    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a">
+    <h3>Diamond Ring</h3>
+    <p class="price">$120</p>
   </div>
-</section>
 
-<!-- PROGRAMS -->
-<section>
-  <div class="container">
-    <h2>Our Programs</h2>
-    <div class="grid">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1584697964403-cc2b8f5dc0e6">
-        <p>English Class</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581090700227-4c4f50b0e6c9">
-        <p>Chemistry Class</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f">
-        <p>Drawing Class</p>
-      </div>
-
-    </div>
+  <div class="product" onclick="openModal('Necklace', '$180', 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f')">
+    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f">
+    <h3>Gold Necklace</h3>
+    <p class="price">$180</p>
   </div>
-</section>
 
-<!-- HOW -->
-<section>
-  <div class="container">
-    <h2>How It Works</h2>
-    <div class="grid">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
-        <p>Choose Program</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5">
-        <p>Meet Teachers</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1584697964154-5f0c7b4a7f6d">
-        <p>E-learning</p>
-      </div>
-
-    </div>
+  <div class="product" onclick="openModal('Earrings', '$90', 'https://images.unsplash.com/photo-1617038220319-276d3cfab638')">
+    <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638">
+    <h3>Luxury Earrings</h3>
+    <p class="price">$90</p>
   </div>
+
 </section>
 
-<!-- ACTIVITIES -->
-<section>
-  <div class="container">
-    <h2>Activities</h2>
-    <div class="grid">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7">
-        <p>Art & Craft</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74">
-        <p>Music</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
-        <p>Brain Training</p>
-      </div>
-
-    </div>
+<!-- MODAL -->
+<div class="modal" id="productModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✖</span>
+    <img id="modalImg">
+    <h2 id="modalTitle"></h2>
+    <p id="modalPrice"></p>
+    <button>Add to Cart</button>
   </div>
-</section>
+</div>
 
-<!-- TEACHERS -->
-<section>
-  <div class="container">
-    <h2>Our Teachers</h2>
-    <div class="grid">
+<script>
+function openModal(title, price, img) {
+  document.getElementById('productModal').style.display = 'flex';
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalPrice').innerText = price;
+  document.getElementById('modalImg').src = img;
+}
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6">
-        <p>Anna</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
-        <p>Maria</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956">
-        <p>John</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section>
-  <div class="container">
-    <h2>Testimonials</h2>
-    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac" width="100%">
-    <p style="text-align:center;">
-      "Best kindergarten ever!"
-    </p>
-  </div>
-</section>
-
-<!-- APPLY -->
-<section class="call">
-  <h2>Apply Now</h2>
-  <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b" width="300">
-  <br>
-  <a href="#" class="btn">Join Today</a>
-</section>
-
-<!-- BLOG -->
-<section>
-  <div class="container">
-    <h2>Blog</h2>
-    <div class="grid">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6">
-        <p>Learning Tips</p>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0">
-        <p>Activities</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container footer-grid">
-
-    <div>
-      <h3>Contact</h3>
-      <p>Email: info@littlestars.com</p>
-    </div>
-
-    <div>
-      <h3>Form</h3>
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <textarea placeholder="Message"></textarea>
-    </div>
-
-    <div>
-      <h3>Social</h3>
-      <p>Facebook | Instagram</p>
-    </div>
-
-  </div>
-</footer>
+function closeModal() {
+  document.getElementById('productModal').style.display = 'none';
+}
+</script>
 
 </body>
 </html>
-```
