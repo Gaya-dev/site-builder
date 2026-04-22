@@ -30,7 +30,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 20px 10%;
             box-sizing: border-box;
             z-index: 1000;
             transition: var(--transition);
@@ -39,187 +39,149 @@
 
         .main-nav.scrolled {
             background: var(--navy);
-            padding: 15px 5%;
+            padding: 15px 10%;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
-        .logo { font-weight: 900; font-size: 1.2rem; letter-spacing: 2px; color: var(--navy); text-decoration: none; transition: var(--transition); z-index: 1001; }
-        .main-nav.scrolled .logo { color: var(--white); }
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; color: var(--navy); text-decoration: none; transition: var(--transition); }
+        .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--yellow); }
+        .main-nav.scrolled .logo, .main-nav.scrolled .nav-links a { color: var(--white); }
 
-        .nav-links { 
-            display: flex; 
-            gap: 30px; 
-            list-style: none; 
-            margin: 0; 
-            padding: 0; 
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- BUTTONS --- */
+        .btn-outline-yellow {
+            background: transparent;
+            color: var(--white);
+            padding: 12px 35px;
+            font-weight: bold;
+            border-radius: 50px;
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--yellow);
             transition: var(--transition);
         }
 
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--navy); 
-            font-weight: 600; 
-            font-size: 0.9rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
+        .btn-outline-yellow:hover { background: var(--yellow); color: var(--navy); transform: translateY(-3px); }
+        .buy-btn { background: var(--navy); color: var(--yellow); padding: 12px 30px; text-decoration: none; font-weight: bold; display: inline-block; border-radius: 50px; transition: var(--transition); }
+        .buy-btn:hover { background: var(--yellow); color: var(--navy); }
 
-        .main-nav.scrolled .nav-links a { color: var(--white); }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--navy);
-            transition: 0.3s;
-        }
-
-        .main-nav.scrolled .menu-toggle span { background: var(--white); }
-
-        /* --- HERO SECTION --- */
-        .banner-container { padding: 80px 5% 10px; }
+        /* --- BANNER SECTION --- */
+        .banner-container { padding: 100px 10% 10px; animation: fadeIn 1.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
         .hero-banner {
-            height: 60vh;
-            min-height: 400px;
+            height: 500px;
             border-radius: 20px;
-            background: linear-gradient(rgba(0,31,63,0.4), rgba(0,31,63,0.4)), 
-                        url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80') center/cover;
+            background: linear-gradient(rgba(0,31,63,0.3), rgba(0,31,63,0.3)), 
+                        url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center;
-            padding: 20px;
         }
+        .hero-text h1 { font-size: 3rem; max-width: 800px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin-bottom: 30px; }
 
-        .hero-text h1 { 
-            font-size: clamp(1.8rem, 5vw, 3rem); 
-            max-width: 800px; 
-            margin-bottom: 30px; 
-        }
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 80px 10%; }
+        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- GRID SYSTEM --- */
-        section { padding: 60px 5%; }
-        h2 { text-align: center; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
-
+        /* --- COLLAGE: RECOMMENDED --- */
         .collage-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: repeat(2, 250px);
+            gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
+        .collage-item { position: relative; border-radius: 20px; overflow: hidden; }
+        .collage-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .collage-item:hover img { transform: scale(1.05); }
+        .collage-item.large { grid-row: span 2; }
+        .collage-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,31,63,0.7)); color: var(--white); box-sizing: border-box; }
 
-        .collage-item { position: relative; border-radius: 15px; overflow: hidden; height: 200px; }
-        .collage-item.large { grid-column: span 2; height: 350px; }
-        .collage-item img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* --- PRODUCT CARDS --- */
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 20px; 
-        }
-
-        .product-card { background: var(--white); padding: 20px; text-align: center; border-radius: 20px; }
-        .product-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; }
-
-        /* --- SALE SECTION --- */
+        /* --- SUPER SALE --- */
         .super-sale {
-            margin: 40px 5%;
+            margin: 40px 10%;
             background: var(--navy);
             color: var(--white);
             border-radius: 20px;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,31,63,0.2);
         }
+        .sale-image { background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; min-height: 400px; }
+        .sale-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
-        .sale-image { height: 300px; background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; }
-        .sale-content { padding: 40px 30px; }
+        /* --- PRODUCT GRIDS (Best Sellers & New Arrivals) --- */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { background: var(--white); padding: 25px; text-align: center; border-radius: 20px; transition: var(--transition); position: relative; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
+        .badge { position: absolute; top: 15px; left: 15px; background: var(--yellow); color: var(--navy); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
 
-        /* --- ABOUT CARD --- */
+        /* --- ABOUT US --- */
+        .about-wrapper {
+            padding: 100px 10%;
+            background-color: var(--beige);
+        }
         .about-card {
+            max-width: 1100px;
+            margin: 0 auto;
             background: var(--white);
             border-radius: 30px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
-
-        .about-image img { width: 100%; border-radius: 15px; box-shadow: 10px 10px 0px var(--yellow); }
-
-        /* --- BUTTONS --- */
-        .btn-outline-yellow, .buy-btn {
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: 0.3s;
-            font-size: 0.9rem;
+        .about-image img { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover; 
+            border-radius: 20px; 
+            box-shadow: 15px 15px 0px var(--yellow); 
         }
-
-        .btn-outline-yellow { border: 2px solid var(--yellow); color: var(--white); }
-        .buy-btn { background: var(--navy); color: var(--yellow); }
+        .about-content h2 { text-align: left; margin-bottom: 20px; font-size: 2.5rem; }
+        .about-content p { line-height: 1.8; font-size: 1.05rem; color: #555; margin-bottom: 25px; }
 
         /* --- FOOTER --- */
-        .main-footer { background: var(--navy); color: var(--white); padding: 60px 5% 30px; }
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-            gap: 40px; 
+        .main-footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 80px 10% 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .footer-col h4 { color: var(--yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--yellow); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+        @media (max-width: 992px) {
+            .about-card { grid-template-columns: 1fr; padding: 40px; }
+            .about-image img { height: 300px; }
+            .about-wrapper { padding: 60px 5%; }
         }
 
-        /* --- ANIMATIONS --- */
-        .reveal { opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* --- MEDIA QUERIES (DESKTOP) --- */
-        @media (min-width: 769px) {
-            .main-nav { padding: 20px 10%; }
-            .banner-container { padding: 100px 10% 20px; }
-            .collage-grid { grid-template-columns: 2fr 1fr; grid-template-rows: repeat(2, 250px); }
-            .collage-item.large { grid-row: span 2; grid-column: span 1; height: auto; }
-            .collage-item { height: auto; }
-            .super-sale { flex-direction: row; margin: 40px 10%; }
-            .sale-image { flex: 1; height: auto; }
-            .sale-content { flex: 1; padding: 60px; }
-            .about-card { flex-direction: row; padding: 60px; margin: 0 10%; }
-            .about-content, .about-image { flex: 1; }
-            section { padding: 80px 10%; }
-        }
-
-        /* --- MEDIA QUERIES (MOBILE) --- */
         @media (max-width: 768px) {
-            .menu-toggle { display: flex; }
-            
-            .nav-links {
-                position: absolute;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 80%;
-                background: var(--white);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active { right: 0; }
-            .nav-links a { color: var(--navy) !important; font-size: 1.2rem; }
-
-            /* Close button effect for toggle */
-            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-            .menu-toggle.active span:nth-child(2) { opacity: 0; }
-            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+            .about-us, .super-sale, .collage-grid { grid-template-columns: 1fr; }
+            .collage-grid { grid-template-rows: auto; }
+            .collage-item { height: 300px; }
+            .hero-text h1 { font-size: 2rem; }
+            .footer-grid { text-align: center; }
         }
     </style>
 </head>
@@ -227,14 +189,7 @@
 
     <nav class="main-nav" id="navbar">
         <a href="#" class="logo">ELITE HOME</a>
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul class="nav-links" id="nav-list">
+        <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#recommended">Recommended</a></li>
             <li><a href="#best-sellers">Best Sellers</a></li>
@@ -246,23 +201,26 @@
     <div class="banner-container">
         <header class="hero-banner">
             <div class="hero-text">
-                <h1 class="reveal">Find The Perfect Furniture To Complete Your Home</h1>
-                <a href="#" class="btn-outline-yellow reveal">Shop Now</a>
+                <h1>Find The Perfect Furniture To Complete Your Home</h1>
+                <a href="#" class="btn-outline-yellow">Shop Now</a>
             </div>
         </header>
     </div>
 
     <section id="recommended">
-        <h2 class="reveal">Most Recommended</h2>
+        <h2 class="reveal">Most Recommend For You</h2>
         <div class="collage-grid reveal">
             <div class="collage-item large">
-                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior">
+                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior Set">
+                <div class="collage-overlay"><h3>The Harmony Living Set</h3><p>Curated Comfort</p></div>
             </div>
             <div class="collage-item">
-                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Chair">
+                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Nordic Chair">
+                <div class="collage-overlay"><h3>Nordic Minimalist Chair</h3></div>
             </div>
             <div class="collage-item">
-                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Lamp">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
+                <div class="collage-overlay"><h3>Gilded Designer Lamp</h3></div>
             </div>
         </div>
     </section>
@@ -270,39 +228,73 @@
     <section class="super-sale reveal">
         <div class="sale-image"></div>
         <div class="sale-content">
-            <h2>Super Sale: 60% Off</h2>
-            <p>Upgrade your interior with our premium pieces. Exclusive seasonal offers available for a limited time.</p>
-            <a href="#" class="buy-btn" style="background: var(--yellow); color: var(--navy);">Get Discount</a>
+            <h2 style="text-align:left; color:white; margin-bottom:10px;">Super Sale: 60% Off</h2>
+            <p>Upgrade your interior with our premium pieces. Exclusive seasonal offers.</p>
+            <a href="#" class="buy-btn" style="background: var(--yellow); color: var(--navy); margin-top: 20px;">Get Discount Now</a>
         </div>
     </section>
 
-    <section id="best-sellers">
+    <section id="best-sellers" style="background-color: rgba(0,0,0,0.02);">
         <h2 class="reveal">Best Sellers</h2>
         <div class="product-grid">
             <div class="product-card reveal">
                 <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
                 <h3>Navy Velvet Lounge</h3>
-                <p><b>$1,199.00</b></p>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$1,199.00</p>
                 <a href="#" class="buy-btn">Shop Now</a>
             </div>
             <div class="product-card reveal">
                 <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
                 <h3>Amber Wingback</h3>
-                <p><b>$380.00</b></p>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$380.00</p>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
+                <h3>Oak Coffee Table</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$220.00</p>
                 <a href="#" class="buy-btn">Shop Now</a>
             </div>
         </div>
     </section>
 
-    <div style="padding: 40px 5%;">
+    <section id="new-arrivals">
+        <h2 class="reveal">New Arrivals</h2>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=600&q=80" alt="Modern Chair">
+                <h3>Cloud Soft Armchair</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$450.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=80" alt="Console Table">
+                <h3>Marble Entry Table</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$720.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80" alt="Minimal Lamp">
+                <h3>Orbital Floor Lamp</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$185.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="about-wrapper">
         <section id="about" class="about-card reveal">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="Studio">
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="Our Studio">
             </div>
             <div class="about-content">
                 <h2>About Elite Home</h2>
-                <p>Dedicated to crafting spaces that inspire since 2010. We believe every piece of furniture should be a perfect blend of comfort and art.</p>
-                <a href="#" class="buy-btn">Our Story</a>
+                <p>Since 2010, Elite Home has been dedicated to crafting spaces that inspire. Our journey began with a passion for exceptional design and sustainable materials.</p>
+                <p>We believe every piece of furniture should be a perfect blend of comfort and art.</p>
+                <a href="#" class="buy-btn">Explore Our Story</a>
             </div>
         </section>
     </div>
@@ -310,46 +302,46 @@
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <h3 style="letter-spacing:2px;">ELITE HOME</h3>
-                <p style="opacity:0.6; font-size:0.8rem;">Premium furniture for modern living.</p>
+                <a href="#" class="logo" style="color:white; margin-bottom:20px; display:block;">ELITE HOME</a>
+                <p style="opacity:0.7; font-size: 0.9rem; line-height: 1.6;">Premium furniture for modern living. Quality and elegance in every detail.</p>
             </div>
             <div class="footer-col">
                 <h4>Shop</h4>
-                <p style="opacity:0.6; font-size:0.8rem;">Living Room<br>Bedroom<br>Office</p>
+                <ul>
+                    <li><a href="#">Living Room</a></li>
+                    <li><a href="#">Bedroom</a></li>
+                    <li><a href="#">Office</a></li>
+                </ul>
             </div>
             <div class="footer-col">
-                <h4>Contact</h4>
-                <p style="opacity:0.6; font-size:0.8rem;">hello@elitehome.com<br>+1 555 0123</p>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
             </div>
+            <div class="footer-col">
+                <h4>Contacts</h4>
+                <ul style="opacity:0.8; font-size: 0.9rem;">
+                    <li>📍 123 Design St, NY</li>
+                    <li>📞 +1 555 0123</li>
+                    <li>✉️ hello@elitehome.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Elite Home Studio. All Rights Reserved.
         </div>
     </footer>
 
     <script>
-        // Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navList.classList.toggle('active');
-        });
-
-        // Close menu when link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navList.classList.remove('active');
-            });
-        });
-
-        // Reveal Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
