@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniture Shop | Navy & Yellow</title>
+    <title>Elite Furniture | Navy & Yellow Collection</title>
     <style>
         :root {
-            --navy: #001f3f; /* Temno-siniy */
-            --yellow: #ffcc00; /* Nasyshennyy jeltiy */
-            --light: #f9f9f9;
+            --navy: #001f3f; 
+            --yellow: #ffcc00; 
+            --light-bg: #f4f7f9;
             --white: #ffffff;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             color: var(--navy);
-            background-color: var(--white);
+            line-height: 1.6;
         }
 
-        /* Banner s divanom */
-        .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,31,63,0.4), rgba(0,31,63,0.4)), 
+        /* 1. Image Banner */
+        .hero-banner {
+            height: 80vh;
+            background: linear-gradient(rgba(0,31,63,0.5), rgba(0,31,63,0.5)), 
                         url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
@@ -33,157 +33,207 @@
             text-align: center;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            background-color: var(--yellow);
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            background: var(--yellow);
             color: var(--navy);
             display: inline-block;
-            padding: 10px 30px;
-            margin-bottom: 15px;
+            padding: 5px 20px;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        /* Sektsii */
-        section { padding: 60px 10%; }
-        h2 { 
-            text-align: center; 
-            color: var(--navy); 
-            border-bottom: 3px solid var(--yellow);
-            display: table;
-            margin: 0 auto 40px;
-            padding-bottom: 5px;
+        /* 2. Product Sections */
+        .section-padding { padding: 80px 10%; }
+        
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            position: relative;
         }
 
-        /* Tovary */
-        .products-grid {
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--yellow);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .product-card {
+            background: var(--white);
             border: 1px solid #eee;
-            padding: 15px;
+            transition: 0.3s ease;
             text-align: center;
-            transition: 0.3s;
+            padding-bottom: 20px;
         }
 
         .product-card:hover {
-            box-shadow: 0 10px 20px rgba(0,31,63,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,31,63,0.1);
         }
 
         .product-card img {
             width: 100%;
-            height: 250px;
+            height: 320px;
             object-fit: cover;
-            margin-bottom: 15px;
         }
 
-        .btn {
-            background-color: var(--navy);
+        .buy-btn {
+            background: var(--navy);
             color: var(--yellow);
-            padding: 10px 20px;
+            padding: 12px 25px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
-        .btn:hover {
-            background-color: var(--yellow);
+        .buy-btn:hover {
+            background: var(--yellow);
             color: var(--navy);
         }
 
-        /* About Us */
-        .about {
-            background-color: var(--navy);
+        /* 3. About Us */
+        .about-section {
+            background: var(--navy);
             color: var(--white);
             display: flex;
             align-items: center;
-            gap: 40px;
             flex-wrap: wrap;
+            gap: 50px;
         }
 
-        .about h2 { color: var(--yellow); border-color: var(--white); }
+        .about-content { flex: 1; min-width: 300px; }
+        .about-image { flex: 1; min-width: 300px; }
+        .about-image img { width: 100%; border-radius: 8px; }
 
-        /* Footer */
+        /* 4. Footer Menu & Contacts */
         footer {
-            background: #001226; /* Eshe bolee temno-siniy */
+            background: #001226;
             color: var(--white);
-            padding: 40px 10% 20px;
+            padding: 60px 10% 20px;
         }
 
-        .footer-grid {
+        .footer-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-grid h4 { color: var(--yellow); margin-bottom: 15px; }
+        .footer-col h4 {
+            color: var(--yellow);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
 
-        .contact-info p { margin: 5px 0; font-size: 0.9rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: var(--white); text-decoration: none; font-size: 0.9rem; }
+        .footer-col ul li a:hover { color: var(--yellow); }
+
+        .contact-item { margin-bottom: 15px; font-size: 0.9rem; }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>LUXURY SOFAS</h1>
-            <p style="font-size: 1.2rem;">Vash ideal'nyy otdykh nachinayetsya zdes'</p>
+    <header class="hero-banner">
+        <div class="hero-text">
+            <h1>Premium Comfort</h1>
+            <p>Handcrafted Navy & Gold Editions</p>
         </div>
     </header>
 
-    <section>
-        <h2>Nashi Tovary</h2>
-        <div class="products-grid">
+    <section class="section-padding">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=500&q=80" alt="Sofa">
-                <h3>Siniy Divan "Modern"</h3>
-                <p><strong>150 000 ₽</strong></p>
-                <a href="#" class="btn">V Korzinu</a>
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
+                <h3>Midnight Velvet Sofa</h3>
+                <p><strong>$1,299.00</strong></p>
+                <a href="#" class="buy-btn">View Details</a>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=500&q=80" alt="Yellow Chair">
-                <h3>Jeltiy Aktsent</h3>
-                <p><strong>45 000 ₽</strong></p>
-                <a href="#" class="btn">V Korzinu</a>
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Chair">
+                <h3>Amber Accent Chair</h3>
+                <p><strong>$450.00</strong></p>
+                <a href="#" class="buy-btn">View Details</a>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=500&q=80" alt="Table">
-                <h3>Kofeynyy Stolik</h3>
-                <p><strong>25 000 ₽</strong></p>
-                <a href="#" class="btn">V Korzinu</a>
+                <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=600&q=80" alt="Decor">
+                <h3>Minimalist End Table</h3>
+                <p><strong>$195.00</strong></p>
+                <a href="#" class="buy-btn">View Details</a>
             </div>
         </div>
     </section>
 
-    <section class="about">
-        <div style="flex: 1; min-width: 300px;">
-            <h2>O Nas</h2>
-            <p>My sozdayem mebel', kotoraya sochetayet v sebe vostochnyy uyut i sovremennyy stil'. Ispol'zuyem tol'ko natural'nyye materialy i premium tkani.</p>
+    <section class="section-padding about-section">
+        <div class="about-content">
+            <h2 style="text-align: left; color: var(--yellow);">Our Story</h2>
+            <p>Founded on the principles of quality and elegance, our furniture studio focuses on creating pieces that define a home. We combine traditional craftsmanship with modern bold colors to bring you a unique interior experience.</p>
         </div>
-        <div style="flex: 1; min-width: 300px;">
-            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=600&q=80" alt="Interior" style="width:100%;">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Workshop">
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-                <h4>Menu</h4>
-                <p>Katalog</p>
-                <p>Dostavka</p>
-                <p>Oplata</p>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Shop Menu</h4>
+                <ul>
+                    <li><a href="#">Living Room</a></li>
+                    <li><a href="#">Bedroom</a></li>
+                    <li><a href="#">Dining Room</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                </ul>
             </div>
-            <div class="contact-info">
-                <h4>Kontakty</h4>
-                <p>📍 ul. Mebelnaya, d. 10</p>
-                <p>📞 +7 (999) 000-00-00</p>
-                <p>✉️ hello@furniture-navy.ru</p>
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Wholesale</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Details</h4>
+                <div class="contact-item">📍 123 Design Avenue, Suite 500</div>
+                <div class="contact-item">📞 +1 (800) 555-0199</div>
+                <div class="contact-item">✉️ support@elitefurniture.com</div>
+                <div class="contact-item">🕒 Mon - Sat: 9am - 6pm</div>
             </div>
         </div>
-        <div style="text-align: center; border-top: 1px solid #1a3a5a; padding-top: 20px; font-size: 0.8rem;">
-            &copy; 2026 Furniture Shop. Navy & Yellow Edition.
+        <div class="copyright">
+            &copy; 2026 Elite Furniture Studio. All Rights Reserved.
         </div>
     </footer>
 
