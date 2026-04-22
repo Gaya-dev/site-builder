@@ -1,522 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Home | Curated Collections</title>
-    <style>
-        :root {
-            --navy: #001f3f; 
-            --yellow: #ffcc00; 
-            --beige: #f5f0e6; 
-            --white: #ffffff;
-            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Home | Curated Collections</title>
+    <style>
+        :root {
+            --navy: #001f3f; 
+            --yellow: #ffcc00; 
+            --beige: #f5f0e6; 
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
 
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--navy);
-            background-color: var(--beige);
-            overflow-x: hidden;
-        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--navy);
+            background-color: var(--beige);
+            overflow-x: hidden;
+        }
 
-        /* --- NAVIGATION --- */
-        .main-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            box-sizing: border-box;
-            z-index: 1000;
-            transition: var(--transition);
-            background: transparent;
-        }
+        /* --- NAVIGATION --- */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            box-sizing: border-box;
+            z-index: 1000;
+            transition: var(--transition);
+            background: transparent;
+        }
 
-        .main-nav.scrolled {
-            background: var(--navy);
-            padding: 15px 10%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
+        .main-nav.scrolled {
+            background: var(--navy);
+            padding: 15px 10%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
 
-        .logo {
-            font-weight: 900;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            color: var(--navy);
-            text-decoration: none;
-            transition: var(--transition);
-        }
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--navy);
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--navy);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
 
-        .nav-links a:hover { color: var(--yellow); }
+        .nav-links a:hover { color: var(--yellow); }
 
-        .main-nav.scrolled .logo,
-        .main-nav.scrolled .nav-links a { color: var(--white); }
+        .main-nav.scrolled .logo,
+        .main-nav.scrolled .nav-links a { color: var(--white); }
 
-        /* Animation Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
-        }
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* Banner Section */
-        .banner-container {
-            padding: 100px 10% 10px;
-            animation: fadeIn 1.2s ease-out;
-        }
+        /* Banner Section */
+        .banner-container {
+            padding: 100px 10% 10px;
+            animation: fadeIn 1.2s ease-out;
+        }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
-        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
 
-        .hero-banner {
-            height: 450px;
-            border-radius: 20px;
-            background: linear-gradient(rgba(0,31,63,0.2), rgba(0,31,63,0.2)), 
-                        url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+        .hero-banner {
+            height: 450px;
+            border-radius: 20px;
+            background: linear-gradient(rgba(0,31,63,0.2), rgba(0,31,63,0.2)), 
+                        url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative; /* Added for positioning elements */
+        }
 
-        .hero-text h1 {
-            margin: 0 auto;
-            font-size: 2.5rem;
-            max-width: 800px;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
+        /* Styling for added elements */
+        .hero-banner::before {
+            content: "";
+            position: absolute;
+            bottom: 10%;
+            right: 15%;
+            width: 250px;
+            height: 150px;
+            background-image: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80'); /* Pillows/Blanket image */
+            background-size: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
 
-        .hero-btn {
-            background: var(--yellow);
-            color: var(--navy);
-            padding: 12px 40px;
-            font-weight: bold;
-            margin: 25px auto 0;
-            border-radius: 50px;
-            display: inline-block;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: 2px solid var(--yellow);
-        }
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            bottom: 25%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80'); /* Plant image */
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
 
-        .hero-btn:hover {
-            background: transparent;
-            color: var(--white);
-            transform: scale(1.05);
-        }
+        .hero-text h1 {
+            margin: 0 auto;
+            font-size: 2.5rem;
+            max-width: 800px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
 
-        section { padding: 60px 10%; }
-        
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .hero-btn {
+            background: var(--yellow);
+            color: var(--navy);
+            padding: 12px 40px;
+            font-weight: bold;
+            margin: 25px auto 0;
+            border-radius: 50px;
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid var(--yellow);
+        }
 
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+        .hero-btn:hover {
+            background: transparent;
+            color: var(--white);
+            transform: scale(1.05);
+        }
 
-        .product-card {
-            background: var(--white);
-            padding: 20px;
-            text-align: center;
-            transition: var(--transition);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            position: relative;
-        }
+        section { padding: 60px 10%; }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-        /* --- UPDATED RECOMMENDED SECTION (COLLAGE) --- */
-        .collage-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr; /* Левая колонка шире */
-            grid-template-rows: repeat(2, 250px); /* Две строки по 250px */
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-        .collage-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: var(--transition);
-        }
+        .product-card {
+            background: var(--white);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
 
-        .collage-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Картинка заполняет весь блок */
-            transition: var(--transition);
-        }
+        /* --- UPDATED RECOMMENDED SECTION (COLLAGE) --- */
+        .collage-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Левая колонка шире */
+            grid-template-rows: repeat(2, 250px); /* Две строки по 250px */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-        /* Эффект при наведении на элемент коллажа */
-        .collage-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,31,63,0.1);
-        }
+        .collage-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
 
-        .collage-item:hover img {
-            transform: scale(1.05);
-        }
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Картинка заполняет весь блок */
+            transition: var(--transition);
+        }
 
-        /* Большой левый элемент */
-        .collage-item.large {
-            grid-row: span 2; /* Занимает две строки */
-        }
+        /* Эффект при наведении на элемент коллажа */
+        .collage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,31,63,0.1);
+        }
 
-        /* Текстовый оверлей на картинках */
-        .collage-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 25px;
-            background: linear-gradient(transparent, rgba(0,31,63,0.7));
-            color: var(--white);
-            box-sizing: border-box;
-        }
+        .collage-item:hover img {
+            transform: scale(1.05);
+        }
 
-        .collage-overlay h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* Большой левый элемент */
+        .collage-item.large {
+            grid-row: span 2; /* Занимает две строки */
+        }
 
-        .collage-item.large .collage-overlay h3 {
-            font-size: 1.5rem;
-        }
+        /* Текстовый оверлей на картинках */
+        .collage-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0,31,63,0.7));
+            color: var(--white);
+            box-sizing: border-box;
+        }
 
-        .collage-overlay p {
-            margin: 5px 0 0;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+        .collage-overlay h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        /* Старые стили карточек товаров (для других секций) */
-        .product-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
+        .collage-item.large .collage-overlay h3 {
+            font-size: 1.5rem;
+        }
 
-        .price {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 10px 0;
-            display: block;
-        }
+        .collage-overlay p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
 
-        .buy-btn {
-            background: var(--navy);
-            color: var(--yellow);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            border-radius: 50px;
-            transition: var(--transition);
-        }
+        /* Старые стили карточек товаров (для других секций) */
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-        .buy-btn:hover {
-            background: var(--yellow);
-            color: var(--navy);
-        }
+        .price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            display: block;
+        }
 
-        /* --- ABOUT SECTION --- */
-        .about-wrapper {
-            padding: 80px 10%; 
-        }
+        .buy-btn {
+            background: var(--navy);
+            color: var(--yellow);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
 
-        .about-section {
-            background: var(--navy);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            border-radius: 30px;
-            overflow: hidden;
-            max-width: 1200px;
-            margin: 0 auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
+        .buy-btn:hover {
+            background: var(--yellow);
+            color: var(--navy);
+        }
 
-        .about-content { 
-            flex: 1; 
-            min-width: 300px; 
-            padding: 50px; 
-        }
+        /* --- ABOUT SECTION --- */
+        .about-wrapper {
+            padding: 80px 10%; 
+        }
 
-        .about-image { 
-            flex: 1; 
-            min-width: 300px; 
-            line-height: 0; 
-        }
+        .about-section {
+            background: var(--navy);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            border-radius: 30px;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
 
-        .about-image img { 
-            width: 100%; 
-            height: 100%; 
-            min-height: 400px;
-            object-fit: cover; 
-        }
+        .about-content { 
+            flex: 1; 
+            min-width: 300px; 
+            padding: 50px; 
+        }
 
-        footer {
-            background-color: var(--beige);
-            color: var(--navy);
-            padding: 80px 10% 40px;
-            border-top: 1px solid rgba(0, 31, 63, 0.1);
-        }
+        .about-image { 
+            flex: 1; 
+            min-width: 300px; 
+            line-height: 0; 
+        }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
+        .about-image img { 
+            width: 100%; 
+            height: 100%; 
+            min-height: 400px;
+            object-fit: cover; 
+        }
 
-        .footer-col h4 { 
-            margin-bottom: 25px; 
-            border-bottom: 2px solid var(--yellow);
-            display: inline-block;
-        }
+        footer {
+            background-color: var(--beige);
+            color: var(--navy);
+            padding: 80px 10% 40px;
+            border-top: 1px solid rgba(0, 31, 63, 0.1);
+        }
 
-        .footer-col a { 
-            color: var(--navy); 
-            text-decoration: none; 
-            display: block;
-            margin-bottom: 12px;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
 
-        .footer-col a:hover { opacity: 1; padding-left: 5px; }
+        .footer-col h4 { 
+            margin-bottom: 25px; 
+            border-bottom: 2px solid var(--yellow);
+            display: inline-block;
+        }
 
-        .copyright {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 0.85rem;
-            opacity: 0.6;
-            border-top: 1px solid rgba(0, 31, 63, 0.05);
-            padding-top: 30px;
-        }
+        .footer-col a { 
+            color: var(--navy); 
+            text-decoration: none; 
+            display: block;
+            margin-bottom: 12px;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .collage-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
-            }
-            .collage-item.large {
-                grid-row: auto;
-            }
-            .collage-item {
-                height: 300px;
-            }
-            .about-content { padding: 30px; }
-            .about-image img { height: 300px; }
-        }
-    </style>
+        .footer-col a:hover { opacity: 1; padding-left: 5px; }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(0, 31, 63, 0.05);
+            padding-top: 30px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .collage-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .collage-item.large {
+                grid-row: auto;
+            }
+            .collage-item {
+                height: 300px;
+            }
+            .about-content { padding: 30px; }
+            .about-image img { height: 300px; }
+            .hero-banner::before, .hero-banner::after {
+                display: none; /* Hide added elements on mobile for better layout */
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="main-nav" id="navbar">
-        <a href="#" class="logo">ELITE HOME</a>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Collections</a></li>
-            <li><a href="#">Best Sellers</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <nav class="main-nav" id="navbar">
+        <a href="#" class="logo">ELITE HOME</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
 
-    <div class="banner-container">
-        <header class="hero-banner">
-            <div class="hero-text">
-                <h1>Find The Perfect Furniture To Complete Your Home</h1>
-                <a href="#" class="hero-btn">Shop Now</a>
-            </div>
-        </header>
-    </div>
+    <div class="banner-container">
+        <header class="hero-banner">
+            <div class="hero-text">
+                <h1>Find The Perfect Furniture To Complete Your Home</h1>
+                <a href="#" class="hero-btn">Shop Now</a>
+            </div>
+        </header>
+    </div>
 
-    <section>
-        <h2 class="reveal">Most Recommended For You</h2>
-        <div class="collage-grid reveal">
-            <div class="collage-item large">
-                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior Set">
-                <div class="collage-overlay">
-                    <h3>The Harmony Living Set</h3>
-                    <p>Curated Comfort</p>
-                </div>
-            </div>
-            <div class="collage-item small">
-                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Minimalist Chair">
-                <div class="collage-overlay">
-                    <h3>Nordic Chair</h3>
-                    <p>Clean Lines</p>
-                </div>
-            </div>
-            <div class="collage-item small">
-                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
-                <div class="collage-overlay">
-                    <h3>Gilded Lamp</h3>
-                    <p>Warm Ambient</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section>
+        <h2 class="reveal">Most Recommended For You</h2>
+        <div class="collage-grid reveal">
+            <div class="collage-item large">
+                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior Set">
+                <div class="collage-overlay">
+                    <h3>The Harmony Living Set</h3>
+                    <p>Curated Comfort</p>
+                </div>
+            </div>
+            <div class="collage-item small">
+                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Minimalist Chair">
+                <div class="collage-overlay">
+                    <h3>Nordic Chair</h3>
+                    <p>Clean Lines</p>
+                </div>
+            </div>
+            <div class="collage-item small">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
+                <div class="collage-overlay">
+                    <h3>Gilded Lamp</h3>
+                    <p>Warm Ambient</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section style="background-color: rgba(0,0,0,0.02);">
-        <h2 class="reveal">Our New Collection</h2>
-        <div class="product-grid">
-            <div class="product-card reveal">
-                <img src="https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?auto=format&fit=crop&w=600&q=80" alt="New Sofa">
-                <h3>Cloud Modular Sofa</h3>
-                <span class="price">$2,400.00</span>
-                <a href="#" class="buy-btn">View Collection</a>
-            </div>
-            <div class="product-card reveal" style="transition-delay: 0.1s;">
-                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80" alt="New Table">
-                <h3>Marble Dining Table</h3>
-                <span class="price">$1,850.00</span>
-                <a href="#" class="buy-btn">View Collection</a>
-            </div>
-            <div class="product-card reveal" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="New Lighting">
-                <h3>Gilded Floor Lamp</h3>
-                <span class="price">$320.00</span>
-                <a href="#" class="buy-btn">View Collection</a>
-            </div>
-        </div>
-    </section>
+    <section style="background-color: rgba(0,0,0,0.02);">
+        <h2 class="reveal">Our New Collection</h2>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?auto=format&fit=crop&w=600&q=80" alt="New Sofa">
+                <h3>Cloud Modular Sofa</h3>
+                <span class="price">$2,400.00</span>
+                <a href="#" class="buy-btn">View Collection</a>
+            </div>
+            <div class="product-card reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80" alt="New Table">
+                <h3>Marble Dining Table</h3>
+                <span class="price">$1,850.00</span>
+                <a href="#" class="buy-btn">View Collection</a>
+            </div>
+            <div class="product-card reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="New Lighting">
+                <h3>Gilded Floor Lamp</h3>
+                <span class="price">$320.00</span>
+                <a href="#" class="buy-btn">View Collection</a>
+            </div>
+        </div>
+    </section>
 
-    <section>
-        <h2 class="reveal">Best Sellers</h2>
-        <div class="product-grid">
-            <div class="product-card reveal">
-                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
-                <h3>Navy Velvet Lounge</h3>
-                <span class="price">$1,199.00</span>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-            <div class="product-card reveal" style="transition-delay: 0.1s;">
-                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
-                <h3>Amber Wingback</h3>
-                <span class="price">$380.00</span>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-            <div class="product-card reveal" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
-                <h3>Oak Coffee Table</h3>
-                <span class="price">$220.00</span>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-        </div>
-    </section>
+    <section>
+        <h2 class="reveal">Best Sellers</h2>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
+                <h3>Navy Velvet Lounge</h3>
+                <span class="price">$1,199.00</span>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+            <div class="product-card reveal" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
+                <h3>Amber Wingback</h3>
+                <span class="price">$380.00</span>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+            <div class="product-card reveal" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
+                <h3>Oak Coffee Table</h3>
+                <span class="price">$220.00</span>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="about-wrapper">
-        <div class="about-section reveal">
-            <div class="about-content">
-                <h2 style="text-align: left; color: var(--yellow); border: none; margin-bottom: 20px;">About Us</h2>
-                <p>At Elite Home, we believe your home should reflect your journey. We source the finest materials to create sustainable, timeless pieces that bring luxury into your everyday life.</p>
-                <p>Every design is a balance of form and function, crafted with precision and passion since 2010.</p>
-            </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Our Workshop">
-            </div>
-        </div>
-    </div>
+    <div class="about-wrapper">
+        <div class="about-section reveal">
+            <div class="about-content">
+                <h2 style="text-align: left; color: var(--yellow); border: none; margin-bottom: 20px;">About Us</h2>
+                <p>At Elite Home, we believe your home should reflect your journey. We source the finest materials to create sustainable, timeless pieces that bring luxury into your everyday life.</p>
+                <p>Every design is a balance of form and function, crafted with precision and passion since 2010.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Our Workshop">
+            </div>
+        </div>
+    </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Collections</h4>
-                <a href="#">Living Room</a>
-                <a href="#">Bedroom</a>
-                <a href="#">Office Decor</a>
-            </div>
-            <div class="footer-col">
-                <h4>Customer Care</h4>
-                <a href="#">Shipping Policy</a>
-                <a href="#">Return Center</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Info</h4>
-                <p>📍 123 Design District, NY</p>
-                <p>📞 +1 555 123 4567</p>
-                <p>✉️ hello@elitefurnish.com</p>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 Elite Home Studio. All Rights Reserved.
-        </div>
-    </footer>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Collections</h4>
+                <a href="#">Living Room</a>
+                <a href="#">Bedroom</a>
+                <a href="#">Office Decor</a>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <a href="#">Shipping Policy</a>
+                <a href="#">Return Center</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p>📍 123 Design District, NY</p>
+                <p>📞 +1 555 123 4567</p>
+                <p>✉️ hello@elitefurnish.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Elite Home Studio. All Rights Reserved.
+        </div>
+    </footer>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+    <script>
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.1 });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    </script>
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
-mojesh image bannere dobavit odealo, podushki  na divane, na levoi storone divana kakoe to rastenie na stole
