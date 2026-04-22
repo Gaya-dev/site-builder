@@ -3,167 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniture Shop | Minimalist Design</title>
+    <title>Furniture Shop | Navy & Yellow</title>
     <style>
         :root {
-            --dark: #222;
-            --light: #f4f4f4;
-            --accent: #a68b6d;
+            --navy: #001f3f; /* Temno-siniy */
+            --yellow: #ffcc00; /* Nasyshennyy jeltiy */
+            --light: #f9f9f9;
+            --white: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
-            line-height: 1.6;
-            color: var(--dark);
+            color: var(--navy);
+            background-color: var(--white);
         }
 
-        /* Image Banner */
+        /* Banner s divanom */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+            height: 70vh;
+            background: linear-gradient(rgba(0,31,63,0.4), rgba(0,31,63,0.4)), 
                         url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--white);
             text-align: center;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            font-size: 3rem;
+            background-color: var(--yellow);
+            color: var(--navy);
+            display: inline-block;
+            padding: 10px 30px;
+            margin-bottom: 15px;
         }
 
-        /* Sections General */
-        section { padding: 80px 10% span; }
-        h2 { text-align: center; margin-bottom: 40px; text-transform: uppercase; }
+        /* Sektsii */
+        section { padding: 60px 10%; }
+        h2 { 
+            text-align: center; 
+            color: var(--navy); 
+            border-bottom: 3px solid var(--yellow);
+            display: table;
+            margin: 0 auto 40px;
+            padding-bottom: 5px;
+        }
 
-        /* Products Grid */
+        /* Tovary */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .product-card {
-            background: white;
-            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+            padding: 15px;
             text-align: center;
+            transition: 0.3s;
         }
 
-        .product-card:hover { transform: translateY(-5px); }
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,31,63,0.1);
+        }
 
         .product-card img {
             width: 100%;
-            height: 300px;
+            height: 250px;
             object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: var(--navy);
+            color: var(--yellow);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: var(--yellow);
+            color: var(--navy);
         }
 
         /* About Us */
         .about {
-            background-color: var(--light);
+            background-color: var(--navy);
+            color: var(--white);
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 40px;
             flex-wrap: wrap;
         }
 
-        .about-text { flex: 1; min-width: 300px; }
+        .about h2 { color: var(--yellow); border-color: var(--white); }
 
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 50px 10% 20px;
+            background: #001226; /* Eshe bolee temno-siniy */
+            color: var(--white);
+            padding: 40px 10% 20px;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            border-bottom: 1px solid #444;
-            padding-bottom: 30px;
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
-        .footer-section h4 { margin-bottom: 20px; color: var(--accent); }
-        .footer-section p, .footer-section ul { font-size: 0.9rem; list-style: none; padding: 0; }
-        .footer-section li { margin-bottom: 10px; }
+        .footer-grid h4 { color: var(--yellow); margin-bottom: 15px; }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
+        .contact-info p { margin: 5px 0; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header class="hero">
         <div class="hero-content">
-            <h1>ISLAND COMFORT</h1>
-            <p>Minimalist furniture for your home</p>
+            <h1>LUXURY SOFAS</h1>
+            <p style="font-size: 1.2rem;">Vash ideal'nyy otdykh nachinayetsya zdes'</p>
         </div>
     </header>
 
-    <section id="products">
-        <h2>New Arrivals</h2>
+    <section>
+        <h2>Nashi Tovary</h2>
         <div class="products-grid">
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=500&q=80" alt="Chair">
-                <h3>Velvet Lounge Chair</h3>
-                <p>$299.00</p>
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=500&q=80" alt="Sofa">
+                <h3>Siniy Divan "Modern"</h3>
+                <p><strong>150 000 ₽</strong></p>
+                <a href="#" class="btn">V Korzinu</a>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80" alt="Desk">
-                <h3>Minimalist Desk</h3>
-                <p>$450.00</p>
+                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=500&q=80" alt="Yellow Chair">
+                <h3>Jeltiy Aktsent</h3>
+                <p><strong>45 000 ₽</strong></p>
+                <a href="#" class="btn">V Korzinu</a>
             </div>
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?auto=format&fit=crop&w=500&q=80" alt="Sofa">
-                <h3>Cloud Sofa</h3>
-                <p>$1,200.00</p>
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=500&q=80" alt="Table">
+                <h3>Kofeynyy Stolik</h3>
+                <p><strong>25 000 ₽</strong></p>
+                <a href="#" class="btn">V Korzinu</a>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-text">
-            <h2>About Our Studio</h2>
-            <p>We believe that furniture should be more than just functional. It's about creating an atmosphere of peace and style. Every piece in our collection is handpicked for its quality materials and timeless design.</p>
+    <section class="about">
+        <div style="flex: 1; min-width: 300px;">
+            <h2>O Nas</h2>
+            <p>My sozdayem mebel', kotoraya sochetayet v sebe vostochnyy uyut i sovremennyy stil'. Ispol'zuyem tol'ko natural'nyye materialy i premium tkani.</p>
         </div>
         <div style="flex: 1; min-width: 300px;">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Interior" style="width:100%; border-radius: 8px;">
+            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=600&q=80" alt="Interior" style="width:100%;">
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Furniture Shop</h4>
-                <p>Creating beautiful living spaces since 2010.</p>
+        <div class="footer-grid">
+            <div>
+                <h4>Menu</h4>
+                <p>Katalog</p>
+                <p>Dostavka</p>
+                <p>Oplata</p>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li>Shop All</li>
-                    <li>Shipping Policy</li>
-                    <li>Returns</li>
-                </ul>
-            </div>
-            <div class="footer-section" id="contact">
-                <h4>Contact Us</h4>
-                <p>Email: info@furnitureshop.com</p>
-                <p>Phone: +1 234 567 890</p>
-                <p>Address: 123 Design St, Creative City</p>
+            <div class="contact-info">
+                <h4>Kontakty</h4>
+                <p>📍 ul. Mebelnaya, d. 10</p>
+                <p>📞 +7 (999) 000-00-00</p>
+                <p>✉️ hello@furniture-navy.ru</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 Furniture Shop. All rights reserved.
+        <div style="text-align: center; border-top: 1px solid #1a3a5a; padding-top: 20px; font-size: 0.8rem;">
+            &copy; 2026 Furniture Shop. Navy & Yellow Edition.
         </div>
     </footer>
 
