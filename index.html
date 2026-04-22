@@ -10,7 +10,7 @@
             --yellow: #ffcc00; 
             --beige: #f5f0e6; 
             --white: #ffffff;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         body {
@@ -73,7 +73,6 @@
         .nav-links a:hover { color: var(--yellow); }
         .main-nav.scrolled .logo, .main-nav.scrolled .nav-links a { color: var(--white); }
 
-        /* Animation */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -85,44 +84,42 @@
             transform: translateY(0);
         }
 
-        /* --- BUTTON STYLE (YELLOW BORDER) --- */
+        /* --- BUTTONS --- */
         .btn-outline-yellow {
             background: transparent;
             color: var(--white);
-            padding: 14px 45px;
+            padding: 12px 35px;
             font-weight: bold;
             border-radius: 50px;
             display: inline-block;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             border: 2px solid var(--yellow);
             transition: var(--transition);
-            cursor: pointer;
         }
 
         .btn-outline-yellow:hover {
             background: var(--yellow);
             color: var(--navy);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
         }
 
-        /* --- HERO BANNER (CLEAN) --- */
+        /* --- BANNER SECTION --- */
         .banner-container {
             padding: 100px 10% 10px;
             animation: fadeIn 1.2s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.99); }
+            from { opacity: 0; transform: scale(0.98); }
             to { opacity: 1; transform: scale(1); }
         }
 
         .hero-banner {
             height: 500px;
             border-radius: 20px;
-            background: linear-gradient(rgba(0,31,63,0.4), rgba(0,31,63,0.3)), 
+            background: linear-gradient(rgba(0,31,63,0.3), rgba(0,31,63,0.3)), 
                         url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
@@ -132,20 +129,31 @@
             color: var(--white);
             text-align: center;
             position: relative;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        .hero-text h1 { 
-            font-size: 3rem; 
-            max-width: 850px; 
-            margin-bottom: 35px; 
-            line-height: 1.2;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.4); 
+        .hero-text h1 { font-size: 3rem; max-width: 800px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin-bottom: 30px; }
+
+        /* --- ABOUT US SECTION --- */
+        .about-us {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 80px 10%;
         }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0px var(--yellow);
+        }
+
+        .about-content h2 { text-align: left; margin-bottom: 20px; }
+        .about-content p { line-height: 1.8; font-size: 1.1rem; opacity: 0.9; margin-bottom: 25px; }
 
         /* --- SUPER SALE SECTION --- */
         .super-sale {
-            margin: 60px 10%;
+            margin: 40px 10%;
             background: var(--navy);
             color: var(--white);
             border-radius: 20px;
@@ -157,14 +165,16 @@
 
         .sale-image {
             background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover;
-            min-height: 450px;
+            min-height: 400px;
         }
 
-        .sale-content { padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+        .sale-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+        .sale-tag { background: var(--yellow); color: var(--navy); padding: 5px 15px; font-weight: bold; border-radius: 5px; margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; width: fit-content; }
+        .sale-content h2 { text-align: left; margin: 0 0 20px; font-size: 2.5rem; color: var(--white); }
 
         .timer { display: flex; gap: 15px; margin: 25px 0; }
-        .timer-unit { text-align: center; background: rgba(255,255,255,0.1); padding: 12px; border-radius: 10px; min-width: 70px; }
-        .timer-unit span { display: block; font-size: 1.6rem; font-weight: bold; color: var(--yellow); }
+        .timer-unit { text-align: center; background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px; min-width: 65px; }
+        .timer-unit span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--yellow); }
         .timer-unit label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.7; }
 
         /* --- COLLAGE & PRODUCTS --- */
@@ -185,23 +195,19 @@
         .collage-item:hover img { transform: scale(1.05); }
         .collage-item.large { grid-row: span 2; }
 
-        .collage-overlay {
-            position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px;
-            background: linear-gradient(transparent, rgba(0,31,63,0.7)); color: var(--white);
-        }
+        .collage-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,31,63,0.7)); color: var(--white); box-sizing: border-box; }
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: var(--white); padding: 25px; text-align: center; border-radius: 20px; transition: var(--transition); }
-        .product-card:hover { transform: translateY(-10px); }
-        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;}
+        .product-card { background: var(--white); padding: 20px; text-align: center; border-radius: 15px; }
+        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; }
 
-        /* Специфичный цвет кнопки для светлых карточек */
-        .product-card .btn-outline-yellow { color: var(--navy); border-color: var(--yellow); }
-        .product-card .btn-outline-yellow:hover { color: var(--navy); }
+        .buy-btn { background: var(--navy); color: var(--yellow); padding: 12px 30px; text-decoration: none; font-weight: bold; display: inline-block; border-radius: 50px; transition: var(--transition); }
+        .buy-btn:hover { background: var(--yellow); color: var(--navy); }
 
-        footer { text-align: center; padding: 60px; border-top: 1px solid rgba(0,0,0,0.05); color: #777; }
+        footer { background-color: var(--beige); color: var(--navy); padding: 60px 10% 40px; border-top: 1px solid rgba(0, 31, 63, 0.1); text-align: center; }
 
         @media (max-width: 768px) {
+            .about-us { grid-template-columns: 1fr; }
             .hero-text h1 { font-size: 2rem; }
             .super-sale { grid-template-columns: 1fr; }
             .collage-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
@@ -216,8 +222,8 @@
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">Collections</a></li>
-            <li><a href="#">Sale</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#">Best Sellers</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </nav>
 
@@ -230,19 +236,30 @@
         </header>
     </div>
 
+    <section id="about" class="about-us reveal">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="Our Craft">
+        </div>
+        <div class="about-content">
+            <h2>About Elite Home</h2>
+            <p>Since 2010, Elite Home has been dedicated to crafting spaces that inspire. Our journey began with a passion for exceptional design and sustainable materials. We believe your home should be a reflection of your unique story.</p>
+            <p>Every piece is a testament to our commitment to quality, sourced globally from artisans who share our values of timeless aesthetics and durability.</p>
+            <a href="#" class="buy-btn">Explore Our Story</a>
+        </div>
+    </section>
+
     <section class="super-sale reveal">
         <div class="sale-image"></div>
         <div class="sale-content">
-            <h2 style="text-align:left; color:white; margin-bottom:10px;">Super Sale: 60% Off</h2>
-            <p>Upgrade your interior with our premium pieces. Limited stock available.</p>
-            
+            <span class="sale-tag">Limited Offer</span>
+            <h2>Super Sale: Up to 60% Off</h2>
+            <p>Our premium furniture collection is now available at exclusive prices.</p>
             <div class="timer">
                 <div class="timer-unit"><span id="hours">24</span><label>Hours</label></div>
                 <div class="timer-unit"><span id="minutes">00</span><label>Min</label></div>
                 <div class="timer-unit"><span id="seconds">00</span><label>Sec</label></div>
             </div>
-
-            <a href="#" class="btn-outline-yellow">Get Discount Now</a>
+            <a href="#" class="buy-btn" style="background: var(--yellow); color: var(--navy);">Get Discount Now</a>
         </div>
     </section>
 
@@ -250,57 +267,55 @@
         <h2 class="reveal">Most Recommend For You</h2>
         <div class="collage-grid reveal">
             <div class="collage-item large">
-                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior">
-                <div class="collage-overlay"><h3>The Harmony Living Set</h3></div>
+                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior Set">
+                <div class="collage-overlay"><h3>The Harmony Living Set</h3><p>Curated Comfort</p></div>
             </div>
             <div class="collage-item">
-                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Chair">
+                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Minimalist Chair">
                 <div class="collage-overlay"><h3>Nordic Chair</h3></div>
             </div>
             <div class="collage-item">
-                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Lamp">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
                 <div class="collage-overlay"><h3>Gilded Lamp</h3></div>
             </div>
         </div>
     </section>
 
-    <section style="background: rgba(0,0,0,0.02);">
+    <section style="background-color: rgba(0,0,0,0.02);">
         <h2 class="reveal">Best Sellers</h2>
         <div class="product-grid">
             <div class="product-card reveal">
                 <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
                 <h3>Navy Velvet Lounge</h3>
-                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$1,199.00</p>
-                <a href="#" class="btn-outline-yellow">Shop Now</a>
+                <span class="price" style="display:block; font-weight:bold; margin:10px 0;">$1,199.00</span>
+                <a href="#" class="buy-btn">Shop Now</a>
             </div>
             <div class="product-card reveal" style="transition-delay: 0.1s;">
                 <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
                 <h3>Amber Wingback</h3>
-                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$380.00</p>
-                <a href="#" class="btn-outline-yellow">Shop Now</a>
+                <span class="price" style="display:block; font-weight:bold; margin:10px 0;">$380.00</span>
+                <a href="#" class="buy-btn">Shop Now</a>
             </div>
             <div class="product-card reveal" style="transition-delay: 0.2s;">
                 <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
                 <h3>Oak Coffee Table</h3>
-                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$220.00</p>
-                <a href="#" class="btn-outline-yellow">Shop Now</a>
+                <span class="price" style="display:block; font-weight:bold; margin:10px 0;">$220.00</span>
+                <a href="#" class="buy-btn">Shop Now</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Elite Home Studio. All Rights Reserved.</p>
+        &copy; 2026 Elite Home Studio. All Rights Reserved.
     </footer>
 
     <script>
-        // Navbar scroll
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
-        // Reveal effect
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -308,16 +323,15 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        // Timer
         function startTimer(duration) {
-            let timer = duration, h, m, s;
-            setInterval(() => {
-                h = parseInt(timer / 3600, 10);
-                m = parseInt((timer % 3600) / 60, 10);
-                s = parseInt(timer % 60, 10);
-                document.getElementById('hours').textContent = h < 10 ? "0"+h : h;
-                document.getElementById('minutes').textContent = m < 10 ? "0"+m : m;
-                document.getElementById('seconds').textContent = s < 10 ? "0"+s : s;
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                document.getElementById('hours').textContent = hours < 10 ? "0" + hours : hours;
+                document.getElementById('minutes').textContent = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById('seconds').textContent = seconds < 10 ? "0" + seconds : seconds;
                 if (--timer < 0) timer = duration;
             }, 1000);
         }
