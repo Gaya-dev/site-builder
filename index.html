@@ -10,8 +10,10 @@
             --yellow: #ffcc00; 
             --beige: #f5f0e6; 
             --white: #ffffff;
-            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -30,23 +32,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
+            padding: 25px 10%;
             box-sizing: border-box;
             z-index: 1000;
             transition: var(--transition);
-            background: transparent;
         }
 
         .main-nav.scrolled {
-            background: var(--navy);
+            background: rgba(0, 31, 63, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px 10%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .logo {
             font-weight: 900;
             font-size: 1.5rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--navy);
             text-decoration: none;
             transition: var(--transition);
@@ -54,7 +56,7 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
             margin: 0;
             padding: 0;
@@ -64,195 +66,176 @@
             text-decoration: none;
             color: var(--navy);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            position: relative;
             transition: 0.3s;
         }
 
-        .nav-links a:hover { color: var(--yellow); }
+        /* Анимация подчеркивания при наведении */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--yellow);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
 
         .main-nav.scrolled .logo,
         .main-nav.scrolled .nav-links a { color: var(--white); }
 
-        /* Animation Classes */
+        /* --- REVEAL ANIMATIONS --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s var(--transition);
+            visibility: hidden;
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+            visibility: visible;
         }
 
-        /* Banner Section */
+        /* --- HERO SECTION --- */
         .banner-container {
-            padding: 100px 10% 10px;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
+            padding: 120px 10% 20px;
+            perspective: 1000px;
         }
 
         .hero-banner {
-            height: 450px;
-            border-radius: 20px;
+            height: 500px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 120%; /* Больше высоты для параллакса */
             background: linear-gradient(rgba(0,31,63,0.2), rgba(0,31,63,0.2)), 
                         url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
+            z-index: -1;
+            transition: transform 0.1s linear;
+        }
+
+        .hero-text {
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            color: var(--white);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-text h1 {
-            margin: 0 auto;
-            font-size: 2.5rem;
-            max-width: 800px;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-size: 2.8rem;
+            max-width: 700px;
+            line-height: 1.1;
+            margin-bottom: 25px;
         }
 
-        /* --- HERO CTA BUTTON --- */
         .hero-btn {
             background: var(--yellow);
             color: var(--navy);
-            padding: 12px 40px;
+            padding: 15px 45px;
             font-weight: bold;
-            margin: 25px auto 0;
             border-radius: 50px;
             display: inline-block;
             text-decoration: none;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
+            letter-spacing: 2px;
+            transition: 0.4s;
             border: 2px solid var(--yellow);
         }
 
         .hero-btn:hover {
             background: transparent;
             color: var(--white);
-            transform: scale(1.05);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,204,0,0.3);
         }
 
-        section { padding: 60px 10%; }
-        
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+        /* --- PRODUCTS --- */
+        section { padding: 80px 10%; }
 
         .product-card {
             background: var(--white);
             padding: 20px;
             text-align: center;
+            border-radius: 20px;
             transition: var(--transition);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid transparent;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,31,63,0.1);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,31,63,0.1);
+            border-color: var(--beige);
+        }
+
+        .product-card .img-container {
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 20px;
         }
 
         .product-card img {
             width: 100%;
-            height: 300px;
+            height: 320px;
             object-fit: cover;
-            border-radius: 10px;
+            transition: transform 0.8s var(--transition);
         }
 
-        .price {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 10px 0;
-            display: block;
+        .product-card:hover img {
+            transform: scale(1.1);
         }
 
-        .buy-btn {
-            background: var(--navy);
-            color: var(--yellow);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            border-radius: 50px;
-            transition: var(--transition);
-        }
-
-        .buy-btn:hover {
-            background: var(--yellow);
-            color: var(--navy);
-        }
-
+        /* --- ABOUT SECTION --- */
         .about-section {
             background: var(--navy);
             color: var(--white);
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            margin-top: 40px;
+            border-radius: 50px;
+            margin: 40px 10%;
+            overflow: hidden;
         }
 
-        .about-content { flex: 1; min-width: 300px; padding: 60px; }
-        .about-image { flex: 1; min-width: 300px; line-height: 0; }
-        .about-image img { width: 100%; height: 500px; object-fit: cover; }
+        .about-content { flex: 1; padding: 80px; }
+        .about-image { flex: 1; height: 100%; overflow: hidden; }
+        .about-image img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: 1.5s ease-out;
+        }
+
+        .about-section:hover .about-image img { transform: scale(1.05); }
 
         footer {
-            background-color: var(--beige);
-            color: var(--navy);
             padding: 80px 10% 40px;
-            border-top: 1px solid rgba(0, 31, 63, 0.1);
+            text-align: center;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
-        }
-
-        .footer-col h4 { 
-            margin-bottom: 25px; 
-            border-bottom: 2px solid var(--yellow);
-            display: inline-block;
-        }
-
-        .footer-col a { 
-            color: var(--navy); 
-            text-decoration: none; 
-            display: block;
-            margin-bottom: 12px;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-
-        .footer-col a:hover { opacity: 1; padding-left: 5px; }
-
-        .copyright {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 0.85rem;
-            opacity: 0.6;
-            border-top: 1px solid rgba(0, 31, 63, 0.05);
-            padding-top: 30px;
+            text-align: left;
         }
     </style>
 </head>
@@ -261,127 +244,102 @@
     <nav class="main-nav" id="navbar">
         <a href="#" class="logo">ELITE</a>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Collections</a></li>
-            <li><a href="#">Best Sellers</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#new">Collections</a></li>
+            <li><a href="#sellers">Bestsellers</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </nav>
 
-    <div class="banner-container">
+    <div class="banner-container" id="home">
         <header class="hero-banner">
+            <div class="hero-bg" id="heroBg"></div>
             <div class="hero-text">
                 <h1>Find The Perfect Furniture To Complete Your Home</h1>
-                <a href="#" class="hero-btn">Shop Now</a>
+                <a href="#new" class="hero-btn">Shop Now</a>
             </div>
         </header>
     </div>
 
-    <section>
+    <section id="new">
         <h2 class="reveal">Our New Collection</h2>
         <div class="product-grid">
-            <div class="product-card reveal">
-                <img src="https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?auto=format&fit=crop&w=600&q=80" alt="New Sofa">
+            <div class="product-card reveal" style="transition-delay: 0.1s;">
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1550581190-9c1c48d21d6c?w=600" alt="Sofa"></div>
                 <h3>Cloud Modular Sofa</h3>
                 <span class="price">$2,400.00</span>
-                <a href="#" class="buy-btn">View Collection</a>
+                <a href="#" class="buy-btn">View Details</a>
             </div>
-            <div class="product-card reveal" style="transition-delay: 0.1s;">
-                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80" alt="New Table">
+            <div class="product-card reveal" style="transition-delay: 0.2s;">
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=600" alt="Table"></div>
                 <h3>Marble Dining Table</h3>
                 <span class="price">$1,850.00</span>
-                <a href="#" class="buy-btn">View Collection</a>
+                <a href="#" class="buy-btn">View Details</a>
             </div>
-            <div class="product-card reveal" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="New Lighting">
+            <div class="product-card reveal" style="transition-delay: 0.3s;">
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600" alt="Lamp"></div>
                 <h3>Gilded Floor Lamp</h3>
                 <span class="price">$320.00</span>
-                <a href="#" class="buy-btn">View Collection</a>
+                <a href="#" class="buy-btn">View Details</a>
             </div>
         </div>
     </section>
 
-    <section style="background-color: rgba(0,0,0,0.02);">
-        <h2 class="reveal">Best Sellers</h2>
-        <div class="product-grid">
-            <div class="product-card reveal">
-                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
-                <h3>Navy Velvet Lounge</h3>
-                <span class="price">$1,199.00</span>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-            <div class="product-card reveal" style="transition-delay: 0.1s;">
-                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
-                <h3>Amber Wingback</h3>
-                <span class="price">$380.00</span>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-            <div class="product-card reveal" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
-                <h3>Oak Coffee Table</h3>
-                <span class="price">$220.00</span>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="about-section">
-        <div class="about-content reveal">
-            <h2 style="text-align: left; color: var(--yellow); border: none;">About Us</h2>
+    <section class="about-section reveal" id="about">
+        <div class="about-content">
+            <h2 style="text-align: left; color: var(--yellow); margin-top: 0;">About Us</h2>
             <p>At Elite Furniture, we believe your home should reflect your journey. We source the finest materials to create sustainable, timeless pieces that bring luxury into your everyday life.</p>
-            <p>Every design is a balance of form and function, crafted with precision and passion since 2010.</p>
         </div>
-        <div class="about-image reveal">
-            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Our Workshop">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Workshop">
         </div>
     </section>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Collections</h4>
-                <a href="#">Living Room</a>
-                <a href="#">Bedroom</a>
-                <a href="#">Office Decor</a>
-            </div>
-            <div class="footer-col">
-                <h4>Customer Care</h4>
-                <a href="#">Shipping Policy</a>
-                <a href="#">Return Center</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Info</h4>
-                <p>📍 123 Design District, NY</p>
-                <p>📞 +1 555 123 4567</p>
+                <h4 style="border-bottom: 2px solid var(--yellow); display: inline-block;">Contact</h4>
+                <p>📍 Design District, NY</p>
                 <p>✉️ hello@elitefurnish.com</p>
             </div>
+            <div class="footer-col">
+                <h4 style="border-bottom: 2px solid var(--yellow); display: inline-block;">Social</h4>
+                <p>Instagram / Pinterest / LinkedIn</p>
+            </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 Elite Furniture Studio. All Rights Reserved.
-        </div>
+        <p style="margin-top: 60px; opacity: 0.5;">&copy; 2026 Elite Furniture Studio.</p>
     </footer>
 
     <script>
-        window.addEventListener('scroll', function() {
+        // 1. Паралллакс эффект для фона баннера
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const heroBg = document.getElementById('heroBg');
+            heroBg.style.transform = `translateY(${scroll * 0.4}px)`;
+            
+            // Смена стиля меню
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
+            if (scroll > 50) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
         });
 
-        const observer = new IntersectionObserver((entries) => {
+        // 2. Intersection Observer для появления элементов
+        const revealCallback = (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        };
 
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.15
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
