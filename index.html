@@ -105,6 +105,22 @@
             transform: translateY(-3px);
         }
 
+        .buy-btn {
+            background: var(--navy);
+            color: var(--yellow);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .buy-btn:hover {
+            background: var(--yellow);
+            color: var(--navy);
+        }
+
         /* --- BANNER SECTION --- */
         .banner-container {
             padding: 100px 10% 10px;
@@ -132,80 +148,13 @@
 
         .hero-text h1 { font-size: 3rem; max-width: 800px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin-bottom: 30px; }
 
-        /* --- ABOUT US SECTION --- */
-        .about-section {
-            padding: 100px 10%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            background: var(--white);
-        }
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 80px 10%; }
+        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .about-image-container {
-            position: relative;
-        }
-
-        .about-image-container img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 15px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-image-container::after {
-            content: "";
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 100%;
-            height: 100%;
-            border: 3px solid var(--yellow);
-            border-radius: 15px;
-            z-index: 1;
-        }
-
-        .about-content h2 {
-            text-align: left;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            color: var(--navy);
-        }
-
-        .about-content h2 span {
-            color: var(--yellow);
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 30px;
-        }
-
-        .secondary-btn {
-            padding: 15px 40px;
-            background: var(--navy);
-            color: var(--yellow);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: var(--transition);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .secondary-btn:hover {
-            background: var(--yellow);
-            color: var(--navy);
-            transform: translateX(10px);
-        }
-
-        /* --- OTHER SECTIONS --- */
+        /* --- SUPER SALE --- */
         .super-sale {
-            margin: 60px 10%;
+            margin: 40px 10%;
             background: var(--navy);
             color: var(--white);
             border-radius: 20px;
@@ -213,13 +162,31 @@
             grid-template-columns: 1fr 1fr;
             overflow: hidden;
         }
-
         .sale-image { background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; min-height: 400px; }
-        .sale-content { padding: 60px; }
+        .sale-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
-        @media (max-width: 992px) {
-            .about-section { grid-template-columns: 1fr; gap: 40px; }
-            .about-image-container img { height: 350px; }
+        /* --- BEST SELLERS --- */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { background: var(--white); padding: 25px; text-align: center; border-radius: 20px; }
+        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
+
+        /* --- ABOUT US SECTION (NOW AT THE BOTTOM) --- */
+        .about-us {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            background: var(--white);
+        }
+        .about-image img { width: 100%; border-radius: 20px; box-shadow: 20px 20px 0px var(--yellow); }
+        .about-content h2 { text-align: left; margin-bottom: 20px; }
+        .about-content p { line-height: 1.8; font-size: 1.1rem; margin-bottom: 25px; color: #555; }
+
+        footer { text-align: center; padding: 60px; background: var(--navy); color: white; }
+
+        @media (max-width: 768px) {
+            .about-us, .super-sale { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -229,9 +196,9 @@
         <a href="#" class="logo">ELITE HOME</a>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="#about">About Us</a></li>
             <li><a href="#">Collections</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#best-sellers">Best Sellers</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </nav>
 
@@ -244,33 +211,57 @@
         </header>
     </div>
 
-    <section id="about" class="about-section reveal">
-        <div class="about-image-container">
-            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="About Our Studio">
-        </div>
-        <div class="about-content">
-            <h2>Luxury Meets <span>Comfort</span></h2>
-            <p>Since 2010, Elite Home has been more than just a furniture store. We are a team of designers and artisans dedicated to creating pieces that bring harmony to your living space.</p>
-            <p>Our collection is carefully curated to balance timeless elegance with modern functionality. Every sofa, table, and lamp is crafted from sustainable materials to ensure quality that lasts for generations.</p>
-            <a href="#" class="secondary-btn">Explore Our Story</a>
-        </div>
-    </section>
-
     <section class="super-sale reveal">
         <div class="sale-image"></div>
         <div class="sale-content">
-            <h2 style="color:white; text-align:left; font-size: 2.5rem; margin-bottom: 20px;">Super Sale: 60% Off</h2>
-            <p style="margin-bottom: 30px; opacity: 0.8;">Exclusive discount on our premium collection. Upgrade your home today with our seasonal offers.</p>
-            <a href="#" class="secondary-btn" style="background: var(--yellow); color: var(--navy);">Get Discount Now</a>
+            <h2 style="text-align:left; color:white; margin-bottom:10px;">Super Sale: 60% Off</h2>
+            <p>Exclusive premium furniture at the best prices of the season.</p>
+            <a href="#" class="buy-btn" style="background: var(--yellow); color: var(--navy); margin-top: 20px;">Get Discount Now</a>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 60px; background: var(--navy); color: white;">
-        <p>&copy; 2026 Elite Home Studio. All Rights Reserved.</p>
+    <section id="best-sellers" style="background-color: rgba(0,0,0,0.02);">
+        <h2 class="reveal">Best Sellers</h2>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
+                <h3>Navy Velvet Lounge</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$1,199.00</p>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
+                <h3>Amber Wingback</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$380.00</p>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
+                <h3>Oak Coffee Table</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$220.00</p>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-us reveal">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="Our Craft">
+        </div>
+        <div class="about-content">
+            <h2>About Elite Home</h2>
+            <p>Since 2010, Elite Home has been dedicated to crafting spaces that inspire. Our journey began with a passion for exceptional design and sustainable materials.</p>
+            <p>Every piece is a testament to our commitment to quality, sourced globally from artisans who share our values of timeless aesthetics.</p>
+            <a href="#" class="buy-btn">Explore Our Story</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Elite Home Studio. All Rights Reserved.
     </footer>
 
     <script>
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
