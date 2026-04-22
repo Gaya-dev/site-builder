@@ -168,25 +168,76 @@
             position: relative;
         }
 
-        .recommend-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--yellow);
-            color: var(--navy);
-            padding: 5px 12px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            border-radius: 20px;
-            text-transform: uppercase;
-            z-index: 2;
+        /* --- UPDATED RECOMMENDED SECTION (COLLAGE) --- */
+        .collage-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Левая колонка шире */
+            grid-template-rows: repeat(2, 250px); /* Две строки по 250px */
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .product-card:hover {
-            transform: translateY(-10px);
+        .collage-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Картинка заполняет весь блок */
+            transition: var(--transition);
+        }
+
+        /* Эффект при наведении на элемент коллажа */
+        .collage-item:hover {
+            transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,31,63,0.1);
         }
 
+        .collage-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Большой левый элемент */
+        .collage-item.large {
+            grid-row: span 2; /* Занимает две строки */
+        }
+
+        /* Текстовый оверлей на картинках */
+        .collage-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(0,31,63,0.7));
+            color: var(--white);
+            box-sizing: border-box;
+        }
+
+        .collage-overlay h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .collage-item.large .collage-overlay h3 {
+            font-size: 1.5rem;
+        }
+
+        .collage-overlay p {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Старые стили карточек товаров (для других секций) */
         .product-card img {
             width: 100%;
             height: 300px;
@@ -293,7 +344,18 @@
             padding-top: 30px;
         }
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
+            .collage-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            .collage-item.large {
+                grid-row: auto;
+            }
+            .collage-item {
+                height: 300px;
+            }
             .about-content { padding: 30px; }
             .about-image img { height: 300px; }
         }
@@ -322,28 +384,28 @@
     </div>
 
     <section>
-        <h2 class="reveal">Most Recommend Product For You</h2>
-        <div class="product-grid">
-            <div class="product-card reveal">
-                <span class="recommend-badge">Top Pick</span>
-                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Sofa">
-                <h3>Nordic Minimalist Chair</h3>
-                <span class="price">$450.00</span>
-                <a href="#" class="buy-btn">View Product</a>
+        <h2 class="reveal">Most Recommended For You</h2>
+        <div class="collage-grid reveal">
+            <div class="collage-item large">
+                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior Set">
+                <div class="collage-overlay">
+                    <h3>The Harmony Living Set</h3>
+                    <p>Curated Comfort</p>
+                </div>
             </div>
-            <div class="product-card reveal" style="transition-delay: 0.1s;">
-                <span class="recommend-badge">Best Match</span>
-                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=600&q=80" alt="Desk">
-                <h3>Sleek Executive Desk</h3>
-                <span class="price">$1,100.00</span>
-                <a href="#" class="buy-btn">View Product</a>
+            <div class="collage-item small">
+                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Minimalist Chair">
+                <div class="collage-overlay">
+                    <h3>Nordic Chair</h3>
+                    <p>Clean Lines</p>
+                </div>
             </div>
-            <div class="product-card reveal" style="transition-delay: 0.2s;">
-                <span class="recommend-badge">Popular</span>
-                <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=600&q=80" alt="Bed">
-                <h3>Zen Platform Bed</h3>
-                <span class="price">$2,100.00</span>
-                <a href="#" class="buy-btn">View Product</a>
+            <div class="collage-item small">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
+                <div class="collage-overlay">
+                    <h3>Gilded Lamp</h3>
+                    <p>Warm Ambient</p>
+                </div>
             </div>
         </div>
     </section>
