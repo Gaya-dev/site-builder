@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Furniture | Beige Boutique</title>
+    <title>Elite Furniture | Beige Concept</title>
     <style>
         :root {
             --navy: #001f3f; 
             --yellow: #ffcc00; 
-            --beige: #f5f0e6; /* Soft light beige */
+            --beige: #f5f0e6; 
             --white: #ffffff;
             --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
@@ -18,7 +18,7 @@
             margin: 0;
             padding: 0;
             color: var(--navy);
-            background-color: var(--beige); /* Page background */
+            background-color: var(--beige);
             overflow-x: hidden;
         }
 
@@ -60,21 +60,9 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .hero-text h1 {
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: 2px;
-        }
-
         /* 2. Product Sections */
         .section-padding { padding: 80px 10%; }
         
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-        }
-
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -82,17 +70,12 @@
         }
 
         .product-card {
-            background: var(--white); /* Keeps cards clean and white */
+            background: var(--white);
             padding: 20px;
             text-align: center;
             transition: var(--transition);
             border-radius: 15px;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,31,63,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .product-card img {
@@ -127,18 +110,18 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 40px;
-            margin: 40px 0;
         }
 
-        .about-content { flex: 1; min-width: 300px; padding: 40px; }
+        .about-content { flex: 1; min-width: 300px; padding: 60px 10%; }
         .about-image { flex: 1; min-width: 300px; line-height: 0; }
         .about-image img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* 4. Footer */
+        /* 4. BEIGE FOOTER SECTION */
         footer {
-            background: #000b1a;
-            color: var(--white);
-            padding: 60px 10% 20px;
+            background-color: var(--beige); /* Light beige footer */
+            color: var(--navy); /* Navy text for contrast */
+            padding: 80px 10% 40px;
+            border-top: 1px solid rgba(0, 31, 63, 0.1); /* Subtle line for separation */
         }
 
         .footer-grid {
@@ -147,17 +130,42 @@
             gap: 40px;
         }
 
-        .footer-col h4 { color: var(--yellow); margin-bottom: 20px; }
-        .footer-col a { color: white; text-decoration: none; font-size: 0.9rem; }
-        .footer-col a:hover { color: var(--yellow); }
+        .footer-col h4 { 
+            color: var(--navy); 
+            margin-bottom: 25px; 
+            border-bottom: 2px solid var(--yellow);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .footer-col a { 
+            color: var(--navy); 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            display: block;
+            margin-bottom: 12px;
+            transition: 0.3s;
+            opacity: 0.8;
+        }
+
+        .footer-col a:hover { 
+            color: var(--navy); 
+            opacity: 1;
+            padding-left: 5px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
 
         .copyright {
             text-align: center;
-            margin-top: 40px;
-            font-size: 0.8rem;
-            opacity: 0.5;
-            border-top: 1px solid #1a2a3a;
-            padding-top: 20px;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(0, 31, 63, 0.05);
+            padding-top: 30px;
         }
     </style>
 </head>
@@ -166,40 +174,40 @@
     <div class="banner-container">
         <header class="hero-banner">
             <div class="hero-text">
-                <h1>ELEGANT LIVING</h1>
-                <p style="background: var(--yellow); color: var(--navy); padding: 5px 15px; font-weight: bold; border-radius: 5px;">Exclusive 2026 Collection</p>
+                <h1 style="margin:0; font-size: 3rem;">ELITE DESIGN</h1>
+                <p style="background: var(--yellow); color: var(--navy); padding: 5px 15px; font-weight: bold; margin-top: 10px; border-radius: 5px;">Collection 2026</p>
             </div>
         </header>
     </div>
 
     <section class="section-padding">
-        <h2 class="reveal">Featured Pieces</h2>
+        <h2 class="reveal" style="text-align: center; font-size: 2.2rem;">Our Selection</h2>
         <div class="product-grid">
             <div class="product-card reveal">
                 <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
-                <h3>Navy Lounge Sofa</h3>
+                <h3>Midnight Sofa</h3>
                 <p><strong>$1,199.00</strong></p>
-                <a href="#" class="buy-btn">Add to Cart</a>
+                <a href="#" class="buy-btn">Shop Now</a>
             </div>
             <div class="product-card reveal" style="transition-delay: 0.1s;">
                 <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
-                <h3>Amber Wing Chair</h3>
+                <h3>Amber Chair</h3>
                 <p><strong>$380.00</strong></p>
-                <a href="#" class="buy-btn">Add to Cart</a>
+                <a href="#" class="buy-btn">Shop Now</a>
             </div>
             <div class="product-card reveal" style="transition-delay: 0.2s;">
                 <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
-                <h3>Scandi Coffee Table</h3>
+                <h3>Oak Table</h3>
                 <p><strong>$220.00</strong></p>
-                <a href="#" class="buy-btn">Add to Cart</a>
+                <a href="#" class="buy-btn">Shop Now</a>
             </div>
         </div>
     </section>
 
     <section class="about-section">
         <div class="about-content reveal">
-            <h2 style="text-align: left; color: var(--yellow);">Natural Aesthetics</h2>
-            <p>Our 2026 collection focuses on earthy tones and sustainable materials. Every piece is handcrafted to ensure that your home isn't just a place to live, but a sanctuary of comfort.</p>
+            <h2 style="text-align: left; color: var(--yellow);">Crafted for You</h2>
+            <p>Our furniture is more than just decor. It's a statement of quality and a commitment to sustainable living. Explore pieces that last a lifetime.</p>
         </div>
         <div class="about-image reveal">
             <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Interior">
@@ -209,25 +217,26 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Information</h4>
-                <p><a href="#">Our Story</a></p>
-                <p><a href="#">Shipping & Returns</a></p>
-                <p><a href="#">Terms of Service</a></p>
+                <h4>Explore</h4>
+                <a href="#">Living Room</a>
+                <a href="#">Bedroom</a>
+                <a href="#">Office Decor</a>
             </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p>📍 123 Design St, NY</p>
+            <div class="footer-col contact-info">
+                <h4>Connect</h4>
+                <p>📍 123 Design District, NY</p>
                 <p>📞 +1 555 123 4567</p>
-                <p>✉️ hello@elitefurniture.com</p>
+                <p>✉️ hello@elitefurnish.com</p>
             </div>
             <div class="footer-col">
-                <h4>Socials</h4>
-                <p><a href="#">Instagram</a></p>
-                <p><a href="#">Pinterest</a></p>
+                <h4>Social</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">Facebook</a>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2026 Elite Furniture Studio.
+            &copy; 2026 Elite Furniture Studio. Sustainable & Modern.
         </div>
     </footer>
 
