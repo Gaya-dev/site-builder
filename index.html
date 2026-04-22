@@ -3,317 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Furniture</title>
+<title>Services</title>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background:#f9f7f3;
-  color:#222;
-}
-
-/* HEADER */
-header {
-  display:flex;
-  justify-content:space-between;
-  padding:20px 60px;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(10px);
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-
-.logo {
-  font-size:24px;
-  font-weight:600;
-  letter-spacing:1px;
-}
-
-nav a {
-  margin-left:30px;
-  text-decoration:none;
-  color:#222;
-  transition:0.3s;
-}
-nav a:hover { color:#d4a373; }
-
-/* HERO */
-.hero {
-  height:90vh;
-  background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+  margin:0;
+  font-family:'Segoe UI', sans-serif;
+  background:#0f172a;
   color:white;
 }
 
-.hero h1 {
-  font-size:60px;
-  animation:fadeUp 1s ease;
-}
-
-.hero button {
-  margin-top:20px;
-  padding:15px 40px;
-  border:none;
-  background:#1e2a38;
-  color:white;
-  cursor:pointer;
-  transition:0.3s;
-}
-.hero button:hover { background:#d4a373; }
-
-/* PRODUCTS */
-.products {
-  padding:100px 60px;
-}
-
-.products h2 {
+/* SECTION */
+.services {
+  padding:100px 20px;
   text-align:center;
-  margin-bottom:60px;
 }
 
+.services h1 {
+  font-size:40px;
+  margin-bottom:50px;
+}
+
+/* GRID */
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  max-width:1200px;
+  margin:auto;
 }
 
+/* CARD */
 .card {
-  background:white;
+  background:rgba(255,255,255,0.05);
   border-radius:20px;
-  overflow:hidden;
+  padding:25px;
   transition:0.4s;
-  cursor:pointer;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover {
-  transform:translateY(-10px);
+  transform:translateY(-10px) scale(1.03);
+  background:linear-gradient(135deg,#1e293b,#0f172a);
 }
 
-.card img {
-  width:100%;
-  height:260px;
-  object-fit:cover;
+/* ICON */
+.icon {
+  font-size:30px;
+  margin-bottom:15px;
 }
 
-.card-content {
-  padding:20px;
-  text-align:center;
-}
-
-.price {
-  color:#1e2a38;
+/* BUTTON */
+.btn {
+  margin-top:50px;
+  padding:15px 40px;
+  background:#facc15;
+  color:black;
+  border:none;
+  border-radius:30px;
   font-weight:bold;
-}
-
-/* POPUP */
-.popup {
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.6);
-  display:none;
-  align-items:center;
-  justify-content:center;
-}
-
-.popup-content {
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  width:350px;
-  text-align:center;
-  animation:fadeUp 0.5s ease;
-}
-
-.popup img {
-  width:100%;
-  border-radius:10px;
-}
-
-.popup button {
-  margin-top:15px;
-  padding:10px 20px;
-  border:none;
-  background:#1e2a38;
-  color:white;
   cursor:pointer;
+  transition:0.3s;
 }
 
-/* CART */
-.cart {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#1e2a38;
-  color:white;
-  padding:15px 20px;
-  border-radius:50px;
-}
-
-/* ABOUT */
-.about {
-  padding:100px 60px;
-  background:#fff;
-  text-align:center;
-}
-
-/* CONTACT */
-.contact {
-  padding:100px 60px;
-  background:#1e2a38;
-  color:white;
-  text-align:center;
-}
-
-.contact input, .contact textarea {
-  display:block;
-  margin:10px auto;
-  padding:10px;
-  width:300px;
-  border:none;
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from {opacity:0; transform:translateY(20px);}
-  to {opacity:1; transform:translateY(0);}
-}
-
-.hidden {
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-
-.show {
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  header { padding:20px; }
-  .products, .about, .contact { padding:60px 20px; }
-  .hero h1 { font-size:35px; }
+.btn:hover {
+  background:white;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">FurniLuxury</div>
-  <nav>
-    <a href="#">Главная</a>
-    <a href="#products">Каталог</a>
-    <a href="#contact">Контакты</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div>
-    <h1>Luxury Furniture</h1>
-    <button onclick="scrollToProducts()">Смотреть каталог</button>
-  </div>
-</section>
-
-<section class="products" id="products">
-  <h2>Каталог</h2>
+<section class="services">
+  <h1>Our Services</h1>
 
   <div class="grid">
-    <div class="card hidden" onclick="openPopup('Диван', '$800', 'https://images.unsplash.com/photo-1616627988500-b8f6a4c8c8e9')">
-      <img src="https://images.unsplash.com/photo-1616627988500-b8f6a4c8c8e9">
-      <div class="card-content">
-        <h3>Диван</h3>
-        <p class="price">$800</p>
-      </div>
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <p>Create a WordPress Website</p>
     </div>
 
-    <div class="card hidden" onclick="openPopup('Кровать', '$1200', 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85')">
-      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-      <div class="card-content">
-        <h3>Кровать</h3>
-        <p class="price">$1200</p>
-      </div>
+    <div class="card">
+      <div class="icon">🎨</div>
+      <p>WordPress Theme Customization</p>
     </div>
 
-    <div class="card hidden" onclick="openPopup('Стол', '$500', 'https://images.unsplash.com/photo-1582582429416-9a4f74a8df42')">
-      <img src="https://images.unsplash.com/photo-1582582429416-9a4f74a8df42">
-      <div class="card-content">
-        <h3>Стол</h3>
-        <p class="price">$500</p>
-      </div>
+    <div class="card">
+      <div class="icon">📄</div>
+      <p>Landing Page Design</p>
     </div>
+
+    <div class="card">
+      <div class="icon">⚡</div>
+      <p>Elementor / Elementor Pro</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛒</div>
+      <p>E-commerce Website</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📧</div>
+      <p>Email Marketing</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🏢</div>
+      <p>Business Website</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚀</div>
+      <p>Speed Optimization</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💳</div>
+      <p>Payment Gateway Integration</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🖥️</div>
+      <p>Wix Website Design</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📱</div>
+      <p>Wix Landing Page</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌍</div>
+      <p>Multi-language Website</p>
+    </div>
+
   </div>
+
+  <button class="btn">Connect With Us</button>
+
 </section>
-
-<!-- POPUP -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <img id="popup-img">
-    <h2 id="popup-title"></h2>
-    <p id="popup-price"></p>
-    <button onclick="addToCart()">Добавить в корзину</button>
-    <button onclick="closePopup()">Закрыть</button>
-  </div>
-</div>
-
-<div class="cart" id="cart">🛒 0</div>
-
-<section class="about">
-  <h2>О нас</h2>
-  <p>Мы создаем современную мебель премиум качества для вашего дома. Наш дизайн сочетает минимализм и комфорт.</p>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Контакты</h2>
-  <input placeholder="Имя">
-  <input placeholder="Email">
-  <textarea placeholder="Сообщение"></textarea>
-  <button>Отправить</button>
-</section>
-
-<script>
-let cart = 0;
-
-function openPopup(title, price, img){
-  document.getElementById('popup').style.display='flex';
-  document.getElementById('popup-title').innerText=title;
-  document.getElementById('popup-price').innerText=price;
-  document.getElementById('popup-img').src=img;
-}
-
-function closePopup(){
-  document.getElementById('popup').style.display='none';
-}
-
-function addToCart(){
-  cart++;
-  document.getElementById('cart').innerText="🛒 " + cart;
-  closePopup();
-}
-
-function scrollToProducts(){
-  document.getElementById('products').scrollIntoView({behavior:'smooth'});
-}
-
-/* SCROLL ANIMATION */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
-  });
-});
-
-document.querySelectorAll('.hidden').forEach(el=>observer.observe(el));
-</script>
 
 </body>
 </html>
