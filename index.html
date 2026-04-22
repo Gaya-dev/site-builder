@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Furniture | Boutique Collection</title>
+    <title>Elite Furniture | Animated Boutique</title>
     <style>
         :root {
             --navy: #001f3f; 
             --yellow: #ffcc00; 
             --white: #ffffff;
-            --bg-soft: #f4f4f4;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         body {
@@ -18,17 +18,35 @@
             padding: 0;
             color: var(--navy);
             background-color: var(--white);
+            overflow-x: hidden;
         }
 
-        /* 1. Adjusted Image Banner (NOT Full Screen) */
+        /* --- Animation Classes --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 1. Banner Section */
         .banner-container {
-            padding: 20px 10%; /* Adds space around the banner */
-            background-color: var(--white);
+            padding: 20px 10%;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .hero-banner {
-            height: 450px; /* Fixed height instead of 80vh/100vh */
-            border-radius: 15px; /* Rounded corners for a modern look */
+            height: 450px;
+            border-radius: 15px;
             background: linear-gradient(rgba(0,31,63,0.3), rgba(0,31,63,0.3)), 
                         url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
@@ -38,34 +56,23 @@
             justify-content: center;
             color: var(--white);
             text-align: center;
-            overflow: hidden;
+            position: relative;
         }
 
         .hero-text h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin: 0;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            animation: slideDown 1s ease-out 0.3s both;
         }
 
-        .hero-text p {
-            background: var(--yellow);
-            color: var(--navy);
-            display: inline-block;
-            padding: 8px 25px;
-            font-weight: bold;
-            margin-top: 15px;
-            text-transform: uppercase;
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* 2. Product Sections */
-        .section-padding { padding: 60px 10%; }
+        .section-padding { padding: 80px 10%; }
         
-        h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -76,11 +83,16 @@
             border: 1px solid #eee;
             padding: 15px;
             text-align: center;
-            transition: 0.3s ease;
+            transition: var(--transition);
+            border-radius: 10px;
+            background: white;
         }
 
+        /* Hover Animation for Cards */
         .product-card:hover {
-            box-shadow: 0 10px 25px rgba(0,31,63,0.1);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,31,63,0.15);
+            border-color: var(--yellow);
         }
 
         .product-card img {
@@ -88,20 +100,33 @@
             height: 280px;
             object-fit: cover;
             border-radius: 8px;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.03);
         }
 
         .buy-btn {
             background: var(--navy);
             color: var(--yellow);
-            padding: 12px 20px;
+            padding: 12px 25px;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
             margin-top: 15px;
-            border-radius: 4px;
+            border-radius: 50px; /* Rounded pill shape */
+            transition: var(--transition);
+            border: 2px solid var(--navy);
         }
 
-        /* 3. About Us */
+        .buy-btn:hover {
+            background: var(--yellow);
+            color: var(--navy);
+            letter-spacing: 1px;
+        }
+
+        /* 3. About Us (Fade in from side) */
         .about-section {
             background: var(--navy);
             color: var(--white);
@@ -109,17 +134,36 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 40px;
+            overflow: hidden;
         }
 
-        .about-content { flex: 1; min-width: 300px; }
-        .about-image { flex: 1; min-width: 300px; }
-        .about-image img { width: 100%; border-radius: 10px; }
+        .about-content { 
+            flex: 1; 
+            min-width: 300px;
+            transition-delay: 0.2s;
+        }
 
-        /* 4. Footer & Contacts */
+        .about-image { 
+            flex: 1; 
+            min-width: 300px;
+            transition-delay: 0.4s;
+        }
+
+        .about-image img { 
+            width: 100%; 
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            filter: brightness(1.1);
+        }
+
+        /* 4. Footer */
         footer {
             background: #000b1a;
             color: var(--white);
-            padding: 50px 10% 20px;
+            padding: 60px 10% 20px;
         }
 
         .footer-grid {
@@ -129,8 +173,8 @@
         }
 
         .footer-col h4 { color: var(--yellow); margin-bottom: 20px; }
-        .footer-col p, .footer-col li { font-size: 0.9rem; margin-bottom: 10px; list-style: none; padding: 0;}
-        .footer-col a { color: white; text-decoration: none; }
+        .footer-col a { color: white; text-decoration: none; transition: 0.3s; }
+        .footer-col a:hover { color: var(--yellow); padding-left: 5px; }
 
         .copyright {
             text-align: center;
@@ -148,27 +192,27 @@
         <header class="hero-banner">
             <div class="hero-text">
                 <h1>MODERN COMFORT</h1>
-                <p>New Sofa Collection 2026</p>
+                <p style="animation: slideDown 1s ease-out 0.5s both;">New Collection 2026</p>
             </div>
         </header>
     </div>
 
     <section class="section-padding">
-        <h2>Our Best Sellers</h2>
+        <h2 class="reveal">Our Best Sellers</h2>
         <div class="product-grid">
-            <div class="product-card">
+            <div class="product-card reveal">
                 <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
                 <h3>Navy Velvet Sofa</h3>
                 <p><strong>$1,199.00</strong></p>
                 <a href="#" class="buy-btn">Shop Now</a>
             </div>
-            <div class="product-card">
+            <div class="product-card reveal" style="transition-delay: 0.1s;">
                 <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
                 <h3>Yellow Accent Chair</h3>
                 <p><strong>$380.00</strong></p>
                 <a href="#" class="buy-btn">Shop Now</a>
             </div>
-            <div class="product-card">
+            <div class="product-card reveal" style="transition-delay: 0.2s;">
                 <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
                 <h3>Designer Coffee Table</h3>
                 <p><strong>$220.00</strong></p>
@@ -178,11 +222,11 @@
     </section>
 
     <section class="section-padding about-section">
-        <div class="about-content">
+        <div class="about-content reveal">
             <h2 style="text-align: left; color: var(--yellow);">High-End Craftsmanship</h2>
-            <p>Our furniture is designed for those who value both aesthetics and durability. Every piece is made from sustainably sourced wood and premium textiles to ensure your home feels as good as it looks.</p>
+            <p>Our furniture is designed for those who value both aesthetics and durability. Every piece is made from sustainably sourced wood and premium textiles.</p>
         </div>
-        <div class="about-image">
+        <div class="about-image reveal">
             <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Interior">
         </div>
     </section>
@@ -191,11 +235,9 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>Information</h4>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Shipping Details</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
+                <p><a href="#">About Us</a></p>
+                <p><a href="#">Shipping Details</a></p>
+                <p><a href="#">Privacy Policy</a></p>
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
@@ -205,9 +247,9 @@
             </div>
             <div class="footer-col">
                 <h4>Follow Us</h4>
-                <p>Instagram</p>
-                <p>Facebook</p>
-                <p>Pinterest</p>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Facebook</a></p>
+                <p><a href="#">Pinterest</a></p>
             </div>
         </div>
         <div class="copyright">
@@ -215,5 +257,20 @@
         </div>
     </footer>
 
+    <script>
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
