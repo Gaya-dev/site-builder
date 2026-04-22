@@ -331,4 +331,72 @@
                 <a href="#" class="buy-btn">Shop Now</a>
             </div>
             <div class="product-card reveal" style="transition-delay: 0.1s;">
-                <div class="img-container"><img src="
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?w=600" alt="Chair"></div>
+                <h3>Amber Wingback</h3>
+                <span class="price">$380.00</span>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+            <div class="product-card reveal" style="transition-delay: 0.2s;">
+                <div class="img-container"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600" alt="Table"></div>
+                <h3>Oak Coffee Table</h3>
+                <span class="price">$220.00</span>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section reveal" id="about">
+        <div class="about-content">
+            <h2 style="text-align: left; color: var(--yellow); margin-top: 0;">About Us</h2>
+            <p>At Elite Furniture, we believe your home should reflect your journey. We source the finest materials to create sustainable, timeless pieces that bring luxury into your everyday life.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Workshop">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 style="border-bottom: 2px solid var(--yellow); display: inline-block;">Contact</h4>
+                <p>📍 Design District, NY</p>
+                <p>✉️ hello@elitefurnish.com</p>
+            </div>
+            <div class="footer-col">
+                <h4 style="border-bottom: 2px solid var(--yellow); display: inline-block;">Social</h4>
+                <p>Instagram / Pinterest / LinkedIn</p>
+            </div>
+        </div>
+        <p style="margin-top: 60px; opacity: 0.5;">&copy; 2026 Elite Furniture Studio.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const heroBg = document.getElementById('heroBg');
+            heroBg.style.transform = `translateY(${scroll * 0.4}px)`;
+            
+            const nav = document.getElementById('navbar');
+            if (scroll > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        const revealCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealCallback, {
+            threshold: 0.15
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
