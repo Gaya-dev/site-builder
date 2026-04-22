@@ -1,150 +1,253 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services</title>
+
+<title>Modern Furniture</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
+* {
   margin:0;
-  font-family:'Segoe UI', sans-serif;
-  background:#0f172a;
-  color:white;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* SECTION */
-.services {
-  padding:100px 20px;
-  text-align:center;
+body {
+  font-family:'Poppins', sans-serif;
+  background:#0b1d2a;
+  color:#fff;
 }
 
-.services h1 {
-  font-size:40px;
-  margin-bottom:50px;
-}
-
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+/* CONTAINER */
+.container {
   max-width:1200px;
   margin:auto;
+  padding:0 20px;
 }
 
-/* CARD */
-.card {
-  background:rgba(255,255,255,0.05);
-  border-radius:20px;
-  padding:25px;
-  transition:0.4s;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.1);
+/* HEADER */
+header {
+  display:flex;
+  justify-content:space-between;
+  padding:20px 0;
+  align-items:center;
 }
 
-.card:hover {
-  transform:translateY(-10px) scale(1.03);
-  background:linear-gradient(135deg,#1e293b,#0f172a);
+.logo {
+  font-weight:700;
+  font-size:22px;
+  color:#facc15;
 }
 
-/* ICON */
-.icon {
-  font-size:30px;
-  margin-bottom:15px;
+nav a {
+  color:white;
+  margin-left:25px;
+  text-decoration:none;
+  transition:0.3s;
 }
 
-/* BUTTON */
+nav a:hover {
+  color:#facc15;
+}
+
+/* HERO */
+.hero {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:80px 0;
+  flex-wrap:wrap;
+}
+
+.hero-text {
+  max-width:500px;
+}
+
+.hero-text h1 {
+  font-size:48px;
+  margin-bottom:20px;
+}
+
+.hero-text p {
+  color:#ccc;
+  margin-bottom:25px;
+}
+
 .btn {
-  margin-top:50px;
-  padding:15px 40px;
   background:#facc15;
-  color:black;
+  color:#000;
+  padding:15px 30px;
   border:none;
-  border-radius:30px;
-  font-weight:bold;
   cursor:pointer;
+  font-weight:600;
   transition:0.3s;
 }
 
 .btn:hover {
   background:white;
 }
+
+.hero img {
+  width:500px;
+  border-radius:20px;
+}
+
+/* ABOUT */
+.about {
+  padding:80px 0;
+  text-align:center;
+}
+
+.about h2 {
+  margin-bottom:20px;
+}
+
+.about p {
+  max-width:700px;
+  margin:auto;
+  color:#ccc;
+}
+
+/* FEATURES */
+.features {
+  padding:80px 0;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.card {
+  background:#132b3a;
+  padding:25px;
+  border-radius:15px;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-10px);
+  background:#1e3a4c;
+}
+
+.card img {
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+/* CONTACT */
+.contact {
+  padding:80px 0;
+  text-align:center;
+}
+
+.contact input, .contact textarea {
+  width:100%;
+  max-width:400px;
+  margin:10px auto;
+  padding:10px;
+  border:none;
+  display:block;
+  border-radius:5px;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  background:#07141f;
+  color:#aaa;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero {
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero img {
+    width:100%;
+    margin-top:30px;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<section class="services">
-  <h1>Our Services</h1>
+<div class="container">
 
+<header>
+  <div class="logo">FurniModern</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Modern Furniture for Stylish Living</h1>
+    <p>Discover premium furniture designed with elegance, comfort, and minimalism in mind.</p>
+    <button class="btn">Shop Now</button>
+  </div>
+
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <h2>About Us</h2>
+  <p>We create modern furniture that blends simplicity with luxury. Our mission is to bring comfort and style into your home using high-quality materials and timeless design.</p>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
   <div class="grid">
 
     <div class="card">
-      <div class="icon">🌐</div>
-      <p>Create a WordPress Website</p>
+      <img src="https://images.unsplash.com/photo-1616627988500-b8f6a4c8c8e9">
+      <h3>Luxury Sofas</h3>
+      <p>Comfort meets elegance with our premium sofa collection.</p>
     </div>
 
     <div class="card">
-      <div class="icon">🎨</div>
-      <p>WordPress Theme Customization</p>
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+      <h3>Modern Beds</h3>
+      <p>Minimal design for peaceful and stylish sleep.</p>
     </div>
 
     <div class="card">
-      <div class="icon">📄</div>
-      <p>Landing Page Design</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">⚡</div>
-      <p>Elementor / Elementor Pro</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🛒</div>
-      <p>E-commerce Website</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">📧</div>
-      <p>Email Marketing</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🏢</div>
-      <p>Business Website</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🚀</div>
-      <p>Speed Optimization</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💳</div>
-      <p>Payment Gateway Integration</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🖥️</div>
-      <p>Wix Website Design</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">📱</div>
-      <p>Wix Landing Page</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🌍</div>
-      <p>Multi-language Website</p>
+      <img src="https://images.unsplash.com/photo-1582582429416-9a4f74a8df42">
+      <h3>Elegant Tables</h3>
+      <p>Perfect balance of design and functionality.</p>
     </div>
 
   </div>
-
-  <button class="btn">Connect With Us</button>
-
 </section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact Us</h2>
+  <input type="text" placeholder="Your Name">
+  <input type="email" placeholder="Email">
+  <textarea placeholder="Message"></textarea>
+  <button class="btn">Send Message</button>
+</section>
+
+<footer>
+  © 2026 FurniModern. All rights reserved.
+</footer>
+
+</div>
 
 </body>
 </html>
