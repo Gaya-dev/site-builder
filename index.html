@@ -71,11 +71,8 @@
         }
 
         .nav-links a:hover { color: var(--yellow); }
+        .main-nav.scrolled .logo, .main-nav.scrolled .nav-links a { color: var(--white); }
 
-        .main-nav.scrolled .logo,
-        .main-nav.scrolled .nav-links a { color: var(--white); }
-
-        /* Animation Classes */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -110,11 +107,9 @@
             justify-content: center;
             color: var(--white);
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             position: relative;
         }
 
-        /* Декоративное растение слева */
         .hero-banner::after {
             content: "";
             position: absolute;
@@ -130,7 +125,6 @@
             z-index: 2;
         }
 
-        /* Подушки/акценты справа */
         .hero-banner::before {
             content: "";
             position: absolute;
@@ -146,50 +140,82 @@
             transform: rotate(2deg);
         }
 
-        .hero-text {
-            position: relative;
-            z-index: 5;
+        .hero-text h1 { font-size: 2.5rem; max-width: 800px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+
+        /* --- SUPER SALE SECTION --- */
+        .super-sale {
+            margin: 40px 10%;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,31,63,0.2);
         }
 
-        .hero-text h1 {
-            margin: 0 auto;
-            font-size: 2.5rem;
-            max-width: 800px;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        .sale-image {
+            background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover;
+            min-height: 400px;
         }
 
-        .hero-btn {
+        .sale-content {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sale-tag {
             background: var(--yellow);
             color: var(--navy);
-            padding: 12px 40px;
+            padding: 5px 15px;
             font-weight: bold;
-            margin: 25px auto 0;
-            border-radius: 50px;
             display: inline-block;
-            text-decoration: none;
+            width: fit-content;
+            border-radius: 5px;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: 2px solid var(--yellow);
+            font-size: 0.8rem;
         }
 
-        .hero-btn:hover {
-            background: transparent;
+        .sale-content h2 {
+            text-align: left;
+            margin: 0 0 20px;
+            font-size: 2.5rem;
             color: var(--white);
-            transform: scale(1.05);
+        }
+
+        .timer {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .timer-unit {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 10px;
+            min-width: 65px;
+        }
+
+        .timer-unit span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--yellow);
+        }
+
+        .timer-unit label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            opacity: 0.7;
         }
 
         /* --- COLLAGE SECTION --- */
         section { padding: 60px 10%; }
-        
-        h2 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
 
         .collage-grid {
             display: grid;
@@ -208,18 +234,7 @@
             transition: var(--transition);
         }
 
-        .collage-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .collage-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,31,63,0.1);
-        }
-
+        .collage-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
         .collage-item:hover img { transform: scale(1.05); }
         .collage-item.large { grid-row: span 2; }
 
@@ -234,13 +249,6 @@
             box-sizing: border-box;
         }
 
-        .collage-overlay h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-        }
-
-        /* --- PRODUCTS --- */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -251,24 +259,11 @@
             background: var(--white);
             padding: 20px;
             text-align: center;
-            transition: var(--transition);
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
-        .product-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .price {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 10px 0;
-            display: block;
-        }
+        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; }
 
         .buy-btn {
             background: var(--navy);
@@ -281,12 +276,6 @@
             transition: var(--transition);
         }
 
-        .buy-btn:hover {
-            background: var(--yellow);
-            color: var(--navy);
-        }
-
-        /* --- FOOTER --- */
         footer {
             background-color: var(--beige);
             color: var(--navy);
@@ -294,27 +283,10 @@
             border-top: 1px solid rgba(0, 31, 63, 0.1);
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-col h4 { margin-bottom: 25px; border-bottom: 2px solid var(--yellow); display: inline-block; }
-        .footer-col a { color: var(--navy); text-decoration: none; display: block; margin-bottom: 12px; opacity: 0.8; transition: 0.3s; }
-        .footer-col a:hover { opacity: 1; padding-left: 5px; }
-
-        .copyright {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 0.85rem;
-            opacity: 0.6;
-            border-top: 1px solid rgba(0, 31, 63, 0.05);
-            padding-top: 30px;
-        }
-
         @media (max-width: 768px) {
             .hero-banner::before, .hero-banner::after { display: none; }
+            .super-sale { grid-template-columns: 1fr; }
+            .sale-image { min-height: 250px; }
             .collage-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
             .collage-item { height: 300px; }
             .collage-item.large { grid-row: auto; }
@@ -342,6 +314,32 @@
         </header>
     </div>
 
+    <section class="super-sale reveal">
+        <div class="sale-image"></div>
+        <div class="sale-content">
+            <span class="sale-tag">Limited Offer</span>
+            <h2>Super Sale: Up to 60% Off</h2>
+            <p>Our premium furniture collection is now available at exclusive prices. Don't miss your chance to redefine your home.</p>
+            
+            <div class="timer">
+                <div class="timer-unit">
+                    <span id="hours">24</span>
+                    <label>Hours</label>
+                </div>
+                <div class="timer-unit">
+                    <span id="minutes">00</span>
+                    <label>Min</label>
+                </div>
+                <div class="timer-unit">
+                    <span id="seconds">00</span>
+                    <label>Sec</label>
+                </div>
+            </div>
+
+            <a href="#" class="buy-btn" style="background: var(--yellow); color: var(--navy);">Get Discount Now</a>
+        </div>
+    </section>
+
     <section>
         <h2 class="reveal">Most Recommend For You</h2>
         <div class="collage-grid reveal">
@@ -354,15 +352,11 @@
             </div>
             <div class="collage-item">
                 <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Minimalist Chair">
-                <div class="collage-overlay">
-                    <h3>Nordic Chair</h3>
-                </div>
+                <div class="collage-overlay"><h3>Nordic Chair</h3></div>
             </div>
             <div class="collage-item">
                 <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
-                <div class="collage-overlay">
-                    <h3>Gilded Lamp</h3>
-                </div>
+                <div class="collage-overlay"><h3>Gilded Lamp</h3></div>
             </div>
         </div>
     </section>
@@ -373,62 +367,63 @@
             <div class="product-card reveal">
                 <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
                 <h3>Navy Velvet Lounge</h3>
-                <span class="price">$1,199.00</span>
+                <span class="price" style="display:block; font-weight:bold; margin:10px 0;">$1,199.00</span>
                 <a href="#" class="buy-btn">Shop Now</a>
             </div>
             <div class="product-card reveal" style="transition-delay: 0.1s;">
                 <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
                 <h3>Amber Wingback</h3>
-                <span class="price">$380.00</span>
+                <span class="price" style="display:block; font-weight:bold; margin:10px 0;">$380.00</span>
                 <a href="#" class="buy-btn">Shop Now</a>
             </div>
             <div class="product-card reveal" style="transition-delay: 0.2s;">
                 <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
                 <h3>Oak Coffee Table</h3>
-                <span class="price">$220.00</span>
+                <span class="price" style="display:block; font-weight:bold; margin:10px 0;">$220.00</span>
                 <a href="#" class="buy-btn">Shop Now</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Collections</h4>
-                <a href="#">Living Room</a>
-                <a href="#">Bedroom</a>
-                <a href="#">Office Decor</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Info</h4>
-                <p>📍 123 Design District, NY</p>
-                <p>📞 +1 555 123 4567</p>
-            </div>
-        </div>
-        <div class="copyright">
+        <div class="copyright" style="text-align:center;">
             &copy; 2026 Elite Home Studio. All Rights Reserved.
         </div>
     </footer>
 
     <script>
+        // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
         });
 
+        // Reveal animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('active');
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // Timer Logic
+        function startTimer(duration) {
+            let timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                document.getElementById('hours').textContent = hours < 10 ? "0" + hours : hours;
+                document.getElementById('minutes').textContent = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById('seconds').textContent = seconds < 10 ? "0" + seconds : seconds;
+
+                if (--timer < 0) timer = duration;
+            }, 1000);
+        }
+        // Запуск таймера на 24 часа
+        startTimer(24 * 60 * 60);
     </script>
 </body>
 </html>
