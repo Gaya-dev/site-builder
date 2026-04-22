@@ -3,251 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furniture Luxury</title>
 
-<title>Modern Furniture</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Poppins;background:#f5f5f5;color:#333;}
 
-body {
-  font-family:'Poppins', sans-serif;
-  background:#0b1d2a;
-  color:#fff;
-}
-
-/* CONTAINER */
-.container {
-  max-width:1200px;
-  margin:auto;
-  padding:0 20px;
-}
+.container{max-width:1200px;margin:auto;padding:0 20px;}
 
 /* HEADER */
-header {
+header{
+  background:#0b1d2a;
+  color:white;
+  padding:20px 0;
+}
+.nav{
   display:flex;
   justify-content:space-between;
-  padding:20px 0;
   align-items:center;
 }
-
-.logo {
-  font-weight:700;
-  font-size:22px;
-  color:#facc15;
-}
-
-nav a {
+.logo{color:#ff9f43;font-weight:600;}
+nav a{
   color:white;
-  margin-left:25px;
+  margin-left:20px;
   text-decoration:none;
-  transition:0.3s;
 }
-
-nav a:hover {
-  color:#facc15;
-}
+nav a:hover{color:#ff9f43;}
 
 /* HERO */
-.hero {
+.hero{
+  background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover;
+  height:500px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:80px 0;
-  flex-wrap:wrap;
+  justify-content:center;
+  text-align:center;
+  color:white;
 }
-
-.hero-text {
-  max-width:500px;
-}
-
-.hero-text h1 {
-  font-size:48px;
-  margin-bottom:20px;
-}
-
-.hero-text p {
-  color:#ccc;
-  margin-bottom:25px;
-}
-
-.btn {
-  background:#facc15;
-  color:#000;
-  padding:15px 30px;
+.hero h1{font-size:45px;margin-bottom:15px;}
+.btn{
+  background:#ff9f43;
+  padding:12px 30px;
   border:none;
+  color:white;
   cursor:pointer;
-  font-weight:600;
-  transition:0.3s;
 }
 
-.btn:hover {
+/* CATEGORIES */
+.categories{
   background:white;
-}
-
-.hero img {
-  width:500px;
-  border-radius:20px;
-}
-
-/* ABOUT */
-.about {
-  padding:80px 0;
+  padding:40px 0;
   text-align:center;
 }
-
-.about h2 {
-  margin-bottom:20px;
+.categories span{
+  margin:0 15px;
+  color:#777;
+  cursor:pointer;
 }
 
-.about p {
-  max-width:700px;
-  margin:auto;
-  color:#ccc;
+/* FEATURE SECTION */
+.feature{
+  padding:60px 0;
+}
+.feature-box{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+.feature img{
+  width:50%;
+  border-radius:10px;
+}
+.feature-text{
+  background:white;
+  padding:30px;
+  border-radius:10px;
 }
 
-/* FEATURES */
-.features {
-  padding:80px 0;
+/* PRODUCTS */
+.products{
+  padding:60px 0;
 }
-
-.grid {
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
+  gap:25px;
 }
-
-.card {
-  background:#132b3a;
-  padding:25px;
-  border-radius:15px;
+.card{
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
   transition:0.3s;
 }
-
-.card:hover {
-  transform:translateY(-10px);
-  background:#1e3a4c;
+.card:hover{transform:translateY(-5px);}
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.card-content{
+  padding:15px;
 }
 
-.card img {
+/* BLOG / GALLERY */
+.gallery{
+  padding:60px 0;
+}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.gallery img{
   width:100%;
   border-radius:10px;
-  margin-bottom:15px;
 }
 
-/* CONTACT */
-.contact {
-  padding:80px 0;
+/* FOOTER */
+footer{
+  background:#0b1d2a;
+  color:white;
+  padding:40px 0;
   text-align:center;
 }
 
-.contact input, .contact textarea {
-  width:100%;
-  max-width:400px;
-  margin:10px auto;
+input{
   padding:10px;
+  margin:10px;
+  width:250px;
   border:none;
-  display:block;
-  border-radius:5px;
 }
 
-footer {
-  text-align:center;
-  padding:20px;
-  background:#07141f;
-  color:#aaa;
-}
-
-/* RESPONSIVE */
 @media(max-width:900px){
-  .hero {
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .hero img {
-    width:100%;
-    margin-top:30px;
-  }
+  .feature-box{flex-direction:column;}
+  .gallery-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
 <header>
-  <div class="logo">FurniModern</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
+  <div class="container nav">
+    <div class="logo">FurniLuxury</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Products</a>
+      <a href="#">Blog</a>
+    </nav>
+  </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-text">
-    <h1>Modern Furniture for Stylish Living</h1>
-    <p>Discover premium furniture designed with elegance, comfort, and minimalism in mind.</p>
+  <div>
+    <h1>Modern Living Interior</h1>
     <button class="btn">Shop Now</button>
   </div>
-
-  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
 </section>
 
-<!-- ABOUT -->
-<section class="about">
-  <h2>About Us</h2>
-  <p>We create modern furniture that blends simplicity with luxury. Our mission is to bring comfort and style into your home using high-quality materials and timeless design.</p>
+<section class="categories">
+  <span>Sofas</span>
+  <span>Chairs</span>
+  <span>Tables</span>
+  <span>Decor</span>
+  <span>Lighting</span>
 </section>
 
-<!-- FEATURES -->
-<section class="features">
+<section class="feature container">
+  <div class="feature-box">
+    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
+    <div class="feature-text">
+      <h2>Create Your Dream Interior</h2>
+      <p>Beautiful furniture designed for modern homes.</p>
+      <button class="btn">Explore</button>
+    </div>
+  </div>
+</section>
+
+<section class="products container">
+  <h2 style="text-align:center;margin-bottom:30px;">Featured Products</h2>
   <div class="grid">
-
+    
     <div class="card">
       <img src="https://images.unsplash.com/photo-1616627988500-b8f6a4c8c8e9">
-      <h3>Luxury Sofas</h3>
-      <p>Comfort meets elegance with our premium sofa collection.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-      <h3>Modern Beds</h3>
-      <p>Minimal design for peaceful and stylish sleep.</p>
+      <div class="card-content">
+        <h3>Sofa</h3>
+        <p>$800</p>
+      </div>
     </div>
 
     <div class="card">
       <img src="https://images.unsplash.com/photo-1582582429416-9a4f74a8df42">
-      <h3>Elegant Tables</h3>
-      <p>Perfect balance of design and functionality.</p>
+      <div class="card-content">
+        <h3>Table</h3>
+        <p>$400</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9">
+      <div class="card-content">
+        <h3>Chair</h3>
+        <p>$200</p>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact">
-  <h2>Contact Us</h2>
-  <input type="text" placeholder="Your Name">
-  <input type="email" placeholder="Email">
-  <textarea placeholder="Message"></textarea>
-  <button class="btn">Send Message</button>
+<section class="gallery container">
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb">
+    <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a">
+    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
+  </div>
 </section>
 
 <footer>
-  © 2026 FurniModern. All rights reserved.
+  <h3>Contact Us</h3>
+  <input placeholder="Email">
+  <button class="btn">Subscribe</button>
+  <p style="margin-top:20px;">© 2026 FurniLuxury</p>
 </footer>
-
-</div>
 
 </body>
 </html>
