@@ -84,10 +84,11 @@
         }
         .hero-text h1 { font-size: 3rem; max-width: 800px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin-bottom: 30px; }
 
-        /* --- COLLAGE: RECOMMENDED --- */
+        /* --- SECTIONS GENERAL --- */
         section { padding: 80px 10%; }
         h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
 
+        /* --- COLLAGE: RECOMMENDED --- */
         .collage-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -116,12 +117,14 @@
         .sale-image { background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; min-height: 400px; }
         .sale-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
-        /* --- PRODUCTS --- */
+        /* --- PRODUCT GRIDS (Best Sellers & New Arrivals) --- */
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: var(--white); padding: 25px; text-align: center; border-radius: 20px; }
+        .product-card { background: var(--white); padding: 25px; text-align: center; border-radius: 20px; transition: var(--transition); position: relative; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
+        .badge { position: absolute; top: 15px; left: 15px; background: var(--yellow); color: var(--navy); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
 
-        /* --- ABOUT US (CONSTRAINED) --- */
+        /* --- ABOUT US --- */
         .about-wrapper {
             padding: 100px 10%;
             background-color: var(--beige);
@@ -190,6 +193,7 @@
             <li><a href="#">Home</a></li>
             <li><a href="#recommended">Recommended</a></li>
             <li><a href="#best-sellers">Best Sellers</a></li>
+            <li><a href="#new-arrivals">New Arrivals</a></li>
             <li><a href="#about">About</a></li>
         </ul>
     </nav>
@@ -250,6 +254,33 @@
                 <h3>Oak Coffee Table</h3>
                 <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$220.00</p>
                 <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="new-arrivals">
+        <h2 class="reveal">New Arrivals</h2>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=600&q=80" alt="Modern Chair">
+                <h3>Cloud Soft Armchair</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$450.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=80" alt="Console Table">
+                <h3>Marble Entry Table</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$720.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80" alt="Minimal Lamp">
+                <h3>Orbital Floor Lamp</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$185.00</p>
+                <a href="#" class="buy-btn">View Details</a>
             </div>
         </div>
     </section>
