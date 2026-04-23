@@ -144,6 +144,24 @@
         .sale-image { background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; min-height: 400px; }
         .sale-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
+        /* --- ABOUT US --- */
+        .about-wrapper { padding: 60px 10%; background-color: var(--beige); }
+        .about-card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 30px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .about-image img { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 15px 15px 0px var(--yellow); }
+        .about-content h2 { text-align: left; margin-bottom: 20px; font-size: 2.5rem; }
+        .about-content p { line-height: 1.8; font-size: 1.05rem; color: #555; margin-bottom: 25px; }
+
         /* --- FOOTER --- */
         .main-footer { background-color: var(--navy); color: var(--white); padding: 80px 10% 40px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
@@ -161,7 +179,7 @@
             .nav-links a { font-size: 0.65rem; }
             
             .hero-banner { 
-                height: 180px; /* УСТАНОВЛЕНО: Компактный размер */
+                height: 180px; 
                 min-height: auto;
                 background-size: cover;
                 background-position: center;
@@ -181,7 +199,6 @@
             }
 
             .hero-text { position: relative; z-index: 2; }
-
             .hero-text h1 { 
                 font-size: 1rem; 
                 margin-bottom: 12px; 
@@ -197,7 +214,12 @@
             }
 
             .banner-container { padding: 70px 5% 5px; }
-            .super-sale, .collage-grid { grid-template-columns: 1fr; }
+            .super-sale, .collage-grid, .about-card { grid-template-columns: 1fr; }
+            .about-card { padding: 30px; gap: 30px; }
+            .about-image img { height: 250px; box-shadow: 10px 10px 0px var(--yellow); }
+            .about-content h2 { text-align: center; font-size: 1.8rem; }
+            .about-content p { font-size: 0.95rem; text-align: center; }
+            
             .collage-grid { grid-template-rows: auto; }
             .collage-item { height: 200px; }
             .sale-image { min-height: 200px; }
@@ -214,6 +236,7 @@
             <li><a href="#">Home</a></li>
             <li><a href="#recommended">Recommend</a></li>
             <li><a href="#best-sellers">Shop</a></li>
+            <li><a href="#about">About</a></li>
         </ul>
     </nav>
 
@@ -267,6 +290,40 @@
             </div>
         </div>
     </section>
+
+    <section id="new-arrivals">
+        <h2 class="reveal">New Arrivals</h2>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <div class="badge">New</div>
+                <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=600&q=80" alt="Chair">
+                <h3>Scandi Grey Armchair</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$450.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+            <div class="product-card reveal">
+                <div class="badge">New</div>
+                <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=80" alt="Sofa">
+                <h3>Cream Minimalist Sofa</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$1,400.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="about-wrapper reveal" id="about">
+        <section class="about-card">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="Our Studio">
+            </div>
+            <div class="about-content">
+                <h2>About Elite Home</h2>
+                <p>Since 2010, Elite Home has been dedicated to crafting spaces that inspire. We believe every piece of furniture should be a perfect blend of comfort and art.</p>
+                <p>Our curated collections are designed to bring elegance and quality into every corner of your living space.</p>
+                <a href="#" class="buy-btn">Explore Our Story</a>
+            </div>
+        </section>
+    </div>
 
     <section class="super-sale reveal">
         <div class="sale-image"></div>
