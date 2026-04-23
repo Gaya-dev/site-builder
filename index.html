@@ -13,9 +13,7 @@
             --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -170,20 +168,17 @@
             .nav-links a { font-size: 0.65rem; }
             
             .hero-banner { 
-                height: auto; 
-                min-height: 250px;
-                aspect-ratio: 16 / 9;
-                background-size: cover; /* Изменено на cover для заполнения */
+                height: 125px; /* ИЗМЕНЕНО: В 2 раза меньше от предыдущего размера */
+                min-height: auto;
+                background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-                /* Возвращаем темный фон для наложения, чтобы белый текст читался */
                 background-color: var(--navy); 
-                padding: 20px 5px;
+                padding: 10px 5px;
                 border-radius: 15px;
                 position: relative;
             }
 
-            /* Добавляем полупрозрачный слой, чтобы белый текст был виден на любом фото */
             .hero-banner::before {
                 content: '';
                 position: absolute;
@@ -195,25 +190,20 @@
             .hero-text { position: relative; z-index: 2; }
 
             .hero-text h1 { 
-                font-size: 1.1rem; 
-                margin-bottom: 10px; 
-                color: var(--white); /* ИЗМЕНЕНО: Белый цвет текста */
-                text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+                font-size: 0.85rem; /* Уменьшили шрифт, чтобы влез в маленький баннер */
+                margin-bottom: 8px; 
+                color: var(--white); 
+                text-shadow: 0 1px 3px rgba(0,0,0,0.5); 
             }
 
             .btn-outline-yellow { 
-                padding: 6px 15px; 
-                font-size: 0.75rem; 
-                border-color: var(--yellow); /* ИЗМЕНЕНО: Желтая рамка */
-                color: var(--white); /* Белый текст на кнопке */
+                padding: 4px 12px; 
+                font-size: 0.65rem; 
+                border-color: var(--yellow); 
+                color: var(--white); 
             }
 
-            .btn-outline-yellow:hover {
-                background: var(--yellow);
-                color: var(--navy);
-            }
-
-            .banner-container { padding: 70px 5% 5px; }
+            .banner-container { padding: 65px 5% 5px; }
             .about-card, .super-sale, .collage-grid { grid-template-columns: 1fr; }
             .collage-grid { grid-template-rows: auto; }
             .collage-item { height: 200px; }
@@ -239,7 +229,7 @@
     <div class="banner-container">
         <header class="hero-banner">
             <div class="hero-text">
-                <h1>Find The Perfect Furniture To Complete Your Home</h1>
+                <h1>Find The Perfect Furniture</h1>
                 <a href="#" class="btn-outline-yellow">Shop Now</a>
             </div>
         </header>
