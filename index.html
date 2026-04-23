@@ -1,294 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Home | Curated Collections</title>
-    <style>
-        :root {
-            --navy: #001f3f; 
-            --yellow: #ffcc00; 
-            --beige: #f5f0e6; 
-            --white: #ffffff;
-            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Home | Curated Collections</title>
+    <style>
+        :root {
+            --navy: #001f3f; 
+            --yellow: #ffcc00; 
+            --beige: #f5f0e6; 
+            --white: #ffffff;
+            --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--navy);
+            background-color: var(--beige);
+            overflow-x: hidden;
+        }
 
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--navy);
-            background-color: var(--beige);
-            overflow-x: hidden;
-        }
+        /* --- NAVIGATION --- */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            box-sizing: border-box;
+            z-index: 1000;
+            transition: var(--transition);
+            background: transparent;
+        }
 
-        /* --- NAVIGATION --- */
-        .main-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 10%;
-            box-sizing: border-box;
-            z-index: 1000;
-            transition: var(--transition);
-            background: transparent;
-        }
+        .main-nav.scrolled {
+            background: var(--navy);
+            padding: 15px 10%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
 
-        .main-nav.scrolled {
-            background: var(--navy);
-            padding: 15px 10%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
+        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; color: var(--navy); text-decoration: none; transition: var(--transition); }
+        .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--yellow); }
+        .main-nav.scrolled .logo, .main-nav.scrolled .nav-links a { color: var(--white); }
 
-        .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; color: var(--navy); text-decoration: none; transition: var(--transition); }
-        .nav-links { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
-        .nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--yellow); }
-        .main-nav.scrolled .logo, .main-nav.scrolled .nav-links a { color: var(--white); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* --- BUTTONS --- */
+        .btn-outline-yellow {
+            background: transparent;
+            color: var(--white);
+            padding: 12px 35px;
+            font-weight: bold;
+            border-radius: 50px;
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--yellow);
+            transition: var(--transition);
+        }
 
-        /* --- BUTTONS --- */
-        .btn-outline-yellow {
-            background: transparent;
-            color: var(--white);
-            padding: 12px 35px;
-            font-weight: bold;
-            border-radius: 50px;
-            display: inline-block;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid var(--yellow);
-            transition: var(--transition);
-        }
+        .btn-outline-yellow:hover { background: var(--yellow); color: var(--navy); transform: translateY(-3px); }
+        .buy-btn { background: var(--navy); color: var(--yellow); padding: 12px 30px; text-decoration: none; font-weight: bold; display: inline-block; border-radius: 50px; transition: var(--transition); }
+        .buy-btn:hover { background: var(--yellow); color: var(--navy); }
 
-        .btn-outline-yellow:hover { background: var(--yellow); color: var(--navy); transform: translateY(-3px); }
-        .buy-btn { background: var(--navy); color: var(--yellow); padding: 12px 30px; text-decoration: none; font-weight: bold; display: inline-block; border-radius: 50px; transition: var(--transition); }
-        .buy-btn:hover { background: var(--yellow); color: var(--navy); }
+        /* --- BANNER SECTION --- */
+        .banner-container { padding: 100px 10% 10px; animation: fadeIn 1.2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+        .hero-banner {
+            height: 500px;
+            border-radius: 20px;
+            background: linear-gradient(rgba(0,31,63,0.3), rgba(0,31,63,0.3)), 
+                        url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; color: var(--white); text-align: center;
+        }
+        .hero-text h1 { font-size: 3rem; max-width: 800px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin-bottom: 30px; }
 
-        /* --- BANNER SECTION --- */
-        .banner-container { padding: 100px 10% 10px; animation: fadeIn 1.2s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
-        
-        .hero-banner {
-            height: 500px;
-            border-radius: 20px;
-            background: linear-gradient(rgba(0,31,63,0.3), rgba(0,31,63,0.3)), 
-                        url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover; 
-            background-position: center;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: var(--white); 
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        .hero-text h1 { font-size: 3rem; max-width: 800px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin-bottom: 30px; padding: 0 20px; }
+        /* --- SECTIONS GENERAL --- */
+        section { padding: 80px 10%; }
+        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- SECTIONS GENERAL --- */
-        section { padding: 80px 10%; }
-        h2 { text-align: center; font-size: 2.2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+        /* --- COLLAGE: RECOMMENDED --- */
+        .collage-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: repeat(2, 250px);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .collage-item { position: relative; border-radius: 20px; overflow: hidden; }
+        .collage-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .collage-item:hover img { transform: scale(1.05); }
+        .collage-item.large { grid-row: span 2; }
+        .collage-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,31,63,0.7)); color: var(--white); box-sizing: border-box; }
 
-        /* --- COLLAGE: RECOMMENDED --- */
-        .collage-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: repeat(2, 250px);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .collage-item { position: relative; border-radius: 20px; overflow: hidden; }
-        .collage-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
-        .collage-item:hover img { transform: scale(1.05); }
-        .collage-item.large { grid-row: span 2; }
-        .collage-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,31,63,0.7)); color: var(--white); box-sizing: border-box; }
+        /* --- SUPER SALE --- */
+        .super-sale {
+            margin: 40px 10%;
+            background: var(--navy);
+            color: var(--white);
+            border-radius: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,31,63,0.2);
+        }
+        .sale-image { background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; min-height: 400px; }
+        .sale-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
-        /* --- SUPER SALE --- */
-        .super-sale {
-            margin: 40px 10%;
-            background: var(--navy);
-            color: var(--white);
-            border-radius: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,31,63,0.2);
-        }
-        .sale-image { background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; min-height: 400px; }
-        .sale-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+        /* --- PRODUCT GRIDS (Best Sellers & New Arrivals) --- */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { background: var(--white); padding: 25px; text-align: center; border-radius: 20px; transition: var(--transition); position: relative; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
+        .badge { position: absolute; top: 15px; left: 15px; background: var(--yellow); color: var(--navy); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
 
-        /* --- PRODUCT GRIDS --- */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: var(--white); padding: 25px; text-align: center; border-radius: 20px; transition: var(--transition); position: relative; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
+        /* --- ABOUT US --- */
+        .about-wrapper {
+            padding: 100px 10%;
+            background-color: var(--beige);
+        }
+        .about-card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 30px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .about-image img { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover; 
+            border-radius: 20px; 
+            box-shadow: 15px 15px 0px var(--yellow); 
+        }
+        .about-content h2 { text-align: left; margin-bottom: 20px; font-size: 2.5rem; }
+        .about-content p { line-height: 1.8; font-size: 1.05rem; color: #555; margin-bottom: 25px; }
 
-        /* --- ABOUT US --- */
-        .about-wrapper { padding: 100px 10%; background-color: var(--beige); }
-        .about-card {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: var(--white);
-            border-radius: 30px;
-            padding: 60px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-        .about-image img { width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 15px 15px 0px var(--yellow); }
-        .about-content h2 { text-align: left; margin-bottom: 20px; font-size: 2.5rem; }
-        .about-content p { line-height: 1.8; font-size: 1.05rem; color: #555; margin-bottom: 25px; }
+        /* --- FOOTER --- */
+        .main-footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 80px 10% 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .footer-col h4 { color: var(--yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--yellow); padding-left: 5px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
 
-        /* --- FOOTER --- */
-        .main-footer { background-color: var(--navy); color: var(--white); padding: 80px 10% 40px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; }
-        .footer-col h4 { color: var(--yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
-        .footer-col ul li a:hover { color: var(--yellow); padding-left: 5px; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        @media (max-width: 992px) {
+            .about-card { grid-template-columns: 1fr; padding: 40px; }
+            .about-image img { height: 300px; }
+            .about-wrapper { padding: 60px 5%; }
+        }
 
-        /* --- RESPONSIVE / MOBILE --- */
-        @media (max-width: 768px) {
-            .main-nav { padding: 15px 5%; }
-            
-            /* ФИКС БАННЕРА ДЛЯ ПОЛНОГО ОТОБРАЖЕНИЯ ДИВАНА */
-            .hero-banner { 
-                height: auto; 
-                min-height: 250px; /* Минимальная высота */
-                aspect-ratio: 16 / 9; /* Сохраняем пропорции картинки, чтобы диван влез */
-                background-size: contain; /* Картинка вписывается полностью */
-                background-repeat: no-repeat;
-                background-color: var(--navy); /* Фон, если картинка не на весь экран */
-                padding: 40px 10px;
-            }
-
-            .hero-text h1 { font-size: 1.4rem; margin-bottom: 15px; }
-            .btn-outline-yellow { padding: 10px 20px; font-size: 0.8rem; }
-            .banner-container { padding: 80px 5% 10px; }
-
-            .about-card, .super-sale, .collage-grid { grid-template-columns: 1fr; }
-            .collage-grid { grid-template-rows: auto; }
-            .collage-item { height: 250px; }
-            .sale-image { min-height: 250px; }
-            .footer-grid { text-align: center; }
-            .about-content h2 { text-align: center; }
-        }
-    </style>
+        @media (max-width: 768px) {
+            .about-us, .super-sale, .collage-grid { grid-template-columns: 1fr; }
+            .collage-grid { grid-template-rows: auto; }
+            .collage-item { height: 300px; }
+            .hero-text h1 { font-size: 2rem; }
+            .footer-grid { text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="main-nav" id="navbar">
-        <a href="#" class="logo">ELITE HOME</a>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#recommended">Recommended</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-    </nav>
+    <nav class="main-nav" id="navbar">
+        <a href="#" class="logo">ELITE HOME</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#recommended">Recommended</a></li>
+            <li><a href="#best-sellers">Best Sellers</a></li>
+            <li><a href="#new-arrivals">New Arrivals</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
 
-    <div class="banner-container">
-        <header class="hero-banner">
-            <div class="hero-text">
-                <h1>Find The Perfect Furniture To Complete Your Home</h1>
-                <a href="#" class="btn-outline-yellow">Shop Now</a>
-            </div>
-        </header>
-    </div>
+    <div class="banner-container">
+        <header class="hero-banner">
+            <div class="hero-text">
+                <h1>Find The Perfect Furniture To Complete Your Home</h1>
+                <a href="#" class="btn-outline-yellow">Shop Now</a>
+            </div>
+        </header>
+    </div>
 
-    <section id="recommended">
-        <h2 class="reveal">Most Recommend For You</h2>
-        <div class="collage-grid reveal">
-            <div class="collage-item large">
-                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior Set">
-                <div class="collage-overlay"><h3>The Harmony Living Set</h3><p>Curated Comfort</p></div>
-            </div>
-            <div class="collage-item">
-                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Nordic Chair">
-                <div class="collage-overlay"><h3>Nordic Minimalist Chair</h3></div>
-            </div>
-            <div class="collage-item">
-                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
-                <div class="collage-overlay"><h3>Gilded Designer Lamp</h3></div>
-            </div>
-        </div>
-    </section>
+    <section id="recommended">
+        <h2 class="reveal">Most Recommend For You</h2>
+        <div class="collage-grid reveal">
+            <div class="collage-item large">
+                <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior Set">
+                <div class="collage-overlay"><h3>The Harmony Living Set</h3><p>Curated Comfort</p></div>
+            </div>
+            <div class="collage-item">
+                <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Nordic Chair">
+                <div class="collage-overlay"><h3>Nordic Minimalist Chair</h3></div>
+            </div>
+            <div class="collage-item">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
+                <div class="collage-overlay"><h3>Gilded Designer Lamp</h3></div>
+            </div>
+        </div>
+    </section>
 
-    <section class="super-sale reveal">
-        <div class="sale-image"></div>
-        <div class="sale-content">
-            <h2 style="text-align:left; color:white; margin-bottom:10px;">Super Sale: 60% Off</h2>
-            <p>Upgrade your interior with our premium pieces.</p>
-            <a href="#" class="buy-btn" style="background: var(--yellow); color: var(--navy); margin-top: 20px;">Get Discount Now</a>
-        </div>
-    </section>
+    <section class="super-sale reveal">
+        <div class="sale-image"></div>
+        <div class="sale-content">
+            <h2 style="text-align:left; color:white; margin-bottom:10px;">Super Sale: 60% Off</h2>
+            <p>Upgrade your interior with our premium pieces. Exclusive seasonal offers.</p>
+            <a href="#" class="buy-btn" style="background: var(--yellow); color: var(--navy); margin-top: 20px;">Get Discount Now</a>
+        </div>
+    </section>
 
-    <div class="about-wrapper">
-        <section id="about" class="about-card reveal">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="Our Studio">
-            </div>
-            <div class="about-content">
-                <h2>About Elite Home</h2>
-                <p>Since 2010, Elite Home has been dedicated to crafting spaces that inspire.</p>
-                <a href="#" class="buy-btn">Explore Our Story</a>
-            </div>
-        </section>
-    </div>
+    <section id="best-sellers" style="background-color: rgba(0,0,0,0.02);">
+        <h2 class="reveal">Best Sellers</h2>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
+                <h3>Navy Velvet Lounge</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$1,199.00</p>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
+                <h3>Amber Wingback</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$380.00</p>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+            <div class="product-card reveal">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
+                <h3>Oak Coffee Table</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$220.00</p>
+                <a href="#" class="buy-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
 
-    <footer class="main-footer">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="#" class="logo" style="color:white; margin-bottom:20px; display:block;">ELITE HOME</a>
-                <p style="opacity:0.7; font-size: 0.9rem;">Quality and elegance in every detail.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Shop</h4>
-                <ul>
-                    <li><a href="#">Living Room</a></li>
-                    <li><a href="#">Bedroom</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contacts</h4>
-                <ul style="opacity:0.8; font-size: 0.9rem;">
-                    <li>📍 123 Design St, NY</li>
-                    <li>✉️ hello@elitehome.com</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Elite Home Studio. All Rights Reserved.
-        </div>
-    </footer>
+    <section id="new-arrivals">
+        <h2 class="reveal">New Arrivals</h2>
+        <div class="product-grid">
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1581539250439-c96689b516dd?auto=format&fit=crop&w=600&q=80" alt="Modern Chair">
+                <h3>Cloud Soft Armchair</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$450.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=600&q=80" alt="Console Table">
+                <h3>Marble Entry Table</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$720.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+            <div class="product-card reveal">
+                <span class="badge">New</span>
+                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=600&q=80" alt="Minimal Lamp">
+                <h3>Orbital Floor Lamp</h3>
+                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$185.00</p>
+                <a href="#" class="buy-btn">View Details</a>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-        });
+    <div class="about-wrapper">
+        <section id="about" class="about-card reveal">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="Our Studio">
+            </div>
+            <div class="about-content">
+                <h2>About Elite Home</h2>
+                <p>Since 2010, Elite Home has been dedicated to crafting spaces that inspire. Our journey began with a passion for exceptional design and sustainable materials.</p>
+                <p>We believe every piece of furniture should be a perfect blend of comfort and art.</p>
+                <a href="#" class="buy-btn">Explore Our Story</a>
+            </div>
+        </section>
+    </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    </script>
+    <footer class="main-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="#" class="logo" style="color:white; margin-bottom:20px; display:block;">ELITE HOME</a>
+                <p style="opacity:0.7; font-size: 0.9rem; line-height: 1.6;">Premium furniture for modern living. Quality and elegance in every detail.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Living Room</a></li>
+                    <li><a href="#">Bedroom</a></li>
+                    <li><a href="#">Office</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacts</h4>
+                <ul style="opacity:0.8; font-size: 0.9rem;">
+                    <li>📍 123 Design St, NY</li>
+                    <li>📞 +1 555 0123</li>
+                    <li>✉️ hello@elitehome.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Elite Home Studio. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
 </body>
 </html>
