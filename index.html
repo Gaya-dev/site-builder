@@ -91,7 +91,6 @@
             justify-content: center; 
             color: var(--white); 
             text-align: center;
-            transition: height 0.3s ease;
         }
         .hero-text h1 { font-size: 3rem; max-width: 800px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); margin-bottom: 30px; padding: 0 20px; }
 
@@ -110,7 +109,6 @@
         }
         .collage-item { position: relative; border-radius: 20px; overflow: hidden; }
         .collage-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
-        .collage-item:hover img { transform: scale(1.05); }
         .collage-item.large { grid-row: span 2; }
         .collage-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(transparent, rgba(0,31,63,0.7)); color: var(--white); box-sizing: border-box; }
 
@@ -123,88 +121,67 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,31,63,0.2);
         }
-        .sale-image { background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; min-height: 400px; }
-        .sale-content { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
-
-        /* --- PRODUCT GRIDS --- */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .product-card { background: var(--white); padding: 25px; text-align: center; border-radius: 20px; transition: var(--transition); position: relative; }
-        .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .product-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
-        .badge { position: absolute; top: 15px; left: 15px; background: var(--yellow); color: var(--navy); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+        .sale-image { background: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80') center/cover; min-height: 300px; }
+        .sale-content { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
 
         /* --- ABOUT US --- */
-        .about-wrapper { padding: 100px 10%; background-color: var(--beige); }
+        .about-wrapper { padding: 80px 10%; }
         .about-card {
-            max-width: 1100px;
-            margin: 0 auto;
             background: var(--white);
             border-radius: 30px;
-            padding: 60px;
+            padding: 50px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 40px;
             align-items: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
         }
-        .about-image img { 
-            width: 100%; 
-            height: 400px; 
-            object-fit: cover; 
-            border-radius: 20px; 
-            box-shadow: 15px 15px 0px var(--yellow); 
-        }
-        .about-content h2 { text-align: left; margin-bottom: 20px; font-size: 2.5rem; }
-        .about-content p { line-height: 1.8; font-size: 1.05rem; color: #555; margin-bottom: 25px; }
+        .about-image img { width: 100%; height: auto; border-radius: 20px; box-shadow: 15px 15px 0px var(--yellow); }
 
         /* --- FOOTER --- */
-        .main-footer {
-            background-color: var(--navy);
-            color: var(--white);
-            padding: 80px 10% 40px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        .footer-col h4 { color: var(--yellow); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
-        .footer-col ul li a:hover { color: var(--yellow); padding-left: 5px; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+        .main-footer { background-color: var(--navy); color: var(--white); padding: 60px 10% 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 20px; text-align: center; opacity: 0.5; font-size: 0.9rem; }
 
-        /* --- RESPONSIVE / MOBILE --- */
-        @media (max-width: 992px) {
-            .about-card { grid-template-columns: 1fr; padding: 40px; }
-            .about-image img { height: 300px; }
-            .about-wrapper { padding: 60px 5%; }
-        }
-
+        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 768px) {
             .main-nav { padding: 15px 5%; }
-            
-            /* ФИКС БАННЕРА: */
-            .hero-banner { 
-                height: auto; 
-                min-height: 350px; 
-                padding: 60px 0; 
-                background-position: center;
-            }
-            .hero-text h1 { font-size: 1.8rem; margin-bottom: 20px; }
+            .nav-links { display: none; } /* Скрываем меню для чистоты на мобильных */
+
             .banner-container { padding: 80px 5% 10px; }
 
-            .about-us, .super-sale, .collage-grid { grid-template-columns: 1fr; }
-            .collage-grid { grid-template-rows: auto; }
-            .collage-item { height: 300px; }
-            .footer-grid { text-align: center; }
-            
-            .sale-content { padding: 30px; text-align: center; }
-            .sale-content h2 { text-align: center !important; }
+            /* ГЛАВНОЕ ИЗМЕНЕНИЕ ДЛЯ ОТОБРАЖЕНИЯ ДИВАНА ПОЛНОСТЬЮ */
+            .hero-banner {
+                height: auto; 
+                min-height: 250px;
+                aspect-ratio: 16 / 9; /* Сохраняем пропорции оригинального фото */
+                background-size: contain; /* Картинка не обрезается, а вписывается */
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #1a1a1a; /* Цвет фона, если картинка не на весь экран */
+                padding: 20px 0;
+            }
+
+            .hero-text h1 {
+                font-size: 1.2rem; /* Уменьшаем текст, чтобы не перекрывал диван */
+                margin-bottom: 15px;
+                text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+            }
+
+            .btn-outline-yellow {
+                padding: 8px 20px;
+                font-size: 0.7rem;
+            }
+
+            /* Другие мобильные правки */
+            .collage-grid, .super-sale, .about-card {
+                grid-template-columns: 1fr;
+            }
+            .collage-item.large { grid-row: auto; height: 250px; }
+            .collage-item { height: 200px; }
+            section { padding: 40px 5%; }
+            .sale-content { padding: 25px; text-align: center; }
+            .about-card { padding: 30px; }
         }
     </style>
 </head>
@@ -233,15 +210,15 @@
         <div class="collage-grid reveal">
             <div class="collage-item large">
                 <img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&w=1200&q=80" alt="Interior Set">
-                <div class="collage-overlay"><h3>The Harmony Living Set</h3><p>Curated Comfort</p></div>
+                <div class="collage-overlay"><h3>The Harmony Living Set</h3></div>
             </div>
             <div class="collage-item">
                 <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=600&q=80" alt="Nordic Chair">
-                <div class="collage-overlay"><h3>Nordic Minimalist Chair</h3></div>
+                <div class="collage-overlay"><h3>Minimalist Chair</h3></div>
             </div>
             <div class="collage-item">
                 <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=600&q=80" alt="Modern Lamp">
-                <div class="collage-overlay"><h3>Gilded Designer Lamp</h3></div>
+                <div class="collage-overlay"><h3>Designer Lamp</h3></div>
             </div>
         </div>
     </section>
@@ -250,78 +227,16 @@
         <div class="sale-image"></div>
         <div class="sale-content">
             <h2 style="text-align:left; color:white; margin-bottom:10px;">Super Sale: 60% Off</h2>
-            <p>Upgrade your interior with our premium pieces. Exclusive seasonal offers.</p>
+            <p style="color: white; opacity: 0.8;">Upgrade your interior with our premium pieces. Exclusive seasonal offers.</p>
             <a href="#" class="buy-btn" style="background: var(--yellow); color: var(--navy); margin-top: 20px;">Get Discount Now</a>
         </div>
     </section>
 
-    <section id="best-sellers" style="background-color: rgba(0,0,0,0.02);">
-        <h2 class="reveal">Best Sellers</h2>
-        <div class="product-grid">
-            <div class="product-card reveal">
-                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=600&q=80" alt="Sofa">
-                <h3>Navy Velvet Lounge</h3>
-                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$1,199.00</p>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-            <div class="product-card reveal">
-                <img src="https://images.unsplash.com/photo-1550254478-ead40cc54513?auto=format&fit=crop&w=600&q=80" alt="Chair">
-                <h3>Amber Wingback</h3>
-                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$380.00</p>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-            <div class="product-card reveal">
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80" alt="Table">
-                <h3>Oak Coffee Table</h3>
-                <p style="font-weight:bold; font-size: 1.2rem; margin: 15px 0;">$220.00</p>
-                <a href="#" class="buy-btn">Shop Now</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="about-wrapper">
-        <section id="about" class="about-card reveal">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80" alt="Our Studio">
-            </div>
-            <div class="about-content">
-                <h2>About Elite Home</h2>
-                <p>Since 2010, Elite Home has been dedicated to crafting spaces that inspire. Our journey began with a passion for exceptional design and sustainable materials.</p>
-                <p>We believe every piece of furniture should be a perfect blend of comfort and art.</p>
-                <a href="#" class="buy-btn">Explore Our Story</a>
-            </div>
-        </section>
-    </div>
-
     <footer class="main-footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <a href="#" class="logo" style="color:white; margin-bottom:20px; display:block;">ELITE HOME</a>
-                <p style="opacity:0.7; font-size: 0.9rem; line-height: 1.6;">Premium furniture for modern living. Quality and elegance in every detail.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Shop</h4>
-                <ul>
-                    <li><a href="#">Living Room</a></li>
-                    <li><a href="#">Bedroom</a></li>
-                    <li><a href="#">Office</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Returns</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contacts</h4>
-                <ul style="opacity:0.8; font-size: 0.9rem;">
-                    <li>📍 123 Design St, NY</li>
-                    <li>📞 +1 555 0123</li>
-                    <li>✉️ hello@elitehome.com</li>
-                </ul>
+                <a href="#" class="logo" style="color:white; display:block; margin-bottom:15px;">ELITE HOME</a>
+                <p style="opacity:0.6; font-size: 0.9rem;">Premium furniture for modern living. Quality and elegance in every detail.</p>
             </div>
         </div>
         <div class="footer-bottom">
