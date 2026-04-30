@@ -10,7 +10,6 @@
             --accent-gold: #c5a059;
             --light-bg: #f9f9f2;
             --text-dark: #333;
-            --white: #ffffff;
         }
 
         body {
@@ -22,62 +21,56 @@
             color: var(--text-dark);
         }
 
-        /* HEADER / BANNER SECTION */
         header {
-            /* Օգտագործվում է ձեր տրամադրած նկարի հղումը */
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('https://files.oaiusercontent.com/file-K18Z3uK2A28A7nIscVz6L3Xv?se=2024-10-23T11%3A25%3A22Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Dwatermarked_img_15265604690374277956.png&sig=S%2BWkInm%2BdW6D38qH%2BKZ7Xl9m0u27IePqX2rF77r7oE0%3D') center/cover no-repeat;
-            height: 70vh;
+            /* 
+               <--- ՓՈՓՈԽՈՒԹՅՈՒՆԸ ԱՅՍՏԵՂ Է --->
+               1. Պահպանում ենք մուգ շերտը (linear-gradient):
+               2. url(...) բաժնում գրեք ձեր նկարի անունը:
+               Ենթադրենք, որ ձեր նկարի ֆայլը կոչվում է 'jengyalov-banner.jpg' 
+               և այն գտնվում է նույն թղթապանակում, ինչ այս HTML-ը:
+            */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('jengyalov-banner.jpg') center/cover no-repeat;
+            
+            /* Այս հատկությունները ապահովում են, որ նկարը լավ տեսք ունենա */
+            color: white;
+            height: 60vh; /* Բանների բարձրությունը՝ էկրանի 60%-ը */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: var(--white);
-            padding: 0 20px;
+            padding: 20px;
         }
 
         header h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
-            letter-spacing: 3px;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        header p {
-            font-size: 1.6rem;
-            margin-top: 15px;
-            font-weight: 300;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-        }
-
-        /* MAIN CONTENT */
         .container {
-            max-width: 1100px;
-            margin: -80px auto 60px;
-            background: var(--white);
-            padding: 60px;
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            position: relative;
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .intro {
             text-align: center;
             font-style: italic;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--primary-green);
-            margin-bottom: 60px;
-            padding: 0 40px;
-            line-height: 1.8;
+            margin-bottom: 40px;
         }
 
-        /* STEPS SECTION */
         .step {
             display: flex;
             align-items: center;
-            gap: 50px;
-            margin-bottom: 100px;
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
         .step:nth-child(even) {
@@ -86,14 +79,15 @@
 
         .step-image {
             flex: 1;
+            min-width: 300px;
         }
 
         .step-image img {
             width: 100%;
-            height: 400px;
+            height: 300px;
             object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 15px 15px 30px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
         }
 
         .step-content {
@@ -102,105 +96,97 @@
 
         .step-content h2 {
             color: var(--primary-green);
-            font-size: 2rem;
-            margin-bottom: 25px;
-            border-bottom: 3px solid var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
             display: inline-block;
-            padding-bottom: 5px;
+            margin-bottom: 15px;
         }
 
-        /* QUOTE SECTION */
         .quote-box {
-            background-color: var(--primary-green);
-            color: var(--white);
-            padding: 50px;
-            border-radius: 20px;
+            background: var(--primary-green);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
             text-align: center;
-            margin: 80px 0;
-            font-size: 1.6rem;
-            box-shadow: 0 10px 25px rgba(45, 90, 39, 0.3);
+            margin: 40px 0;
         }
 
-        /* FOOTER */
         footer {
-            background: #1a1a1a;
-            color: #aaa;
             text-align: center;
-            padding: 40px 0;
-            font-size: 1rem;
+            padding: 40px;
+            background: #333;
+            color: white;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 850px) {
+        @media (max-width: 768px) {
             .step, .step:nth-child(even) {
                 flex-direction: column;
             }
-            header h1 { font-size: 2.8rem; }
-            .container { padding: 30px; margin-top: -40px; }
-            .step-image img { height: 300px; }
+            header h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Ժենգյալով Հաց</h1>
-        <p>Արցախյան ավանդույթների համն ու բույրը</p>
-    </header>
+<header>
+    <h1>Ժենգյալով Հաց</h1>
+    <p>Արցախյան խոհանոցի խորհրդավոր ուտեստը</p>
+</header>
 
-    <div class="container">
-        <p class="intro">
-            «Ժենգյալով հացը պարզապես ուտեստ չէ. այն հավաքական աշխատանքի, ընտանեկան ջերմության և մեր լեռների ուժի խորհրդանիշն է:»
-        </p>
+<div class="container">
+    <p class="intro">«Ժենգյալով հացը պարզապես ուտեստ չէ, այն հավաքական աշխատանքի և հյուրասիրության խորհրդանիշ է։»</p>
 
-        <section class="step">
-            <div class="step-image">
-                <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1000" alt="Կանաչիներ">
-            </div>
-            <div class="step-content">
-                <h2>1. Կանաչիների ընտրություն</h2>
-                <p>Արարողությունը սկսվում է բնությունից: Օգտագործվում է մոտ 20 տեսակի վայրի կանաչի: Յուրաքանչյուր խոտաբույս ունի իր դերը՝ մեկը թթվաշություն է տալիս, մյուսը՝ բույր, երրորդը՝ փափկություն:</p>
-            </div>
-        </section>
-
-        <section class="step">
-            <div class="step-image">
-                <img src=https://elenskitchen.wixsite.com/elenskitchen/jingyalov-hac?pgid=k4x89ja7-4cbaca1d-1ea1-409e-9890-4dcf7ffeeb72" alt="Պատրաստում">
-            </div>
-            <div class="step-content">
-                <h2>2. Պատրաստման գաղտնիքը</h2>
-                <p>Կանաչին պետք է շատ մանր կտրատել և համեմել միայն թխելուց առաջ: Բարակ, գրեթե թափանցիկ խմորը գրկում է կանաչիների փունջը՝ ստեղծելով կատարյալ ներդաշնակություն:</p>
-            </div>
-        </section>
-
-        <div class="quote-box">
-            «Իսկական ժենգյալով հացը թխվում է հին սաջի վրա, որտեղ կրակի ջերմությունը փոխանցվում է ամեն մի պատառին:»
+    <!-- Փուլ 1 -->
+    <section class="step">
+        <div class="step-image">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1000" alt="Կանաչիների հավաք">
         </div>
+        <div class="step-content">
+            <h2>1. Կանաչիների հավաք</h2>
+            <p>Ամեն ինչ սկսվում է ճիշտ կանաչի ընտրելուց։ Օգտագործվում է ավելի քան 20 տեսակի վայրի խոտաբույս՝ կնձմնձուկ, եղինջ, թրթնջուկ, ճռճռուկ և այլն։ Կարևոր է պահպանել չեզոք և թթվաշ համերի հավասարակշռությունը։</p>
+        </div>
+    </section>
 
-        <section class="step">
-            <div class="step-image">
-                <img src="https://images.unsplash.com/photo-1595131838595-3154b9f4450b?q=80&w=1000" alt="Թխում">
-            </div>
-            <div class="step-content">
-                <h2>3. Թխման արարողակարգը</h2>
-                <p>Սա ամենասպասված պահն է: Սաջի վրա հացը թխվում է վայրկյանների ընթացքում: Կարևոր է, որ կանաչին ներսում մնա թարմ ու հյութալի, իսկ խմորը՝ բարակ ու դրսից թեթևակի կարմրած:</p>
-            </div>
-        </section>
+    <!-- Փուլ 2 -->
+    <section class="step">
+        <div class="step-image">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1000" alt="Կանաչու կտրատում">
+        </div>
+        <div class="step-content">
+            <h2>2. Պատրաստման ընթացք</h2>
+            <p>Կանաչին լվանալուց և չորացնելուց հետո այն շատ մանր կտրատվում է։ Խմորը բացվում է այնքան բարակ, որ դառնում է թափանցիկ։ Համեմվում է միայն վերջին պահին՝ աղով, պղպեղով և բուսական յուղով։</p>
+        </div>
+    </section>
 
-        <section class="step">
-            <div class="step-image">
-                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1000" alt="Մատուցում">
-            </div>
-            <div class="step-content">
-                <h2>4. Հյուրասիրություն</h2>
-                <p>Ժենգյալով հացը չեն ուտում մենակ: Այն մատուցվում է մեծ սկուտեղով, տաք-տաք վիճակում: Լավագույն ուղեկիցներն են թարմ թանը կամ արցախյան գինին:</p>
-            </div>
-        </section>
+    <div class="quote-box">
+        <h3>Իսկական ժենգյալով հացը թխվում է «սաջի» վրա՝ բաց կրակի շուրջ։</h3>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Արցախյան Մշակույթ | Ժենգյալով Հացի Ծիսակարգ</p>
-    </footer>
+    <!-- Փուլ 3 -->
+    <section class="step">
+        <div class="step-image">
+            <img src="https://images.unsplash.com/photo-1595131838595-3154b9f4450b?q=80&w=1000" alt="Թխումը սաջի վրա">
+        </div>
+        <div class="step-content">
+            <h2>3. Թխման արարողությունը</h2>
+            <p>Հացը դրվում է տաք սաջի վրա։ Այն եփվում է շատ արագ՝ ընդամենը մի քանի րոպեում, որպեսզի կանաչին չկորցնի իր օգտակար հատկությունները և վառ գույնը։</p>
+        </div>
+    </section>
+
+    <!-- Փուլ 4 -->
+    <section class="step">
+        <div class="step-image">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1000" alt="Մատուցում">
+        </div>
+        <div class="step-content">
+            <h2>4. Մատուցում</h2>
+            <p>Ժենգյալով հացը մատուցվում է տաք վիճակում։ Այն ընդունված է ուտել ձեռքերով՝ ընկերական ջերմ մթնոլորտում։ Լավագույն համադրությունը սառը թանն է կամ տեղական կարմիր գինին։</p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>Արցախյան ավանդույթներ &copy; 2024</p>
+</footer>
 
 </body>
 </html>
