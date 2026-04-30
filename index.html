@@ -22,10 +22,19 @@
         }
 
         header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1543333309-8745823ed7a7?q=80&w=2070') center/cover;
+            /* 
+               <--- ՓՈՓՈԽՈՒԹՅՈՒՆԸ ԱՅՍՏԵՂ Է --->
+               1. Պահպանում ենք մուգ շերտը (linear-gradient):
+               2. url(...) բաժնում գրեք ձեր նկարի անունը:
+               Ենթադրենք, որ ձեր նկարի ֆայլը կոչվում է 'jengyalov-banner.jpg' 
+               և այն գտնվում է նույն թղթապանակում, ինչ այս HTML-ը:
+            */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('jengyalov-banner.jpg') center/cover no-repeat;
+            
+            /* Այս հատկությունները ապահովում են, որ նկարը լավ տեսք ունենա */
             color: white;
-            height: 60vh;
+            height: 60vh; /* Բանների բարձրությունը՝ էկրանի 60%-ը */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -129,7 +138,6 @@
     <!-- Փուլ 1 -->
     <section class="step">
         <div class="step-image">
-            <!-- Փոխարինեք սա կանաչիների նկարով -->
             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1000" alt="Կանաչիների հավաք">
         </div>
         <div class="step-content">
@@ -141,7 +149,6 @@
     <!-- Փուլ 2 -->
     <section class="step">
         <div class="step-image">
-            <!-- Փոխարինեք սա կտրատելու նկարով -->
             <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1000" alt="Կանաչու կտրատում">
         </div>
         <div class="step-content">
@@ -157,7 +164,6 @@
     <!-- Փուլ 3 -->
     <section class="step">
         <div class="step-image">
-            <!-- Փոխարինեք սա թխելու նկարով -->
             <img src="https://images.unsplash.com/photo-1595131838595-3154b9f4450b?q=80&w=1000" alt="Թխումը սաջի վրա">
         </div>
         <div class="step-content">
@@ -169,7 +175,6 @@
     <!-- Փուլ 4 -->
     <section class="step">
         <div class="step-image">
-            <!-- Փոխարինեք սա մատուցման նկարով -->
             <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1000" alt="Մատուցում">
         </div>
         <div class="step-content">
