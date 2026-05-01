@@ -8,13 +8,13 @@
 <style>
     body {
         margin: 0;
-        font-family: Arial, sans-serif;
+        font-family: 'Segoe UI', sans-serif;
         background-color: #f9f7f3;
         color: #333;
     }
 
     header {
-        background: url('https://images.unsplash.com/photo-1604908176997-4317c1e0b2d1') center/cover no-repeat;
+        background: url('https://images.unsplash.com/photo-1625944525903-c6fbb0c7d1d1') center/cover no-repeat;
         height: 90vh;
         display: flex;
         align-items: center;
@@ -24,28 +24,35 @@
     }
 
     header h1 {
-        font-size: 50px;
-        background: rgba(0,0,0,0.5);
-        padding: 20px;
-        border-radius: 10px;
+        font-size: 48px;
+        background: rgba(0,0,0,0.55);
+        padding: 25px;
+        border-radius: 12px;
     }
 
     .section {
         padding: 60px 20px;
-        max-width: 1000px;
+        max-width: 1100px;
         margin: auto;
     }
 
     h2 {
         text-align: center;
         margin-bottom: 30px;
+        font-size: 30px;
+    }
+
+    .about-img {
+        width: 100%;
+        border-radius: 12px;
+        margin-top: 20px;
     }
 
     .schedule {
         background: white;
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .schedule-item {
@@ -62,9 +69,22 @@
         color: #8b5e3c;
     }
 
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
     .btn {
         display: block;
-        width: 200px;
+        width: 220px;
         margin: 40px auto;
         padding: 15px;
         text-align: center;
@@ -73,13 +93,19 @@
         text-decoration: none;
         border-radius: 30px;
         font-size: 18px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #a06b45;
     }
 
     footer {
         background: #333;
         color: white;
         text-align: center;
-        padding: 20px;
+        padding: 25px;
+        margin-top: 40px;
     }
 </style>
 </head>
@@ -95,8 +121,9 @@
     <p style="text-align:center;">
         Միացեք մեզ Գառնիի գեղեցիկ բնության գրկում և մասնակցեք
         ավանդական ժենգյալով հացի պատրաստման յուրահատուկ փորձառությանը։
-        Սպասվում է համեղ սնունդ, ջերմ մթնոլորտ և անմոռանալի հիշողություններ։
     </p>
+
+    <img class="about-img" src="https://images.unsplash.com/photo-1604908176997-4317c1e0b2d1">
 </section>
 
 <section class="section">
@@ -112,7 +139,7 @@
         </div>
 
         <div class="schedule-item">
-            <span class="time">13:00</span> — Բաղադրիչների պատրաստում
+            <span class="time">13:00</span> — Կանաչիների պատրաստում
         </div>
 
         <div class="schedule-item">
@@ -128,20 +155,32 @@
         </div>
 
         <div class="schedule-item">
-            <span class="time">15:45</span> — Ազատ ժամանակ և երաժշտություն
+            <span class="time">15:45</span> — Երաժշտություն և հանգիստ
         </div>
 
         <div class="schedule-item">
-            <span class="time">16:30</span> — Ավարտ և շնորհակալություն
+            <span class="time">16:30</span> — Ավարտ
         </div>
 
     </div>
 </section>
 
 <section class="section">
+    <h2>Մթնոլորտ</h2>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1543352634-873c6f5f4f4d">
+        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352">
+    </div>
+
+</section>
+
+<section class="section">
     <h2>Գրանցում</h2>
     <p style="text-align:center;">
-        Տեղերը սահմանափակ են։ Ամրագրեք ձեր մասնակցությունը հիմա։
+        Տեղերը սահմանափակ են։ Ամրագրեք հիմա։
     </p>
 
     <a href="#" class="btn">Գրանցվել</a>
@@ -149,7 +188,7 @@
 
 <footer>
     <p>📍 Գառնի, Հայաստան</p>
-    <p>📞 Կապ: +374 XX XXX XXX</p>
+    <p>📞 +374 XX XXX XXX</p>
 </footer>
 
 </body>
