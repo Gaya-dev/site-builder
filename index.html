@@ -69,10 +69,10 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* GRID */
+/* GRID — 2 SHARQ */
 .schedule {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* 🔥 FIXED 2 COLUMNS */
     gap: 25px;
 }
 
@@ -91,14 +91,12 @@ h2 {
     transform: translateY(-6px);
 }
 
-/* IMAGE */
 .item img {
     width: 100%;
     height: 320px;
     object-fit: cover;
 }
 
-/* TEXT */
 .item .text {
     padding: 20px;
     font-size: 16px;
@@ -112,8 +110,12 @@ h2 {
     color: #1b5e20;
 }
 
-/* MOBILE */
-@media(max-width: 600px){
+/* MOBILE — 1 SHARQ */
+@media(max-width: 768px){
+    .schedule {
+        grid-template-columns: 1fr;
+    }
+
     .hero h1 {
         font-size: 32px;
     }
