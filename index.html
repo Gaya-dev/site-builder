@@ -69,7 +69,7 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* CARD GRID */
+/* GRID */
 .schedule {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -91,10 +91,10 @@ h2 {
     transform: translateY(-6px);
 }
 
-/* IMAGE */
+/* IMAGE — ՄԵԾԱՑՎԱԾ */
 .item img {
     width: 100%;
-    height: 230px;
+    height: 320px;   /* 🔥 ԱՅՍՏԵՂՆ Է ՄԵԾԱՑՈՒՄԸ */
     object-fit: cover;
 }
 
@@ -120,7 +120,7 @@ h2 {
     }
 
     .item img {
-        height: 200px;
+        height: 260px; /* mobile-ում էլ մեծ պահեցի */
     }
 }
 </style>
