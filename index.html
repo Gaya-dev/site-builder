@@ -56,9 +56,9 @@ header::before {
 
 /* SECTION */
 .section {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 50px 15px;
 }
 
 h2 {
@@ -70,81 +70,51 @@ h2 {
 .schedule {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .item {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
     background: white;
-    padding: 18px;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* ✅ ՄԵԾ ՆԿԱՐՆԵՐ */
+.item img {
+    width: 420px;
+    height: 280px;
+    min-width: 420px; /* սա շատ կարևոր է */
+    object-fit: cover;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 .item .text {
     flex: 1;
-}
-
-/* ✅ ՆԿԱՐՆԵՐԸ 2 ԱՆԳԱՄ ՄԵԾ */
-.item img {
-    width: 320px;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .time {
     font-weight: bold;
     color: #1b5e20;
-}
-
-/* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-}
-
-.gallery img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-/* BUTTON */
-.btn {
-    display: block;
-    width: 220px;
-    margin: 40px auto;
-    padding: 15px;
-    text-align: center;
-    background: #8b5e3c;
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-}
-
-/* FOOTER */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 25px;
+    font-size: 17px;
 }
 
 /* MOBILE */
-@media(max-width: 700px){
+@media(max-width: 900px){
     .item {
         flex-direction: column;
         text-align: center;
     }
 
     .item img {
-        width: 180px;
-        height: 130px;
+        width: 100%;
+        min-width: 100%;
+        height: 240px;
     }
 
     .hero h1 {
@@ -170,35 +140,35 @@ footer {
     <div class="schedule">
 
         <div class="item">
+            <img src="BARIGALUST.jpg">
             <div class="text">
                 <span class="time">🕊 12:00 — ՀՅՈՒՐԵՐԻ ԺԱՄԱՆՈՒՄ ԵՎ ՈՂՋՈՒՅՆ</span><br>
                 Թեթև երաժշտություն, թեյ, առաջին ծանոթություններ
             </div>
-            <img src="BARIGALUST.jpg">
         </div>
 
         <div class="item">
+            <img src="converted_1.jpg">
             <div class="text">
                 <span class="time">🌱 12:30 — ԺԵՆԳՅԱԼՈՎ ՀԱՑԻ ՊԱՏՄՈՒԹՅՈՒՆ</span><br>
                 Կարճ պատմական ներկայացում
             </div>
-            <img src="converted_1.jpg">
         </div>
 
         <div class="item">
+            <img src="converted_2.jpg">
             <div class="text">
                 <span class="time">🥬 13:00 — ԲԱՂԱԴՐԻՉՆԵՐԻ ՊԱՏՐԱՍՏՈՒՄ</span><br>
                 Կանաչիների մաքրում և համերի բացահայտում
             </div>
-            <img src="converted_2.jpg">
         </div>
 
         <div class="item">
+            <img src="txum.jpg">
             <div class="text">
                 <span class="time">👩‍🍳 13:45 — ՊԱՏՐԱՍՏՄԱՆ ԳՈՐԾԸՆԹԱՑ</span><br>
                 Խմորի բացում, լցոնում, թխում
             </div>
-            <img src="txum.jpg">
         </div>
 
     </div>
