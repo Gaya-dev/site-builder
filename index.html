@@ -46,7 +46,6 @@ header::before {
     font-size: 20px;
 }
 
-/* 🔥 CTA BUTTON (same as footer style) */
 .hero a {
     padding: 14px 28px;
     background: #8b5e3c;
@@ -71,6 +70,32 @@ h2 {
     margin-bottom: 30px;
 }
 
+/* PROGRESS BAR */
+.progress-box {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.progress-text {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 70%;
+    height: 100%;
+    background: #1b5e20;
+}
+
 /* GRID */
 .schedule {
     display: grid;
@@ -80,13 +105,20 @@ h2 {
 
 /* CARD */
 .item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
     display: flex;
     flex-direction: column;
     background: white;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: 0.3s;
+}
+
+.item.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .item:hover {
@@ -112,6 +144,13 @@ h2 {
     color: #1b5e20;
 }
 
+/* MAP */
+.map {
+    margin-top: 60px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
 /* FOOTER */
 footer {
     background: #1b5e20;
@@ -123,11 +162,9 @@ footer {
 
 footer h2 {
     color: white;
-    margin-bottom: 10px;
 }
 
 footer p {
-    font-size: 18px;
     opacity: 0.9;
     margin-bottom: 20px;
 }
@@ -135,17 +172,35 @@ footer p {
 footer .btn {
     display: inline-block;
     padding: 14px 30px;
-    background: #ffffff;
+    background: #fff;
     color: #1b5e20;
     text-decoration: none;
     border-radius: 30px;
     font-weight: bold;
-    transition: 0.3s;
+    margin: 5px;
 }
 
-footer .btn:hover {
-    background: #f1f1f1;
+/* FLOATING BUTTONS */
+.float-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
 }
+
+.float-buttons a {
+    padding: 12px 16px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.whatsapp { background: #25D366; }
+.telegram { background: #0088cc; }
 
 /* MOBILE */
 @media(max-width: 768px){
@@ -170,98 +225,116 @@ footer .btn:hover {
     <div class="hero">
         <h1>🌿 Ժենգյալով հացի պատրաստման արարողություն</h1>
         <p>📍 Գառնի | 📅 Մայիսի 30</p>
-
-        <!-- 🔥 SAME TEXT AS FOOTER -->
         <a href="tel:+37497295777">📞 Գրանցվիր հիմա</a>
     </div>
 </header>
 
 <section class="section">
+
+    <h2>🔥 ՏԵՂԵՐԸ ՍԱՀՄԱՆԱՓԱԿ ԵՆ</h2>
+
+    <div class="progress-box">
+        <div class="progress-text">Մնացել է 12 / 40 տեղ</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
     <h2>ՕՐԱԿԱՐԳ</h2>
 
     <div class="schedule">
 
         <div class="item">
             <img src="BARIGALUST.jpg">
-            <div class="text">
-                <span class="time">🕊 12:00 — ՀՅՈՒՐԵՐԻ ԺԱՄԱՆՈՒՄ ԵՎ ՈՂՋՈՒՅՆ</span>
-                Թեթև երաժշտություն, թեյ, առաջին ծանոթություններ
-            </div>
+            <div class="text"><span class="time">🕊 12:00 — ԲԱՐԻ ԳԱԼՈՒՍՏ</span>Թեյ, երաժշտություն</div>
         </div>
 
         <div class="item">
             <img src="converted_1.jpg">
-            <div class="text">
-                <span class="time">🌱 12:30 — ԺԵՆԳՅԱԼՈՎ ՀԱՑԻ ՊԱՏՄՈՒԹՅՈՒՆ</span>
-                Կարճ պատմական ներկայացում
-            </div>
+            <div class="text"><span class="time">🌱 ՊԱՏՄՈՒԹՅՈՒՆ</span>Ժենգյալով հացի պատմություն</div>
         </div>
 
         <div class="item">
             <img src="converted_2.jpg">
-            <div class="text">
-                <span class="time">🥬 13:00 — ԲԱՂԱԴՐԻՉՆԵՐԻ ՊԱՏՐԱՍՏՈՒՄ</span>
-                Կանաչիների մաքրում և համերի բացահայտում
-            </div>
+            <div class="text"><span class="time">🥬 ԲԱՂԱԴՐԻՉՆԵՐ</span>Կանաչիների պատրաստում</div>
         </div>
 
         <div class="item">
             <img src="txum.jpg">
-            <div class="text">
-                <span class="time">👩‍🍳 13:45 — ՊԱՏՐԱՍՏՄԱՆ ԳՈՐԾԸՆԹԱՑ</span>
-                Խմորի բացում, լցոնում, թխում
-            </div>
+            <div class="text"><span class="time">👩‍🍳 ՊԱՏՐԱՍՏՈՒՄ</span>Խմոր, լցոնում</div>
         </div>
 
         <div class="item">
             <img src="tasting.jpg">
-            <div class="text">
-                <span class="time">😋 14:30 — ՀԱՄՏԵՍ</span>
-                Թարմ պատրաստված ժենգյալով հացի համտես
-            </div>
+            <div class="text"><span class="time">😋 ՀԱՄՏԵՍ</span>Թարմ պատրաստված հաց</div>
         </div>
 
         <div class="item">
             <img src="music.jpg">
-            <div class="text">
-                <span class="time">🎶 15:00 — ԵՐԱԺՇՏՈՒԹՅՈՒՆ</span>
-                Կենդանի երաժշտություն և ազգային մեղեդիներ
-            </div>
+            <div class="text"><span class="time">🎶 ԵՐԱԺՇՏՈՒԹՅՈՒՆ</span>Կենդանի երաժշտություն</div>
         </div>
 
         <div class="item">
             <img src="photos1.jpg">
-            <div class="text">
-                <span class="time">📸 15:30 — ՀԱՎԱՔԻ ԼՈՒՍԱՆԿԱՐՆԵՐ</span>
-                Օրվա հիշարժան պահերի ֆիքսում
-            </div>
+            <div class="text"><span class="time">📸 ԼՈՒՍԱՆԿԱՐՆԵՐ</span>Հիշողություններ</div>
         </div>
 
         <div class="item">
             <img src="firetea.jpg">
-            <div class="text">
-                <span class="time">🔥 15:50 — ԹԵՅ ԵՎ ՋԵՐՄ ՄԹՆՈԼՈՐՏ</span>
-                Հանգիստ և հաճելի մթնոլորտ
-            </div>
+            <div class="text"><span class="time">🔥 ԹԵՅ</span>Ջերմ մթնոլորտ</div>
         </div>
 
         <div class="item">
             <img src="ending.jpg">
-            <div class="text">
-                <span class="time">🌿 16:00 — ԱՎԱՐՏ</span>
-                Բարեկամական հրաժեշտ և շնորհակալություն
-            </div>
+            <div class="text"><span class="time">🌿 ԱՎԱՐՏ</span>Շնորհակալություն</div>
         </div>
 
     </div>
+
+    <!-- MAP -->
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps?q=Garni%20Armenia&output=embed"
+            width="100%"
+            height="300"
+            style="border:0;">
+        </iframe>
+    </div>
+
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <h2>✨ ՏԵՂԵՐԸ ՍԱՀՄԱՆԱՓԱԿ ԵՆ</h2>
-    <p>Միացիր մեզ և դարձիր այս գեղեցիկ փորձառության մի մասը 🌿</p>
+    <h2>✨ Միացիր մեզ հիմա</h2>
+    <p>Տեղերը սահմանափակ են — մի ուշացիր 🌿</p>
     <a class="btn" href="tel:+37497295777">📞 Գրանցվիր հիմա</a>
 </footer>
+
+<!-- FLOAT BUTTONS -->
+<div class="float-buttons">
+    <a class="whatsapp" href="https://wa.me/37497295777">WhatsApp</a>
+    <a class="telegram" href="https://t.me/yourusername">Telegram</a>
+</div>
+
+<script>
+// Scroll animation
+const items = document.querySelectorAll('.item');
+
+function showOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    items.forEach(item => {
+        const boxTop = item.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+            item.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', showOnScroll);
+showOnScroll();
+</script>
 
 </body>
 </html>
